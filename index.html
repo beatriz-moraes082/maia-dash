@@ -80,6 +80,12 @@
   .kpi-value { font-family:'Playfair Display',serif; font-size:34px; font-weight:600; color:var(--navy); line-height:1; letter-spacing:-.5px; }
   .kpi-value small { font-size:16px; color:var(--text-soft); font-weight:400; }
   .kpi-meta { font-size:12px; color:var(--text-soft); margin-top:9px; }
+  .kpi-delta { display:flex; align-items:center; gap:5px; font-size:11.5px; font-weight:700; margin-top:9px; }
+  .kpi-delta span { color:var(--text-mute); font-weight:500; }
+  .kpi-delta.up { color:var(--ok); }
+  .kpi-delta.down { color:var(--danger); }
+  .kpi-delta.neutral { color:var(--text-soft); }
+  .kpi-delta.flat { color:var(--text-mute); font-weight:600; }
   @property --kpi-angle { syntax:'<angle>'; initial-value:0deg; inherits:false; }
   .kpi::before { content:''; position:absolute; inset:0; border-radius:14px; padding:2px; pointer-events:none;
     background:conic-gradient(from var(--kpi-angle), transparent 0deg, transparent 250deg,
@@ -297,6 +303,7 @@
   <a href="#funil">Funil de vendas</a>
   <a href="#corretores">Por corretor</a>
   <a href="#campanhas">Por campanha</a>
+  <a href="#empreendimentos">Por empreendimento</a>
   <a href="#perdas">Motivos de perda</a>
   <a href="#ritmo">Ritmo</a>
   <a href="#glossario">Glossário</a>
@@ -309,23 +316,27 @@
     </div>
     <h1>Painel <em>comercial</em> &amp; tráfego</h1>
     <p>Performance de campanhas e funil de vendas · <span id="period-label">01 a 28 de Maio de 2026</span></p>
-    <div class="updated">Atualizado em 28/05/2026 às 21:36 · Fontes: Meta Ads + Kommo CRM</div>
+    <div class="updated">Atualizado em 28/05/2026 às 22:01 · Fontes: Meta Ads + Kommo CRM</div>
   </header>
   <div class="periods" id="periods" role="group" aria-label="Período"><button type="button" class="pchip active" data-period="mes_atual">Mês atual</button><button type="button" class="pchip" data-period="ultimos_7">Últimos 7 dias</button><button type="button" class="pchip" data-period="ultimos_30">Últimos 30 dias</button><button type="button" class="pchip" data-period="mes_passado">Mês passado</button></div>
   <div id="period-content">
-  <div class="exec reveal"><h3>Resumo executivo</h3><p>No período foram <strong>326 leads</strong> ao custo de <strong>R$ 15,57</strong> cada (investimento de R$ 5.444,58), a um ritmo de <strong>12 leads/dia</strong>. Hoje há <strong>243 leads vivos no funil</strong>, sendo <strong>20 já qualificados ou em estágio avançado</strong> (reunião, proposta). A conversão média da equipe está em <strong>6,5%</strong>. Os motivos de perda estão detalhados na seção específica abaixo.</p></div>
+  <div class="exec reveal"><h3>Resumo executivo</h3><p>No período foram <strong>326 leads</strong> ao custo de <strong>R$ 15,60</strong> cada (investimento de R$ 5.455,34), a um ritmo de <strong>12 leads/dia</strong>. Hoje há <strong>243 leads vivos no funil</strong>, sendo <strong>20 já qualificados ou em estágio avançado</strong> (reunião, proposta). A conversão média da equipe está em <strong>6,5%</strong>. Os motivos de perda estão detalhados na seção específica abaixo.</p></div>
   <div class="kpi-grid reveal-stagger">
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">Investimento</div>
-      <div class="kpi-value">R$ 5.444,58</div>
+      <div class="kpi-value">R$ 5.455,34</div>
+      <div class="kpi-delta neutral">&#9660; 17% <span>vs. anterior</span></div>
       <div class="kpi-meta">8 campanhas de captação</div></div>
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">Leads gerados</div>
       <div class="kpi-value">326</div>
-      <div class="kpi-meta">Base: Kommo · 327 pela Meta</div></div>
+      <div class="kpi-delta down">&#9660; 58% <span>vs. anterior</span></div>
+      <div class="kpi-meta">Base: Kommo · 328 pela Meta</div></div>
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">CPL médio</div>
-      <div class="kpi-value">R$ 15,57</div>
+      <div class="kpi-value">R$ 15,60</div>
+      <div class="kpi-delta down">&#9650; 86% <span>vs. anterior</span></div>
       <div class="kpi-meta">Investimento ÷ leads Kommo</div></div>
     <div class="kpi"><div class="kpi-accent ok"></div><div class="kpi-label">Qualificados</div>
       <div class="kpi-value">14 <small>· 4%</small></div>
+      <div class="kpi-delta up">&#9650; 40% <span>vs. anterior</span></div>
       <div class="kpi-meta">No estágio "Lead qualificado"</div></div>
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">Vivos no funil</div>
       <div class="kpi-value">243</div>
@@ -672,48 +683,48 @@
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Tintoretto</div><div class="sub">Fundo de Funil | Formulário | Tintoretto | 03/09/25 #TP</div></td>
-          <td class="num" data-v="1304.01">R$ 1.304,01
+          <td class="num" data-v="1304.88">R$ 1.304,88
             <div class="bar-wrap"><div class="bar navy" style="width:100.0%"></div></div></td>
           <td class="num" data-v="111"><span class="num-big">111</span>
             <div class="bar-wrap"><div class="bar" style="width:100.0%"></div></div></td>
-          <td class="num" data-v="11.75">R$ 11,75</td>
+          <td class="num" data-v="11.76">R$ 11,76</td>
           <td class="num" data-v="10"><span style="color:var(--ok); font-weight:600;">10</span></td>
         </tr>
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Essence</div><div class="sub">Fundo de Funil | Formulário  | Essence | 30/04/26  #TP</div></td>
-          <td class="num" data-v="1097.67">R$ 1.097,67
-            <div class="bar-wrap"><div class="bar navy" style="width:84.2%"></div></div></td>
+          <td class="num" data-v="1103.76">R$ 1.103,76
+            <div class="bar-wrap"><div class="bar navy" style="width:84.6%"></div></div></td>
           <td class="num" data-v="71"><span class="num-big">71</span>
             <div class="bar-wrap"><div class="bar" style="width:64.0%"></div></div></td>
-          <td class="num" data-v="15.46">R$ 15,46</td>
+          <td class="num" data-v="15.55">R$ 15,55</td>
           <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
         </tr>
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Crivelli</div><div class="sub">Fundo de Funil | Formulário  | Crivelli | 21/11/25 #TP</div></td>
-          <td class="num" data-v="838.96">R$ 838,96
-            <div class="bar-wrap"><div class="bar navy" style="width:64.3%"></div></div></td>
+          <td class="num" data-v="840.53">R$ 840,53
+            <div class="bar-wrap"><div class="bar navy" style="width:64.4%"></div></div></td>
           <td class="num" data-v="64"><span class="num-big">64</span>
             <div class="bar-wrap"><div class="bar" style="width:57.7%"></div></div></td>
-          <td class="num" data-v="13.11">R$ 13,11</td>
+          <td class="num" data-v="13.13">R$ 13,13</td>
           <td class="num" data-v="4"><span style="color:var(--ok); font-weight:600;">4</span></td>
         </tr>
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Sunrise</div><div class="sub">Fundo de Funil | Formulário | Sunrise | 03.09/25 #TP</div></td>
-          <td class="num" data-v="963.14">R$ 963,14
+          <td class="num" data-v="963.74">R$ 963,74
             <div class="bar-wrap"><div class="bar navy" style="width:73.9%"></div></div></td>
           <td class="num" data-v="38"><span class="num-big">38</span>
             <div class="bar-wrap"><div class="bar" style="width:34.2%"></div></div></td>
-          <td class="num" data-v="25.35">R$ 25,35</td>
+          <td class="num" data-v="25.36">R$ 25,36</td>
           <td class="num" data-v="2"><span style="color:var(--ok); font-weight:600;">2</span></td>
         </tr>
         <tr data-status="PAUSED">
           <td data-v="1"><span class="pill muted">Pausada</span></td>
           <td><div class="strong">Bossa Eco Luxury</div><div class="sub">Fundo de Funil | Formulário | Bossa Eco Luxury | 07.01 #TP</div></td>
           <td class="num" data-v="197.56">R$ 197,56
-            <div class="bar-wrap"><div class="bar navy" style="width:15.2%"></div></div></td>
+            <div class="bar-wrap"><div class="bar navy" style="width:15.1%"></div></div></td>
           <td class="num" data-v="16"><span class="num-big">16</span>
             <div class="bar-wrap"><div class="bar" style="width:14.4%"></div></div></td>
           <td class="num" data-v="12.35">R$ 12,35</td>
@@ -722,11 +733,11 @@
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Cocoon Milagres</div><div class="sub">Fundo de Funil | Formulário | Milagres | 21/05 #TP</div></td>
-          <td class="num" data-v="238.86">R$ 238,86
+          <td class="num" data-v="239.41">R$ 239,41
             <div class="bar-wrap"><div class="bar navy" style="width:18.3%"></div></div></td>
           <td class="num" data-v="9"><span class="num-big">9</span>
             <div class="bar-wrap"><div class="bar" style="width:8.1%"></div></div></td>
-          <td class="num" data-v="26.54">R$ 26,54</td>
+          <td class="num" data-v="26.60">R$ 26,60</td>
           <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
         </tr>
         <tr data-status="PAUSED">
@@ -752,9 +763,9 @@
         <tr data-status="ACTIVE">
           <td data-v="0"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Topo de Funil | Tráfego |  23/06 #TP</div>
-            <div class="sub"><span class="pill topo">Topo de funil</span> · 1.244 visitas · 6 compart. · 0 salvos</div></td>
-          <td class="num" data-v="277.93"><span class="num-big">R$ 277,93</span>
-            <div class="bar-wrap"><div class="bar navy" style="width:21.3%"></div></div></td>
+            <div class="sub"><span class="pill topo">Topo de funil</span> · 1.245 visitas · 6 compart. · 0 salvos</div></td>
+          <td class="num" data-v="279.01"><span class="num-big">R$ 279,01</span>
+            <div class="bar-wrap"><div class="bar navy" style="width:21.4%"></div></div></td>
           <td class="num zero" data-v="0">—</td><td class="num zero" data-v="0">—</td><td class="num zero" data-v="0">—</td>
         </tr>
         <tr data-status="PAUSED">
@@ -768,6 +779,141 @@
       </tbody>
     </table>
     <div class="insight">CPL e leads usam a base do <strong>Kommo</strong> (lead real que chega via formulário/WhatsApp), não o número bruto da Meta. "Qualif.+" = leads que avançaram para qualificado ou além. Campanhas de topo de funil não geram lead direto — métricas de alcance ficam no Instagram.</div>
+  </section>
+  <section id="empreendimentos" class="reveal">
+    <div class="section-head"><h2>Por empreendimento</h2>
+      <div class="meta">Meta Ads × Kommo · visão de produto<br>clique nos títulos pra ordenar</div></div>
+    <table class="sortable">
+      <thead><tr>
+        <th>Empreendimento</th>
+        <th class="num">Investido</th><th class="num">Leads</th><th class="num">CPL</th>
+        <th class="num">Qualif.+</th><th class="num">Conversão</th>
+        <th class="num">Vivos</th><th class="num">Perdidos</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="strong">Tintoretto</div></td>
+          <td class="num" data-v="1304.88">R$ 1.304,88</td>
+          <td class="num" data-v="111"><span class="num-big">111</span></td>
+          <td class="num" data-v="11.76">R$ 11,76</td>
+          <td class="num" data-v="10"><span style="color:var(--ok); font-weight:600;">10</span></td>
+          <td class="num" data-v="9.0"><span class="num-big" style="color:var(--ok);">9%</span></td>
+          <td class="num" data-v="88">88</td>
+          <td class="num" data-v="23">23</td>
+        </tr>
+        <tr>
+          <td><div class="strong">Essence</div></td>
+          <td class="num" data-v="1103.76">R$ 1.103,76</td>
+          <td class="num" data-v="71"><span class="num-big">71</span></td>
+          <td class="num" data-v="15.55">R$ 15,55</td>
+          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
+          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
+          <td class="num" data-v="51">51</td>
+          <td class="num" data-v="20">20</td>
+        </tr>
+        <tr>
+          <td><div class="strong">Crivelli</div></td>
+          <td class="num" data-v="840.53">R$ 840,53</td>
+          <td class="num" data-v="64"><span class="num-big">64</span></td>
+          <td class="num" data-v="13.13">R$ 13,13</td>
+          <td class="num" data-v="4"><span style="color:var(--ok); font-weight:600;">4</span></td>
+          <td class="num" data-v="6.2"><span class="num-big" style="color:var(--text-soft);">6%</span></td>
+          <td class="num" data-v="45">45</td>
+          <td class="num" data-v="19">19</td>
+        </tr>
+        <tr>
+          <td><div class="strong">Sunrise</div></td>
+          <td class="num" data-v="963.74">R$ 963,74</td>
+          <td class="num" data-v="38"><span class="num-big">38</span></td>
+          <td class="num" data-v="25.36">R$ 25,36</td>
+          <td class="num" data-v="2"><span style="color:var(--ok); font-weight:600;">2</span></td>
+          <td class="num" data-v="5.3"><span class="num-big" style="color:var(--text-soft);">5%</span></td>
+          <td class="num" data-v="29">29</td>
+          <td class="num" data-v="9">9</td>
+        </tr>
+        <tr>
+          <td><div class="strong">Bossa Eco Luxury</div></td>
+          <td class="num" data-v="197.56">R$ 197,56</td>
+          <td class="num" data-v="16"><span class="num-big">16</span></td>
+          <td class="num" data-v="12.35">R$ 12,35</td>
+          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
+          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
+          <td class="num" data-v="12">12</td>
+          <td class="num" data-v="4">4</td>
+        </tr>
+        <tr>
+          <td><div class="strong">Cocoon Milagres</div></td>
+          <td class="num" data-v="239.41">R$ 239,41</td>
+          <td class="num" data-v="9"><span class="num-big">9</span></td>
+          <td class="num" data-v="26.60">R$ 26,60</td>
+          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
+          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
+          <td class="num" data-v="4">4</td>
+          <td class="num" data-v="5">5</td>
+        </tr>
+        <tr>
+          <td><div class="strong">Villas Manatee</div></td>
+          <td class="num" data-v="0.00"><span class="zero">—</span></td>
+          <td class="num" data-v="5"><span class="num-big">5</span></td>
+          <td class="num" data-v="0.00"><span class="zero">—</span></td>
+          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
+          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
+          <td class="num" data-v="4">4</td>
+          <td class="num" data-v="1">1</td>
+        </tr>
+        <tr>
+          <td><div class="strong">Reserva Aya</div></td>
+          <td class="num" data-v="157.99">R$ 157,99</td>
+          <td class="num" data-v="4"><span class="num-big">4</span></td>
+          <td class="num" data-v="39.50">R$ 39,50</td>
+          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
+          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
+          <td class="num" data-v="3">3</td>
+          <td class="num" data-v="1">1</td>
+        </tr>
+        <tr>
+          <td><div class="strong">Lead Qualificado</div></td>
+          <td class="num" data-v="0.00"><span class="zero">—</span></td>
+          <td class="num" data-v="4"><span class="num-big">4</span></td>
+          <td class="num" data-v="0.00"><span class="zero">—</span></td>
+          <td class="num" data-v="4"><span style="color:var(--ok); font-weight:600;">4</span></td>
+          <td class="num" data-v="100.0"><span class="num-big" style="color:var(--ok);">100%</span></td>
+          <td class="num" data-v="4">4</td>
+          <td class="num" data-v="0"><span class="zero">—</span></td>
+        </tr>
+        <tr>
+          <td><div class="strong">Edf. Ravenna</div></td>
+          <td class="num" data-v="276.20">R$ 276,20</td>
+          <td class="num" data-v="2"><span class="num-big">2</span></td>
+          <td class="num" data-v="138.10">R$ 138,10</td>
+          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
+          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
+          <td class="num" data-v="2">2</td>
+          <td class="num" data-v="0"><span class="zero">—</span></td>
+        </tr>
+        <tr>
+          <td><div class="strong">Reserva-Aya</div></td>
+          <td class="num" data-v="0.00"><span class="zero">—</span></td>
+          <td class="num" data-v="1"><span class="num-big">1</span></td>
+          <td class="num" data-v="0.00"><span class="zero">—</span></td>
+          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
+          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
+          <td class="num" data-v="0"><span class="zero">—</span></td>
+          <td class="num" data-v="1">1</td>
+        </tr>
+      </tbody>
+      <tfoot><tr>
+        <td>Total (11 empreendimentos)</td>
+        <td class="num">R$ 5.084,07</td>
+        <td class="num">325</td>
+        <td class="num">R$ 15,64</td>
+        <td class="num">20</td>
+        <td class="num">6%</td>
+        <td class="num">242</td>
+        <td class="num">83</td>
+      </tr></tfoot>
+    </table>
+    <div class="insight">Visão por <strong>produto</strong>: junta o investido (Meta) com o funil do Kommo de cada empreendimento. <strong>Conversão</strong> = leads que chegaram a qualificado ou além ÷ leads do empreendimento; <strong>Vivos</strong> = ainda em atendimento.</div>
   </section>
   <div class="two-col">
     <section id="perdas" class="reveal">
@@ -810,19 +956,23 @@
     </section>
   </div>
   </div>
-<script type="text/html" class="period-tpl" data-period="mes_atual" data-label="01 a 28 de Maio de 2026">  <div class="exec reveal"><h3>Resumo executivo</h3><p>No período foram <strong>326 leads</strong> ao custo de <strong>R$ 15,57</strong> cada (investimento de R$ 5.444,58), a um ritmo de <strong>12 leads/dia</strong>. Hoje há <strong>243 leads vivos no funil</strong>, sendo <strong>20 já qualificados ou em estágio avançado</strong> (reunião, proposta). A conversão média da equipe está em <strong>6,5%</strong>. Os motivos de perda estão detalhados na seção específica abaixo.</p></div>
+<script type="text/html" class="period-tpl" data-period="mes_atual" data-label="01 a 28 de Maio de 2026">  <div class="exec reveal"><h3>Resumo executivo</h3><p>No período foram <strong>326 leads</strong> ao custo de <strong>R$ 15,60</strong> cada (investimento de R$ 5.455,34), a um ritmo de <strong>12 leads/dia</strong>. Hoje há <strong>243 leads vivos no funil</strong>, sendo <strong>20 já qualificados ou em estágio avançado</strong> (reunião, proposta). A conversão média da equipe está em <strong>6,5%</strong>. Os motivos de perda estão detalhados na seção específica abaixo.</p></div>
   <div class="kpi-grid reveal-stagger">
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">Investimento</div>
-      <div class="kpi-value">R$ 5.444,58</div>
+      <div class="kpi-value">R$ 5.455,34</div>
+      <div class="kpi-delta neutral">&#9660; 17% <span>vs. anterior</span></div>
       <div class="kpi-meta">8 campanhas de captação</div></div>
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">Leads gerados</div>
       <div class="kpi-value">326</div>
-      <div class="kpi-meta">Base: Kommo · 327 pela Meta</div></div>
+      <div class="kpi-delta down">&#9660; 58% <span>vs. anterior</span></div>
+      <div class="kpi-meta">Base: Kommo · 328 pela Meta</div></div>
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">CPL médio</div>
-      <div class="kpi-value">R$ 15,57</div>
+      <div class="kpi-value">R$ 15,60</div>
+      <div class="kpi-delta down">&#9650; 86% <span>vs. anterior</span></div>
       <div class="kpi-meta">Investimento ÷ leads Kommo</div></div>
     <div class="kpi"><div class="kpi-accent ok"></div><div class="kpi-label">Qualificados</div>
       <div class="kpi-value">14 <small>· 4%</small></div>
+      <div class="kpi-delta up">&#9650; 40% <span>vs. anterior</span></div>
       <div class="kpi-meta">No estágio "Lead qualificado"</div></div>
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">Vivos no funil</div>
       <div class="kpi-value">243</div>
@@ -1169,48 +1319,48 @@
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Tintoretto</div><div class="sub">Fundo de Funil | Formulário | Tintoretto | 03/09/25 #TP</div></td>
-          <td class="num" data-v="1304.01">R$ 1.304,01
+          <td class="num" data-v="1304.88">R$ 1.304,88
             <div class="bar-wrap"><div class="bar navy" style="width:100.0%"></div></div></td>
           <td class="num" data-v="111"><span class="num-big">111</span>
             <div class="bar-wrap"><div class="bar" style="width:100.0%"></div></div></td>
-          <td class="num" data-v="11.75">R$ 11,75</td>
+          <td class="num" data-v="11.76">R$ 11,76</td>
           <td class="num" data-v="10"><span style="color:var(--ok); font-weight:600;">10</span></td>
         </tr>
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Essence</div><div class="sub">Fundo de Funil | Formulário  | Essence | 30/04/26  #TP</div></td>
-          <td class="num" data-v="1097.67">R$ 1.097,67
-            <div class="bar-wrap"><div class="bar navy" style="width:84.2%"></div></div></td>
+          <td class="num" data-v="1103.76">R$ 1.103,76
+            <div class="bar-wrap"><div class="bar navy" style="width:84.6%"></div></div></td>
           <td class="num" data-v="71"><span class="num-big">71</span>
             <div class="bar-wrap"><div class="bar" style="width:64.0%"></div></div></td>
-          <td class="num" data-v="15.46">R$ 15,46</td>
+          <td class="num" data-v="15.55">R$ 15,55</td>
           <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
         </tr>
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Crivelli</div><div class="sub">Fundo de Funil | Formulário  | Crivelli | 21/11/25 #TP</div></td>
-          <td class="num" data-v="838.96">R$ 838,96
-            <div class="bar-wrap"><div class="bar navy" style="width:64.3%"></div></div></td>
+          <td class="num" data-v="840.53">R$ 840,53
+            <div class="bar-wrap"><div class="bar navy" style="width:64.4%"></div></div></td>
           <td class="num" data-v="64"><span class="num-big">64</span>
             <div class="bar-wrap"><div class="bar" style="width:57.7%"></div></div></td>
-          <td class="num" data-v="13.11">R$ 13,11</td>
+          <td class="num" data-v="13.13">R$ 13,13</td>
           <td class="num" data-v="4"><span style="color:var(--ok); font-weight:600;">4</span></td>
         </tr>
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Sunrise</div><div class="sub">Fundo de Funil | Formulário | Sunrise | 03.09/25 #TP</div></td>
-          <td class="num" data-v="963.14">R$ 963,14
+          <td class="num" data-v="963.74">R$ 963,74
             <div class="bar-wrap"><div class="bar navy" style="width:73.9%"></div></div></td>
           <td class="num" data-v="38"><span class="num-big">38</span>
             <div class="bar-wrap"><div class="bar" style="width:34.2%"></div></div></td>
-          <td class="num" data-v="25.35">R$ 25,35</td>
+          <td class="num" data-v="25.36">R$ 25,36</td>
           <td class="num" data-v="2"><span style="color:var(--ok); font-weight:600;">2</span></td>
         </tr>
         <tr data-status="PAUSED">
           <td data-v="1"><span class="pill muted">Pausada</span></td>
           <td><div class="strong">Bossa Eco Luxury</div><div class="sub">Fundo de Funil | Formulário | Bossa Eco Luxury | 07.01 #TP</div></td>
           <td class="num" data-v="197.56">R$ 197,56
-            <div class="bar-wrap"><div class="bar navy" style="width:15.2%"></div></div></td>
+            <div class="bar-wrap"><div class="bar navy" style="width:15.1%"></div></div></td>
           <td class="num" data-v="16"><span class="num-big">16</span>
             <div class="bar-wrap"><div class="bar" style="width:14.4%"></div></div></td>
           <td class="num" data-v="12.35">R$ 12,35</td>
@@ -1219,11 +1369,11 @@
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Cocoon Milagres</div><div class="sub">Fundo de Funil | Formulário | Milagres | 21/05 #TP</div></td>
-          <td class="num" data-v="238.86">R$ 238,86
+          <td class="num" data-v="239.41">R$ 239,41
             <div class="bar-wrap"><div class="bar navy" style="width:18.3%"></div></div></td>
           <td class="num" data-v="9"><span class="num-big">9</span>
             <div class="bar-wrap"><div class="bar" style="width:8.1%"></div></div></td>
-          <td class="num" data-v="26.54">R$ 26,54</td>
+          <td class="num" data-v="26.60">R$ 26,60</td>
           <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
         </tr>
         <tr data-status="PAUSED">
@@ -1249,9 +1399,9 @@
         <tr data-status="ACTIVE">
           <td data-v="0"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Topo de Funil | Tráfego |  23/06 #TP</div>
-            <div class="sub"><span class="pill topo">Topo de funil</span> · 1.244 visitas · 6 compart. · 0 salvos</div></td>
-          <td class="num" data-v="277.93"><span class="num-big">R$ 277,93</span>
-            <div class="bar-wrap"><div class="bar navy" style="width:21.3%"></div></div></td>
+            <div class="sub"><span class="pill topo">Topo de funil</span> · 1.245 visitas · 6 compart. · 0 salvos</div></td>
+          <td class="num" data-v="279.01"><span class="num-big">R$ 279,01</span>
+            <div class="bar-wrap"><div class="bar navy" style="width:21.4%"></div></div></td>
           <td class="num zero" data-v="0">—</td><td class="num zero" data-v="0">—</td><td class="num zero" data-v="0">—</td>
         </tr>
         <tr data-status="PAUSED">
@@ -1265,6 +1415,141 @@
       </tbody>
     </table>
     <div class="insight">CPL e leads usam a base do <strong>Kommo</strong> (lead real que chega via formulário/WhatsApp), não o número bruto da Meta. "Qualif.+" = leads que avançaram para qualificado ou além. Campanhas de topo de funil não geram lead direto — métricas de alcance ficam no Instagram.</div>
+  </section>
+  <section id="empreendimentos" class="reveal">
+    <div class="section-head"><h2>Por empreendimento</h2>
+      <div class="meta">Meta Ads × Kommo · visão de produto<br>clique nos títulos pra ordenar</div></div>
+    <table class="sortable">
+      <thead><tr>
+        <th>Empreendimento</th>
+        <th class="num">Investido</th><th class="num">Leads</th><th class="num">CPL</th>
+        <th class="num">Qualif.+</th><th class="num">Conversão</th>
+        <th class="num">Vivos</th><th class="num">Perdidos</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="strong">Tintoretto</div></td>
+          <td class="num" data-v="1304.88">R$ 1.304,88</td>
+          <td class="num" data-v="111"><span class="num-big">111</span></td>
+          <td class="num" data-v="11.76">R$ 11,76</td>
+          <td class="num" data-v="10"><span style="color:var(--ok); font-weight:600;">10</span></td>
+          <td class="num" data-v="9.0"><span class="num-big" style="color:var(--ok);">9%</span></td>
+          <td class="num" data-v="88">88</td>
+          <td class="num" data-v="23">23</td>
+        </tr>
+        <tr>
+          <td><div class="strong">Essence</div></td>
+          <td class="num" data-v="1103.76">R$ 1.103,76</td>
+          <td class="num" data-v="71"><span class="num-big">71</span></td>
+          <td class="num" data-v="15.55">R$ 15,55</td>
+          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
+          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
+          <td class="num" data-v="51">51</td>
+          <td class="num" data-v="20">20</td>
+        </tr>
+        <tr>
+          <td><div class="strong">Crivelli</div></td>
+          <td class="num" data-v="840.53">R$ 840,53</td>
+          <td class="num" data-v="64"><span class="num-big">64</span></td>
+          <td class="num" data-v="13.13">R$ 13,13</td>
+          <td class="num" data-v="4"><span style="color:var(--ok); font-weight:600;">4</span></td>
+          <td class="num" data-v="6.2"><span class="num-big" style="color:var(--text-soft);">6%</span></td>
+          <td class="num" data-v="45">45</td>
+          <td class="num" data-v="19">19</td>
+        </tr>
+        <tr>
+          <td><div class="strong">Sunrise</div></td>
+          <td class="num" data-v="963.74">R$ 963,74</td>
+          <td class="num" data-v="38"><span class="num-big">38</span></td>
+          <td class="num" data-v="25.36">R$ 25,36</td>
+          <td class="num" data-v="2"><span style="color:var(--ok); font-weight:600;">2</span></td>
+          <td class="num" data-v="5.3"><span class="num-big" style="color:var(--text-soft);">5%</span></td>
+          <td class="num" data-v="29">29</td>
+          <td class="num" data-v="9">9</td>
+        </tr>
+        <tr>
+          <td><div class="strong">Bossa Eco Luxury</div></td>
+          <td class="num" data-v="197.56">R$ 197,56</td>
+          <td class="num" data-v="16"><span class="num-big">16</span></td>
+          <td class="num" data-v="12.35">R$ 12,35</td>
+          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
+          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
+          <td class="num" data-v="12">12</td>
+          <td class="num" data-v="4">4</td>
+        </tr>
+        <tr>
+          <td><div class="strong">Cocoon Milagres</div></td>
+          <td class="num" data-v="239.41">R$ 239,41</td>
+          <td class="num" data-v="9"><span class="num-big">9</span></td>
+          <td class="num" data-v="26.60">R$ 26,60</td>
+          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
+          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
+          <td class="num" data-v="4">4</td>
+          <td class="num" data-v="5">5</td>
+        </tr>
+        <tr>
+          <td><div class="strong">Villas Manatee</div></td>
+          <td class="num" data-v="0.00"><span class="zero">—</span></td>
+          <td class="num" data-v="5"><span class="num-big">5</span></td>
+          <td class="num" data-v="0.00"><span class="zero">—</span></td>
+          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
+          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
+          <td class="num" data-v="4">4</td>
+          <td class="num" data-v="1">1</td>
+        </tr>
+        <tr>
+          <td><div class="strong">Reserva Aya</div></td>
+          <td class="num" data-v="157.99">R$ 157,99</td>
+          <td class="num" data-v="4"><span class="num-big">4</span></td>
+          <td class="num" data-v="39.50">R$ 39,50</td>
+          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
+          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
+          <td class="num" data-v="3">3</td>
+          <td class="num" data-v="1">1</td>
+        </tr>
+        <tr>
+          <td><div class="strong">Lead Qualificado</div></td>
+          <td class="num" data-v="0.00"><span class="zero">—</span></td>
+          <td class="num" data-v="4"><span class="num-big">4</span></td>
+          <td class="num" data-v="0.00"><span class="zero">—</span></td>
+          <td class="num" data-v="4"><span style="color:var(--ok); font-weight:600;">4</span></td>
+          <td class="num" data-v="100.0"><span class="num-big" style="color:var(--ok);">100%</span></td>
+          <td class="num" data-v="4">4</td>
+          <td class="num" data-v="0"><span class="zero">—</span></td>
+        </tr>
+        <tr>
+          <td><div class="strong">Edf. Ravenna</div></td>
+          <td class="num" data-v="276.20">R$ 276,20</td>
+          <td class="num" data-v="2"><span class="num-big">2</span></td>
+          <td class="num" data-v="138.10">R$ 138,10</td>
+          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
+          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
+          <td class="num" data-v="2">2</td>
+          <td class="num" data-v="0"><span class="zero">—</span></td>
+        </tr>
+        <tr>
+          <td><div class="strong">Reserva-Aya</div></td>
+          <td class="num" data-v="0.00"><span class="zero">—</span></td>
+          <td class="num" data-v="1"><span class="num-big">1</span></td>
+          <td class="num" data-v="0.00"><span class="zero">—</span></td>
+          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
+          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
+          <td class="num" data-v="0"><span class="zero">—</span></td>
+          <td class="num" data-v="1">1</td>
+        </tr>
+      </tbody>
+      <tfoot><tr>
+        <td>Total (11 empreendimentos)</td>
+        <td class="num">R$ 5.084,07</td>
+        <td class="num">325</td>
+        <td class="num">R$ 15,64</td>
+        <td class="num">20</td>
+        <td class="num">6%</td>
+        <td class="num">242</td>
+        <td class="num">83</td>
+      </tr></tfoot>
+    </table>
+    <div class="insight">Visão por <strong>produto</strong>: junta o investido (Meta) com o funil do Kommo de cada empreendimento. <strong>Conversão</strong> = leads que chegaram a qualificado ou além ÷ leads do empreendimento; <strong>Vivos</strong> = ainda em atendimento.</div>
   </section>
   <div class="two-col">
     <section id="perdas" class="reveal">
@@ -1307,19 +1592,23 @@
     </section>
   </div>
 </script>
-<script type="text/html" class="period-tpl" data-period="ultimos_7" data-label="22 a 28 de Maio de 2026">  <div class="exec reveal"><h3>Resumo executivo</h3><p>No período foram <strong>89 leads</strong> ao custo de <strong>R$ 16,73</strong> cada (investimento de R$ 1.556,44), a um ritmo de <strong>13 leads/dia</strong>. Hoje há <strong>76 leads vivos no funil</strong>, sendo <strong>3 já qualificados ou em estágio avançado</strong> (reunião, proposta). A conversão média da equipe está em <strong>3,4%</strong>. Os motivos de perda estão detalhados na seção específica abaixo.</p></div>
+<script type="text/html" class="period-tpl" data-period="ultimos_7" data-label="22 a 28 de Maio de 2026">  <div class="exec reveal"><h3>Resumo executivo</h3><p>No período foram <strong>89 leads</strong> ao custo de <strong>R$ 16,84</strong> cada (investimento de R$ 1.567,20), a um ritmo de <strong>13 leads/dia</strong>. Hoje há <strong>76 leads vivos no funil</strong>, sendo <strong>3 já qualificados ou em estágio avançado</strong> (reunião, proposta). A conversão média da equipe está em <strong>3,4%</strong>. Os motivos de perda estão detalhados na seção específica abaixo.</p></div>
   <div class="kpi-grid reveal-stagger">
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">Investimento</div>
-      <div class="kpi-value">R$ 1.556,44</div>
+      <div class="kpi-value">R$ 1.567,20</div>
+      <div class="kpi-delta neutral">&#9650; 46% <span>vs. anterior</span></div>
       <div class="kpi-meta">5 campanhas de captação</div></div>
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">Leads gerados</div>
       <div class="kpi-value">89</div>
-      <div class="kpi-meta">Base: Kommo · 87 pela Meta</div></div>
+      <div class="kpi-delta up">&#9650; 31% <span>vs. anterior</span></div>
+      <div class="kpi-meta">Base: Kommo · 88 pela Meta</div></div>
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">CPL médio</div>
-      <div class="kpi-value">R$ 16,73</div>
+      <div class="kpi-value">R$ 16,84</div>
+      <div class="kpi-delta down">&#9650; 7% <span>vs. anterior</span></div>
       <div class="kpi-meta">Investimento ÷ leads Kommo</div></div>
     <div class="kpi"><div class="kpi-accent ok"></div><div class="kpi-label">Qualificados</div>
       <div class="kpi-value">2 <small>· 2%</small></div>
+      <div class="kpi-delta down">&#9660; 60% <span>vs. anterior</span></div>
       <div class="kpi-meta">No estágio "Lead qualificado"</div></div>
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">Vivos no funil</div>
       <div class="kpi-value">76</div>
@@ -1655,64 +1944,159 @@
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Tintoretto</div><div class="sub">Fundo de Funil | Formulário | Tintoretto | 03/09/25 #TP</div></td>
-          <td class="num" data-v="360.00">R$ 360,00
-            <div class="bar-wrap"><div class="bar navy" style="width:100.0%"></div></div></td>
+          <td class="num" data-v="360.87">R$ 360,87
+            <div class="bar-wrap"><div class="bar navy" style="width:99.3%"></div></div></td>
           <td class="num" data-v="24"><span class="num-big">24</span>
             <div class="bar-wrap"><div class="bar" style="width:100.0%"></div></div></td>
-          <td class="num" data-v="15.00">R$ 15,00</td>
+          <td class="num" data-v="15.04">R$ 15,04</td>
           <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
         </tr>
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Essence</div><div class="sub">Fundo de Funil | Formulário  | Essence | 30/04/26  #TP</div></td>
-          <td class="num" data-v="357.25">R$ 357,25
-            <div class="bar-wrap"><div class="bar navy" style="width:99.2%"></div></div></td>
+          <td class="num" data-v="363.34">R$ 363,34
+            <div class="bar-wrap"><div class="bar navy" style="width:100.0%"></div></div></td>
           <td class="num" data-v="23"><span class="num-big">23</span>
             <div class="bar-wrap"><div class="bar" style="width:95.8%"></div></div></td>
-          <td class="num" data-v="15.53">R$ 15,53</td>
+          <td class="num" data-v="15.80">R$ 15,80</td>
           <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
         </tr>
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Crivelli</div><div class="sub">Fundo de Funil | Formulário  | Crivelli | 21/11/25 #TP</div></td>
-          <td class="num" data-v="255.67">R$ 255,67
-            <div class="bar-wrap"><div class="bar navy" style="width:71.0%"></div></div></td>
+          <td class="num" data-v="257.24">R$ 257,24
+            <div class="bar-wrap"><div class="bar navy" style="width:70.8%"></div></div></td>
           <td class="num" data-v="20"><span class="num-big">20</span>
             <div class="bar-wrap"><div class="bar" style="width:83.3%"></div></div></td>
-          <td class="num" data-v="12.78">R$ 12,78</td>
+          <td class="num" data-v="12.86">R$ 12,86</td>
           <td class="num" data-v="2"><span style="color:var(--ok); font-weight:600;">2</span></td>
         </tr>
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Sunrise</div><div class="sub">Fundo de Funil | Formulário | Sunrise | 03.09/25 #TP</div></td>
-          <td class="num" data-v="292.89">R$ 292,89
-            <div class="bar-wrap"><div class="bar navy" style="width:81.4%"></div></div></td>
+          <td class="num" data-v="293.49">R$ 293,49
+            <div class="bar-wrap"><div class="bar navy" style="width:80.8%"></div></div></td>
           <td class="num" data-v="8"><span class="num-big">8</span>
             <div class="bar-wrap"><div class="bar" style="width:33.3%"></div></div></td>
-          <td class="num" data-v="36.61">R$ 36,61</td>
+          <td class="num" data-v="36.69">R$ 36,69</td>
           <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
         </tr>
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Cocoon Milagres</div><div class="sub">Fundo de Funil | Formulário | Milagres | 21/05 #TP</div></td>
-          <td class="num" data-v="223.17">R$ 223,17
-            <div class="bar-wrap"><div class="bar navy" style="width:62.0%"></div></div></td>
+          <td class="num" data-v="223.72">R$ 223,72
+            <div class="bar-wrap"><div class="bar navy" style="width:61.6%"></div></div></td>
           <td class="num" data-v="8"><span class="num-big">8</span>
             <div class="bar-wrap"><div class="bar" style="width:33.3%"></div></div></td>
-          <td class="num" data-v="27.90">R$ 27,90</td>
+          <td class="num" data-v="27.96">R$ 27,96</td>
           <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
         </tr>
         <tr data-status="ACTIVE">
           <td data-v="0"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Topo de Funil | Tráfego |  23/06 #TP</div>
-            <div class="sub"><span class="pill topo">Topo de funil</span> · 260 visitas · 1 compart. · 0 salvos</div></td>
-          <td class="num" data-v="67.46"><span class="num-big">R$ 67,46</span>
-            <div class="bar-wrap"><div class="bar navy" style="width:18.7%"></div></div></td>
+            <div class="sub"><span class="pill topo">Topo de funil</span> · 261 visitas · 1 compart. · 0 salvos</div></td>
+          <td class="num" data-v="68.54"><span class="num-big">R$ 68,54</span>
+            <div class="bar-wrap"><div class="bar navy" style="width:18.9%"></div></div></td>
           <td class="num zero" data-v="0">—</td><td class="num zero" data-v="0">—</td><td class="num zero" data-v="0">—</td>
         </tr>
       </tbody>
     </table>
     <div class="insight">CPL e leads usam a base do <strong>Kommo</strong> (lead real que chega via formulário/WhatsApp), não o número bruto da Meta. "Qualif.+" = leads que avançaram para qualificado ou além. Campanhas de topo de funil não geram lead direto — métricas de alcance ficam no Instagram.</div>
+  </section>
+  <section id="empreendimentos" class="reveal">
+    <div class="section-head"><h2>Por empreendimento</h2>
+      <div class="meta">Meta Ads × Kommo · visão de produto<br>clique nos títulos pra ordenar</div></div>
+    <table class="sortable">
+      <thead><tr>
+        <th>Empreendimento</th>
+        <th class="num">Investido</th><th class="num">Leads</th><th class="num">CPL</th>
+        <th class="num">Qualif.+</th><th class="num">Conversão</th>
+        <th class="num">Vivos</th><th class="num">Perdidos</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="strong">Tintoretto</div></td>
+          <td class="num" data-v="360.87">R$ 360,87</td>
+          <td class="num" data-v="24"><span class="num-big">24</span></td>
+          <td class="num" data-v="15.04">R$ 15,04</td>
+          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
+          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
+          <td class="num" data-v="19">19</td>
+          <td class="num" data-v="5">5</td>
+        </tr>
+        <tr>
+          <td><div class="strong">Essence</div></td>
+          <td class="num" data-v="363.34">R$ 363,34</td>
+          <td class="num" data-v="23"><span class="num-big">23</span></td>
+          <td class="num" data-v="15.80">R$ 15,80</td>
+          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
+          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
+          <td class="num" data-v="23">23</td>
+          <td class="num" data-v="0"><span class="zero">—</span></td>
+        </tr>
+        <tr>
+          <td><div class="strong">Crivelli</div></td>
+          <td class="num" data-v="257.24">R$ 257,24</td>
+          <td class="num" data-v="20"><span class="num-big">20</span></td>
+          <td class="num" data-v="12.86">R$ 12,86</td>
+          <td class="num" data-v="2"><span style="color:var(--ok); font-weight:600;">2</span></td>
+          <td class="num" data-v="10.0"><span class="num-big" style="color:var(--ok);">10%</span></td>
+          <td class="num" data-v="20">20</td>
+          <td class="num" data-v="0"><span class="zero">—</span></td>
+        </tr>
+        <tr>
+          <td><div class="strong">Sunrise</div></td>
+          <td class="num" data-v="293.49">R$ 293,49</td>
+          <td class="num" data-v="8"><span class="num-big">8</span></td>
+          <td class="num" data-v="36.69">R$ 36,69</td>
+          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
+          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
+          <td class="num" data-v="6">6</td>
+          <td class="num" data-v="2">2</td>
+        </tr>
+        <tr>
+          <td><div class="strong">Cocoon Milagres</div></td>
+          <td class="num" data-v="223.72">R$ 223,72</td>
+          <td class="num" data-v="8"><span class="num-big">8</span></td>
+          <td class="num" data-v="27.96">R$ 27,96</td>
+          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
+          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
+          <td class="num" data-v="3">3</td>
+          <td class="num" data-v="5">5</td>
+        </tr>
+        <tr>
+          <td><div class="strong">Villas Manatee</div></td>
+          <td class="num" data-v="0.00"><span class="zero">—</span></td>
+          <td class="num" data-v="5"><span class="num-big">5</span></td>
+          <td class="num" data-v="0.00"><span class="zero">—</span></td>
+          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
+          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
+          <td class="num" data-v="4">4</td>
+          <td class="num" data-v="1">1</td>
+        </tr>
+        <tr>
+          <td><div class="strong">Lead Qualificado</div></td>
+          <td class="num" data-v="0.00"><span class="zero">—</span></td>
+          <td class="num" data-v="1"><span class="num-big">1</span></td>
+          <td class="num" data-v="0.00"><span class="zero">—</span></td>
+          <td class="num" data-v="1"><span style="color:var(--ok); font-weight:600;">1</span></td>
+          <td class="num" data-v="100.0"><span class="num-big" style="color:var(--ok);">100%</span></td>
+          <td class="num" data-v="1">1</td>
+          <td class="num" data-v="0"><span class="zero">—</span></td>
+        </tr>
+      </tbody>
+      <tfoot><tr>
+        <td>Total (7 empreendimentos)</td>
+        <td class="num">R$ 1.498,66</td>
+        <td class="num">89</td>
+        <td class="num">R$ 16,84</td>
+        <td class="num">3</td>
+        <td class="num">3%</td>
+        <td class="num">76</td>
+        <td class="num">13</td>
+      </tr></tfoot>
+    </table>
+    <div class="insight">Visão por <strong>produto</strong>: junta o investido (Meta) com o funil do Kommo de cada empreendimento. <strong>Conversão</strong> = leads que chegaram a qualificado ou além ÷ leads do empreendimento; <strong>Vivos</strong> = ainda em atendimento.</div>
   </section>
   <div class="two-col">
     <section id="perdas" class="reveal">
@@ -1749,19 +2133,23 @@
     </section>
   </div>
 </script>
-<script type="text/html" class="period-tpl" data-period="ultimos_30" data-label="29/04/2026 — 28/05/2026">  <div class="exec reveal"><h3>Resumo executivo</h3><p>No período foram <strong>339 leads</strong> ao custo de <strong>R$ 16,05</strong> cada (investimento de R$ 5.834,31), a um ritmo de <strong>11 leads/dia</strong>. Hoje há <strong>253 leads vivos no funil</strong>, sendo <strong>20 já qualificados ou em estágio avançado</strong> (reunião, proposta). A conversão média da equipe está em <strong>6,3%</strong>. Os motivos de perda estão detalhados na seção específica abaixo.</p></div>
+<script type="text/html" class="period-tpl" data-period="ultimos_30" data-label="29/04/2026 — 28/05/2026">  <div class="exec reveal"><h3>Resumo executivo</h3><p>No período foram <strong>339 leads</strong> ao custo de <strong>R$ 16,07</strong> cada (investimento de R$ 5.845,07), a um ritmo de <strong>11 leads/dia</strong>. Hoje há <strong>253 leads vivos no funil</strong>, sendo <strong>20 já qualificados ou em estágio avançado</strong> (reunião, proposta). A conversão média da equipe está em <strong>6,3%</strong>. Os motivos de perda estão detalhados na seção específica abaixo.</p></div>
   <div class="kpi-grid reveal-stagger">
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">Investimento</div>
-      <div class="kpi-value">R$ 5.834,31</div>
+      <div class="kpi-value">R$ 5.845,07</div>
+      <div class="kpi-delta neutral">&#9660; 13% <span>vs. anterior</span></div>
       <div class="kpi-meta">11 campanhas de captação</div></div>
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">Leads gerados</div>
       <div class="kpi-value">339</div>
-      <div class="kpi-meta">Base: Kommo · 340 pela Meta</div></div>
+      <div class="kpi-delta down">&#9660; 57% <span>vs. anterior</span></div>
+      <div class="kpi-meta">Base: Kommo · 341 pela Meta</div></div>
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">CPL médio</div>
-      <div class="kpi-value">R$ 16,05</div>
+      <div class="kpi-value">R$ 16,07</div>
+      <div class="kpi-delta down">&#9650; 90% <span>vs. anterior</span></div>
       <div class="kpi-meta">Investimento ÷ leads Kommo</div></div>
     <div class="kpi"><div class="kpi-accent ok"></div><div class="kpi-label">Qualificados</div>
       <div class="kpi-value">14 <small>· 4%</small></div>
+      <div class="kpi-delta up">&#9650; 40% <span>vs. anterior</span></div>
       <div class="kpi-meta">No estágio "Lead qualificado"</div></div>
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">Vivos no funil</div>
       <div class="kpi-value">253</div>
@@ -2108,31 +2496,31 @@
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Tintoretto</div><div class="sub">Fundo de Funil | Formulário | Tintoretto | 03/09/25 #TP</div></td>
-          <td class="num" data-v="1386.70">R$ 1.386,70
+          <td class="num" data-v="1387.57">R$ 1.387,57
             <div class="bar-wrap"><div class="bar navy" style="width:100.0%"></div></div></td>
           <td class="num" data-v="114"><span class="num-big">114</span>
             <div class="bar-wrap"><div class="bar" style="width:100.0%"></div></div></td>
-          <td class="num" data-v="12.16">R$ 12,16</td>
+          <td class="num" data-v="12.17">R$ 12,17</td>
           <td class="num" data-v="10"><span style="color:var(--ok); font-weight:600;">10</span></td>
         </tr>
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Crivelli</div><div class="sub">Fundo de Funil | Formulário  | Crivelli | 21/11/25 #TP</div></td>
-          <td class="num" data-v="920.49">R$ 920,49
-            <div class="bar-wrap"><div class="bar navy" style="width:66.4%"></div></div></td>
+          <td class="num" data-v="922.06">R$ 922,06
+            <div class="bar-wrap"><div class="bar navy" style="width:66.5%"></div></div></td>
           <td class="num" data-v="72"><span class="num-big">72</span>
             <div class="bar-wrap"><div class="bar" style="width:63.2%"></div></div></td>
-          <td class="num" data-v="12.78">R$ 12,78</td>
+          <td class="num" data-v="12.81">R$ 12,81</td>
           <td class="num" data-v="4"><span style="color:var(--ok); font-weight:600;">4</span></td>
         </tr>
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Essence</div><div class="sub">Fundo de Funil | Formulário  | Essence | 30/04/26  #TP</div></td>
-          <td class="num" data-v="1107.12">R$ 1.107,12
-            <div class="bar-wrap"><div class="bar navy" style="width:79.8%"></div></div></td>
+          <td class="num" data-v="1113.21">R$ 1.113,21
+            <div class="bar-wrap"><div class="bar navy" style="width:80.2%"></div></div></td>
           <td class="num" data-v="71"><span class="num-big">71</span>
             <div class="bar-wrap"><div class="bar" style="width:62.3%"></div></div></td>
-          <td class="num" data-v="15.59">R$ 15,59</td>
+          <td class="num" data-v="15.68">R$ 15,68</td>
           <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
         </tr>
         <tr data-status="PAUSED">
@@ -2148,18 +2536,18 @@
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Sunrise</div><div class="sub">Fundo de Funil | Formulário | Sunrise | 03.09/25 #TP</div></td>
-          <td class="num" data-v="989.78">R$ 989,78
+          <td class="num" data-v="990.38">R$ 990,38
             <div class="bar-wrap"><div class="bar navy" style="width:71.4%"></div></div></td>
           <td class="num" data-v="38"><span class="num-big">38</span>
             <div class="bar-wrap"><div class="bar" style="width:33.3%"></div></div></td>
-          <td class="num" data-v="26.05">R$ 26,05</td>
+          <td class="num" data-v="26.06">R$ 26,06</td>
           <td class="num" data-v="2"><span style="color:var(--ok); font-weight:600;">2</span></td>
         </tr>
         <tr data-status="PAUSED">
           <td data-v="1"><span class="pill muted">Pausada</span></td>
           <td><div class="strong">Bossa Eco Luxury</div><div class="sub">Fundo de Funil | Formulário | Bossa Eco Luxury | 07.01 #TP</div></td>
           <td class="num" data-v="258.69">R$ 258,69
-            <div class="bar-wrap"><div class="bar navy" style="width:18.7%"></div></div></td>
+            <div class="bar-wrap"><div class="bar navy" style="width:18.6%"></div></div></td>
           <td class="num" data-v="18"><span class="num-big">18</span>
             <div class="bar-wrap"><div class="bar" style="width:15.8%"></div></div></td>
           <td class="num" data-v="14.37">R$ 14,37</td>
@@ -2168,11 +2556,11 @@
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Cocoon Milagres</div><div class="sub">Fundo de Funil | Formulário | Milagres | 21/05 #TP</div></td>
-          <td class="num" data-v="238.86">R$ 238,86
-            <div class="bar-wrap"><div class="bar navy" style="width:17.2%"></div></div></td>
+          <td class="num" data-v="239.41">R$ 239,41
+            <div class="bar-wrap"><div class="bar navy" style="width:17.3%"></div></div></td>
           <td class="num" data-v="9"><span class="num-big">9</span>
             <div class="bar-wrap"><div class="bar" style="width:7.9%"></div></div></td>
-          <td class="num" data-v="26.54">R$ 26,54</td>
+          <td class="num" data-v="26.60">R$ 26,60</td>
           <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
         </tr>
         <tr data-status="PAUSED">
@@ -2189,7 +2577,7 @@
           <td data-v="1"><span class="pill muted">Pausada</span></td>
           <td><div class="strong">Edf. Ravenna</div><div class="sub">Fundo de Funil | Formulário  | Edf. Ravenna | 28/04/26 #TP</div></td>
           <td class="num" data-v="300.37">R$ 300,37
-            <div class="bar-wrap"><div class="bar navy" style="width:21.7%"></div></div></td>
+            <div class="bar-wrap"><div class="bar navy" style="width:21.6%"></div></div></td>
           <td class="num" data-v="2"><span class="num-big">2</span>
             <div class="bar-wrap"><div class="bar" style="width:1.8%"></div></div></td>
           <td class="num" data-v="150.19">R$ 150,19</td>
@@ -2218,8 +2606,8 @@
         <tr data-status="ACTIVE">
           <td data-v="0"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Topo de Funil | Tráfego |  23/06 #TP</div>
-            <div class="sub"><span class="pill topo">Topo de funil</span> · 1.306 visitas · 6 compart. · 0 salvos</div></td>
-          <td class="num" data-v="294.96"><span class="num-big">R$ 294,96</span>
+            <div class="sub"><span class="pill topo">Topo de funil</span> · 1.307 visitas · 6 compart. · 0 salvos</div></td>
+          <td class="num" data-v="296.04"><span class="num-big">R$ 296,04</span>
             <div class="bar-wrap"><div class="bar navy" style="width:21.3%"></div></div></td>
           <td class="num zero" data-v="0">—</td><td class="num zero" data-v="0">—</td><td class="num zero" data-v="0">—</td>
         </tr>
@@ -2234,6 +2622,141 @@
       </tbody>
     </table>
     <div class="insight">CPL e leads usam a base do <strong>Kommo</strong> (lead real que chega via formulário/WhatsApp), não o número bruto da Meta. "Qualif.+" = leads que avançaram para qualificado ou além. Campanhas de topo de funil não geram lead direto — métricas de alcance ficam no Instagram.</div>
+  </section>
+  <section id="empreendimentos" class="reveal">
+    <div class="section-head"><h2>Por empreendimento</h2>
+      <div class="meta">Meta Ads × Kommo · visão de produto<br>clique nos títulos pra ordenar</div></div>
+    <table class="sortable">
+      <thead><tr>
+        <th>Empreendimento</th>
+        <th class="num">Investido</th><th class="num">Leads</th><th class="num">CPL</th>
+        <th class="num">Qualif.+</th><th class="num">Conversão</th>
+        <th class="num">Vivos</th><th class="num">Perdidos</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="strong">Tintoretto</div></td>
+          <td class="num" data-v="1387.57">R$ 1.387,57</td>
+          <td class="num" data-v="114"><span class="num-big">114</span></td>
+          <td class="num" data-v="12.17">R$ 12,17</td>
+          <td class="num" data-v="10"><span style="color:var(--ok); font-weight:600;">10</span></td>
+          <td class="num" data-v="8.8"><span class="num-big" style="color:var(--ok);">9%</span></td>
+          <td class="num" data-v="90">90</td>
+          <td class="num" data-v="24">24</td>
+        </tr>
+        <tr>
+          <td><div class="strong">Crivelli</div></td>
+          <td class="num" data-v="922.06">R$ 922,06</td>
+          <td class="num" data-v="72"><span class="num-big">72</span></td>
+          <td class="num" data-v="12.81">R$ 12,81</td>
+          <td class="num" data-v="4"><span style="color:var(--ok); font-weight:600;">4</span></td>
+          <td class="num" data-v="5.6"><span class="num-big" style="color:var(--text-soft);">6%</span></td>
+          <td class="num" data-v="52">52</td>
+          <td class="num" data-v="20">20</td>
+        </tr>
+        <tr>
+          <td><div class="strong">Essence</div></td>
+          <td class="num" data-v="1113.22">R$ 1.113,22</td>
+          <td class="num" data-v="71"><span class="num-big">71</span></td>
+          <td class="num" data-v="15.68">R$ 15,68</td>
+          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
+          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
+          <td class="num" data-v="51">51</td>
+          <td class="num" data-v="20">20</td>
+        </tr>
+        <tr>
+          <td><div class="strong">Sunrise</div></td>
+          <td class="num" data-v="990.38">R$ 990,38</td>
+          <td class="num" data-v="38"><span class="num-big">38</span></td>
+          <td class="num" data-v="26.06">R$ 26,06</td>
+          <td class="num" data-v="2"><span style="color:var(--ok); font-weight:600;">2</span></td>
+          <td class="num" data-v="5.3"><span class="num-big" style="color:var(--text-soft);">5%</span></td>
+          <td class="num" data-v="29">29</td>
+          <td class="num" data-v="9">9</td>
+        </tr>
+        <tr>
+          <td><div class="strong">Bossa Eco Luxury</div></td>
+          <td class="num" data-v="258.69">R$ 258,69</td>
+          <td class="num" data-v="18"><span class="num-big">18</span></td>
+          <td class="num" data-v="14.37">R$ 14,37</td>
+          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
+          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
+          <td class="num" data-v="13">13</td>
+          <td class="num" data-v="5">5</td>
+        </tr>
+        <tr>
+          <td><div class="strong">Cocoon Milagres</div></td>
+          <td class="num" data-v="239.41">R$ 239,41</td>
+          <td class="num" data-v="9"><span class="num-big">9</span></td>
+          <td class="num" data-v="26.60">R$ 26,60</td>
+          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
+          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
+          <td class="num" data-v="4">4</td>
+          <td class="num" data-v="5">5</td>
+        </tr>
+        <tr>
+          <td><div class="strong">Villas Manatee</div></td>
+          <td class="num" data-v="0.00"><span class="zero">—</span></td>
+          <td class="num" data-v="5"><span class="num-big">5</span></td>
+          <td class="num" data-v="0.00"><span class="zero">—</span></td>
+          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
+          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
+          <td class="num" data-v="4">4</td>
+          <td class="num" data-v="1">1</td>
+        </tr>
+        <tr>
+          <td><div class="strong">Reserva Aya</div></td>
+          <td class="num" data-v="201.54">R$ 201,54</td>
+          <td class="num" data-v="4"><span class="num-big">4</span></td>
+          <td class="num" data-v="50.38">R$ 50,38</td>
+          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
+          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
+          <td class="num" data-v="3">3</td>
+          <td class="num" data-v="1">1</td>
+        </tr>
+        <tr>
+          <td><div class="strong">Lead Qualificado</div></td>
+          <td class="num" data-v="0.00"><span class="zero">—</span></td>
+          <td class="num" data-v="4"><span class="num-big">4</span></td>
+          <td class="num" data-v="0.00"><span class="zero">—</span></td>
+          <td class="num" data-v="4"><span style="color:var(--ok); font-weight:600;">4</span></td>
+          <td class="num" data-v="100.0"><span class="num-big" style="color:var(--ok);">100%</span></td>
+          <td class="num" data-v="4">4</td>
+          <td class="num" data-v="0"><span class="zero">—</span></td>
+        </tr>
+        <tr>
+          <td><div class="strong">Edf. Ravenna</div></td>
+          <td class="num" data-v="300.37">R$ 300,37</td>
+          <td class="num" data-v="2"><span class="num-big">2</span></td>
+          <td class="num" data-v="150.19">R$ 150,19</td>
+          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
+          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
+          <td class="num" data-v="2">2</td>
+          <td class="num" data-v="0"><span class="zero">—</span></td>
+        </tr>
+        <tr>
+          <td><div class="strong">Reserva-Aya</div></td>
+          <td class="num" data-v="0.00"><span class="zero">—</span></td>
+          <td class="num" data-v="1"><span class="num-big">1</span></td>
+          <td class="num" data-v="0.00"><span class="zero">—</span></td>
+          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
+          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
+          <td class="num" data-v="0"><span class="zero">—</span></td>
+          <td class="num" data-v="1">1</td>
+        </tr>
+      </tbody>
+      <tfoot><tr>
+        <td>Total (11 empreendimentos)</td>
+        <td class="num">R$ 5.413,24</td>
+        <td class="num">338</td>
+        <td class="num">R$ 16,02</td>
+        <td class="num">20</td>
+        <td class="num">6%</td>
+        <td class="num">252</td>
+        <td class="num">86</td>
+      </tr></tfoot>
+    </table>
+    <div class="insight">Visão por <strong>produto</strong>: junta o investido (Meta) com o funil do Kommo de cada empreendimento. <strong>Conversão</strong> = leads que chegaram a qualificado ou além ÷ leads do empreendimento; <strong>Vivos</strong> = ainda em atendimento.</div>
   </section>
   <div class="two-col">
     <section id="perdas" class="reveal">
@@ -2283,15 +2806,19 @@
   <div class="kpi-grid reveal-stagger">
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">Investimento</div>
       <div class="kpi-value">R$ 6.945,98</div>
+      <div class="kpi-delta neutral">&#9660; 35% <span>vs. anterior</span></div>
       <div class="kpi-meta">13 campanhas de captação</div></div>
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">Leads gerados</div>
       <div class="kpi-value">793</div>
+      <div class="kpi-delta down">&#9660; 13% <span>vs. anterior</span></div>
       <div class="kpi-meta">Base: Kommo · 529 pela Meta</div></div>
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">CPL médio</div>
       <div class="kpi-value">R$ 8,40</div>
+      <div class="kpi-delta up">&#9660; 28% <span>vs. anterior</span></div>
       <div class="kpi-meta">Investimento ÷ leads Kommo</div></div>
     <div class="kpi"><div class="kpi-accent ok"></div><div class="kpi-label">Qualificados</div>
       <div class="kpi-value">10 <small>· 1%</small></div>
+      <div class="kpi-delta down">&#9660; 9% <span>vs. anterior</span></div>
       <div class="kpi-meta">No estágio "Lead qualificado"</div></div>
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">Vivos no funil</div>
       <div class="kpi-value">698</div>
@@ -2824,6 +3351,191 @@
       </tbody>
     </table>
     <div class="insight">CPL e leads usam a base do <strong>Kommo</strong> (lead real que chega via formulário/WhatsApp), não o número bruto da Meta. "Qualif.+" = leads que avançaram para qualificado ou além. Campanhas de topo de funil não geram lead direto — métricas de alcance ficam no Instagram.</div>
+  </section>
+  <section id="empreendimentos" class="reveal">
+    <div class="section-head"><h2>Por empreendimento</h2>
+      <div class="meta">Meta Ads × Kommo · visão de produto<br>clique nos títulos pra ordenar</div></div>
+    <table class="sortable">
+      <thead><tr>
+        <th>Empreendimento</th>
+        <th class="num">Investido</th><th class="num">Leads</th><th class="num">CPL</th>
+        <th class="num">Qualif.+</th><th class="num">Conversão</th>
+        <th class="num">Vivos</th><th class="num">Perdidos</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="strong">Essence</div></td>
+          <td class="num" data-v="1047.64">R$ 1.047,64</td>
+          <td class="num" data-v="246"><span class="num-big">246</span></td>
+          <td class="num" data-v="4.26">R$ 4,26</td>
+          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
+          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
+          <td class="num" data-v="241">241</td>
+          <td class="num" data-v="5">5</td>
+        </tr>
+        <tr>
+          <td><div class="strong">Tintoretto</div></td>
+          <td class="num" data-v="975.17">R$ 975,17</td>
+          <td class="num" data-v="114"><span class="num-big">114</span></td>
+          <td class="num" data-v="8.55">R$ 8,55</td>
+          <td class="num" data-v="2"><span style="color:var(--ok); font-weight:600;">2</span></td>
+          <td class="num" data-v="1.8"><span class="num-big" style="color:var(--ok);">2%</span></td>
+          <td class="num" data-v="91">91</td>
+          <td class="num" data-v="23">23</td>
+        </tr>
+        <tr>
+          <td><div class="strong">Crivelli</div></td>
+          <td class="num" data-v="1263.89">R$ 1.263,89</td>
+          <td class="num" data-v="104"><span class="num-big">104</span></td>
+          <td class="num" data-v="12.15">R$ 12,15</td>
+          <td class="num" data-v="3"><span style="color:var(--ok); font-weight:600;">3</span></td>
+          <td class="num" data-v="2.9"><span class="num-big" style="color:var(--ok);">3%</span></td>
+          <td class="num" data-v="92">92</td>
+          <td class="num" data-v="12">12</td>
+        </tr>
+        <tr>
+          <td><div class="strong">Entreaguas</div></td>
+          <td class="num" data-v="509.80">R$ 509,80</td>
+          <td class="num" data-v="54"><span class="num-big">54</span></td>
+          <td class="num" data-v="9.44">R$ 9,44</td>
+          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
+          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
+          <td class="num" data-v="47">47</td>
+          <td class="num" data-v="7">7</td>
+        </tr>
+        <tr>
+          <td><div class="strong">Bossa Eco Luxury</div></td>
+          <td class="num" data-v="839.02">R$ 839,02</td>
+          <td class="num" data-v="43"><span class="num-big">43</span></td>
+          <td class="num" data-v="19.51">R$ 19,51</td>
+          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
+          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
+          <td class="num" data-v="37">37</td>
+          <td class="num" data-v="6">6</td>
+        </tr>
+        <tr>
+          <td><div class="strong">Reserva Aya</div></td>
+          <td class="num" data-v="620.69">R$ 620,69</td>
+          <td class="num" data-v="30"><span class="num-big">30</span></td>
+          <td class="num" data-v="20.69">R$ 20,69</td>
+          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
+          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
+          <td class="num" data-v="30">30</td>
+          <td class="num" data-v="0"><span class="zero">—</span></td>
+        </tr>
+        <tr>
+          <td><div class="strong">Interesse Confirmado</div></td>
+          <td class="num" data-v="0.00"><span class="zero">—</span></td>
+          <td class="num" data-v="26"><span class="num-big">26</span></td>
+          <td class="num" data-v="0.00"><span class="zero">—</span></td>
+          <td class="num" data-v="1"><span style="color:var(--ok); font-weight:600;">1</span></td>
+          <td class="num" data-v="3.8"><span class="num-big" style="color:var(--ok);">4%</span></td>
+          <td class="num" data-v="4">4</td>
+          <td class="num" data-v="21">21</td>
+        </tr>
+        <tr>
+          <td><div class="strong">Flow</div></td>
+          <td class="num" data-v="543.25">R$ 543,25</td>
+          <td class="num" data-v="22"><span class="num-big">22</span></td>
+          <td class="num" data-v="24.69">R$ 24,69</td>
+          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
+          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
+          <td class="num" data-v="19">19</td>
+          <td class="num" data-v="3">3</td>
+        </tr>
+        <tr>
+          <td><div class="strong">Summit</div></td>
+          <td class="num" data-v="63.14">R$ 63,14</td>
+          <td class="num" data-v="22"><span class="num-big">22</span></td>
+          <td class="num" data-v="2.87">R$ 2,87</td>
+          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
+          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
+          <td class="num" data-v="22">22</td>
+          <td class="num" data-v="0"><span class="zero">—</span></td>
+        </tr>
+        <tr>
+          <td><div class="strong">Sunrise</div></td>
+          <td class="num" data-v="415.12">R$ 415,12</td>
+          <td class="num" data-v="21"><span class="num-big">21</span></td>
+          <td class="num" data-v="19.77">R$ 19,77</td>
+          <td class="num" data-v="2"><span style="color:var(--ok); font-weight:600;">2</span></td>
+          <td class="num" data-v="9.5"><span class="num-big" style="color:var(--ok);">10%</span></td>
+          <td class="num" data-v="17">17</td>
+          <td class="num" data-v="3">3</td>
+        </tr>
+        <tr>
+          <td><div class="strong">Reserva-Aya</div></td>
+          <td class="num" data-v="0.00"><span class="zero">—</span></td>
+          <td class="num" data-v="18"><span class="num-big">18</span></td>
+          <td class="num" data-v="0.00"><span class="zero">—</span></td>
+          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
+          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
+          <td class="num" data-v="16">16</td>
+          <td class="num" data-v="2">2</td>
+        </tr>
+        <tr>
+          <td><div class="strong">Summit Praia</div></td>
+          <td class="num" data-v="355.40">R$ 355,40</td>
+          <td class="num" data-v="15"><span class="num-big">15</span></td>
+          <td class="num" data-v="23.69">R$ 23,69</td>
+          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
+          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
+          <td class="num" data-v="12">12</td>
+          <td class="num" data-v="3">3</td>
+        </tr>
+        <tr>
+          <td><div class="strong">não-cadastrou</div></td>
+          <td class="num" data-v="0.00"><span class="zero">—</span></td>
+          <td class="num" data-v="7"><span class="num-big">7</span></td>
+          <td class="num" data-v="0.00"><span class="zero">—</span></td>
+          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
+          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
+          <td class="num" data-v="0"><span class="zero">—</span></td>
+          <td class="num" data-v="7">7</td>
+        </tr>
+        <tr>
+          <td><div class="strong">Lead Qualificado</div></td>
+          <td class="num" data-v="0.00"><span class="zero">—</span></td>
+          <td class="num" data-v="7"><span class="num-big">7</span></td>
+          <td class="num" data-v="0.00"><span class="zero">—</span></td>
+          <td class="num" data-v="4"><span style="color:var(--ok); font-weight:600;">4</span></td>
+          <td class="num" data-v="57.1"><span class="num-big" style="color:var(--ok);">57%</span></td>
+          <td class="num" data-v="6">6</td>
+          <td class="num" data-v="1">1</td>
+        </tr>
+        <tr>
+          <td><div class="strong">Lead Reativado</div></td>
+          <td class="num" data-v="0.00"><span class="zero">—</span></td>
+          <td class="num" data-v="1"><span class="num-big">1</span></td>
+          <td class="num" data-v="0.00"><span class="zero">—</span></td>
+          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
+          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
+          <td class="num" data-v="1">1</td>
+          <td class="num" data-v="0"><span class="zero">—</span></td>
+        </tr>
+        <tr>
+          <td><div class="strong">Proposta Enviada</div></td>
+          <td class="num" data-v="0.00"><span class="zero">—</span></td>
+          <td class="num" data-v="1"><span class="num-big">1</span></td>
+          <td class="num" data-v="0.00"><span class="zero">—</span></td>
+          <td class="num" data-v="1"><span style="color:var(--ok); font-weight:600;">1</span></td>
+          <td class="num" data-v="100.0"><span class="num-big" style="color:var(--ok);">100%</span></td>
+          <td class="num" data-v="1">1</td>
+          <td class="num" data-v="0"><span class="zero">—</span></td>
+        </tr>
+      </tbody>
+      <tfoot><tr>
+        <td>Total (16 empreendimentos)</td>
+        <td class="num">R$ 6.633,12</td>
+        <td class="num">731</td>
+        <td class="num">R$ 9,07</td>
+        <td class="num">13</td>
+        <td class="num">2%</td>
+        <td class="num">636</td>
+        <td class="num">93</td>
+      </tr></tfoot>
+    </table>
+    <div class="insight">Visão por <strong>produto</strong>: junta o investido (Meta) com o funil do Kommo de cada empreendimento. <strong>Conversão</strong> = leads que chegaram a qualificado ou além ÷ leads do empreendimento; <strong>Vivos</strong> = ainda em atendimento.</div>
   </section>
   <div class="two-col">
     <section id="perdas" class="reveal">
