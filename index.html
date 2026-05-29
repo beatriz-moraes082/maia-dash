@@ -189,7 +189,7 @@
   .fcard.c-gold { --accent:var(--gold); --accent-soft:#f7eccd; --accent-dark:#9a7d18; }
   .fcard.c-red { --accent:var(--danger); --accent-soft:#fbe2de; --accent-dark:#c0392b; }
 
-  .op-grid { display:grid; grid-template-columns:repeat(6,1fr); gap:14px; }
+  .op-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)); gap:14px; }
   .opstat { border:1px solid var(--border); border-radius:12px; padding:18px 16px;
     background:linear-gradient(180deg,#fbfdff,var(--card)); }
   .opn { font-family:'Playfair Display',serif; font-size:29px; color:var(--navy); line-height:1; letter-spacing:-.5px; }
@@ -309,6 +309,7 @@
   <span class="brand"><img class="brand-mark" src="data:image/jpeg;base64,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" alt="">MAIA</span>
   <a href="#acoes">Plano de ação</a>
   <a href="#funil">Funil de vendas</a>
+  <a href="#vendas">Vendas</a>
   <a href="#corretores">Por corretor</a>
   <a href="#campanhas">Por campanha</a>
   <a href="#empreendimentos">Por empreendimento</a>
@@ -325,22 +326,22 @@
     </div>
     <h1>Painel <em>comercial</em> &amp; tráfego</h1>
     <p>Performance de campanhas e funil de vendas · <span id="period-label">01 a 28 de Maio de 2026</span></p>
-    <div class="updated">Atualizado em 28/05/2026 às 22:30 · Fontes: Meta Ads + Kommo CRM</div>
+    <div class="updated">Atualizado em 28/05/2026 às 23:02 · Fontes: Meta Ads + Kommo CRM</div>
   </header>
   <div class="periods" id="periods" role="group" aria-label="Período"><button type="button" class="pchip active" data-period="mes_atual">Mês atual</button><button type="button" class="pchip" data-period="ultimos_7">Últimos 7 dias</button><button type="button" class="pchip" data-period="ultimos_30">Últimos 30 dias</button><button type="button" class="pchip" data-period="mes_passado">Mês passado</button></div>
   <div id="period-content">
-  <div class="exec reveal"><h3>Resumo executivo</h3><p>No período foram <strong>327 leads</strong> ao custo de <strong>R$ 15,58</strong> cada (investimento de R$ 5.464,80), a um ritmo de <strong>12 leads/dia</strong>. Hoje há <strong>244 leads vivos no funil</strong>, sendo <strong>20 já qualificados ou em estágio avançado</strong> (reunião, proposta). A conversão média da equipe está em <strong>6,5%</strong>. Os motivos de perda estão detalhados na seção específica abaixo.</p></div>
+  <div class="exec reveal"><h3>Resumo executivo</h3><p>No período foram <strong>328 leads</strong> ao custo de <strong>R$ 15,56</strong> cada (investimento de R$ 5.474,99), a um ritmo de <strong>12 leads/dia</strong>. Hoje há <strong>245 leads vivos no funil</strong>, sendo <strong>20 já qualificados ou em estágio avançado</strong> (reunião, proposta). A conversão média da equipe está em <strong>6,5%</strong>. Os motivos de perda estão detalhados na seção específica abaixo.</p></div>
   <div class="kpi-grid reveal-stagger">
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">Investimento</div>
-      <div class="kpi-value">R$ 5.464,80</div>
-      <div class="kpi-delta neutral">&#9660; 17% <span>vs. anterior</span></div>
+      <div class="kpi-value">R$ 5.474,99</div>
+      <div class="kpi-delta neutral">&#9660; 16% <span>vs. anterior</span></div>
       <div class="kpi-meta">8 campanhas de captação</div></div>
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">Leads gerados</div>
-      <div class="kpi-value">327</div>
+      <div class="kpi-value">328</div>
       <div class="kpi-delta down">&#9660; 58% <span>vs. anterior</span></div>
-      <div class="kpi-meta">Base: Kommo · 328 pela Meta</div></div>
+      <div class="kpi-meta">Base: Kommo · 329 pela Meta</div></div>
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">CPL médio</div>
-      <div class="kpi-value">R$ 15,58</div>
+      <div class="kpi-value">R$ 15,56</div>
       <div class="kpi-delta down">&#9650; 85% <span>vs. anterior</span></div>
       <div class="kpi-meta">Investimento ÷ leads Kommo</div></div>
     <div class="kpi"><div class="kpi-accent ok"></div><div class="kpi-label">Qualificados</div>
@@ -348,7 +349,7 @@
       <div class="kpi-delta up">&#9650; 40% <span>vs. anterior</span></div>
       <div class="kpi-meta">No estágio "Lead qualificado"</div></div>
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">Vivos no funil</div>
-      <div class="kpi-value">244</div>
+      <div class="kpi-value">245</div>
       <div class="kpi-meta">Em atendimento ativo no Kommo</div></div>
   </div>
   <section id="acoes" class="reveal">
@@ -380,7 +381,7 @@
         <span class="action-tag media">Média</span>
         <div class="action-body">
           <div class="action-title">Destravar o Follow-up</div>
-          <div class="action-desc"><span class="action-kicker">Gargalo no funil</span> · 109 leads parados em follow-up (45% do funil vivo). Definir uma rotina de retomada com o time.</div>
+          <div class="action-desc"><span class="action-kicker">Gargalo no funil</span> · 109 leads parados em follow-up (44% do funil vivo). Definir uma rotina de retomada com o time.</div>
         </div>
       </div>
       <div class="action media">
@@ -409,11 +410,11 @@
   </section>
   <section id="funil" class="reveal">
     <div class="section-head"><h2>Funil de vendas</h2>
-      <div class="meta">Kommo · todos os estágios<br>somam 327 leads</div></div>
+      <div class="meta">Kommo · todos os estágios<br>somam 328 leads</div></div>
     <div class="funnel">
       <div class="fstage"><div class="fname">Entrada / Lead novo</div>
-        <div class="fbar-wrap"><div class="fbar cold" style="width:2.8%"></div></div>
-        <div class="fnum"><b>3</b><span>1%</span></div></div>
+        <div class="fbar-wrap"><div class="fbar cold" style="width:3.7%"></div></div>
+        <div class="fnum"><b>4</b><span>1%</span></div></div>
       <div class="fstage"><div class="fname">Follow-up</div>
         <div class="fbar-wrap"><div class="fbar cold" style="width:100.0%"></div></div>
         <div class="fnum"><b>109</b><span>33%</span></div></div>
@@ -444,7 +445,13 @@
         <div class="fcard-top"><span class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg></span><div class="l">Encerrados (perda)</div></div>
         <div class="v">83</div></div>
     </div>
-    <div class="insight"><strong>Reconciliação:</strong> 244 leads vivos no funil + 83 encerrados = 327 leads, igual ao total do Kommo no período. Os números desta página batem 1:1 com o CRM.</div>
+    <div class="insight"><strong>Reconciliação:</strong> 245 leads vivos no funil + 83 encerrados = 328 leads, igual ao total do Kommo no período. Os números desta página batem 1:1 com o CRM.</div>
+  </section>
+  <section id="vendas" class="reveal">
+    <div class="section-head"><h2>Vendas &amp; resultado</h2>
+      <div class="meta">Meta Ads × Kommo<br>no período selecionado</div></div>
+    <div class="op-grid"><div class="opstat"><div class="opn" style="color:var(--navy)">0</div><div class="opl">Vendas no período</div></div><div class="opstat"><div class="opn" style="color:var(--navy)">0,0%</div><div class="opl">Taxa de fechamento</div></div><div class="opstat"><div class="opn" style="color:var(--navy)"><span class="zero">—</span></div><div class="opl">CAC (custo por venda)</div></div></div>
+    <div class="insight"><strong>Vendas</strong> = leads <em>criados neste período</em> que já chegaram à etapa "Venda" (cohort) — por isso períodos recentes tendem a 0, já que leads novos ainda não fecharam. O <strong>total acumulado</strong> da operação está em <em>Operação completa</em>, no fim. <strong>CAC</strong> = investido ÷ vendas; <strong>ROAS</strong> = VGV ÷ investido.</div>
   </section>
   <section id="corretores" class="reveal">
     <div class="section-head"><h2>Atividade por corretor</h2>
@@ -538,7 +545,7 @@
           <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="1">1</td>
           <td class="num" data-v="2"><span style="color:var(--ok); font-weight:600;">2</span></td>
-          <td class="num" data-v="6.5"><span class="num-big" style="color:var(--text-soft);">6%</span></td>
+          <td class="num" data-v="6.5"><span class="num-big" style="color:var(--ok);">6%</span></td>
           <td class="num" data-v="31"><span class="strong">31</span></td>
         </tr>
         <tr class="corr-detail" hidden><td colspan="9">
@@ -600,19 +607,19 @@
         </td></tr>
         <tr class="corr-row">
           <td><div class="strong"><span class="corr-caret">▸</span>Emanuel Antônio</div></td>
-          <td class="num" data-v="22"><span class="num-big">22</span></td>
+          <td class="num" data-v="23"><span class="num-big">23</span></td>
           <td class="num" data-v="12"><span class="num-big" style="color:var(--danger);">12</span></td>
           <td class="num" data-v="13">13</td>
           <td class="num" data-v="7">7</td>
           <td class="num" data-v="1">1</td>
           <td class="num" data-v="1"><span style="color:var(--ok); font-weight:600;">1</span></td>
-          <td class="num" data-v="3.2"><span class="num-big" style="color:var(--text-soft);">3%</span></td>
-          <td class="num" data-v="31"><span class="strong">31</span></td>
+          <td class="num" data-v="3.1"><span class="num-big" style="color:var(--text-soft);">3%</span></td>
+          <td class="num" data-v="32"><span class="strong">32</span></td>
         </tr>
         <tr class="corr-detail" hidden><td colspan="9">
           <div class="corr-panel">
             <div class="corr-panel-h">Funil de <strong>Emanuel Antônio</strong></div>
-            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>13</b><span>Follow-up</span></div><div class="cstat"><b>7</b><span>Em atendimento</span></div><div class="cstat"><b>0</b><span>Qualificado</span></div><div class="cstat"><b>1</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>12</b><span>Parados +7d · 55% da carteira</span></div><div class="cstat"><b>9</b><span>Perdidos</span></div><div class="cstat"><b>1</b><span>Nutrição / interesse</span></div></div>
+            <div class="cstats"><div class="cstat"><b>1</b><span>Entrada</span></div><div class="cstat"><b>13</b><span>Follow-up</span></div><div class="cstat"><b>7</b><span>Em atendimento</span></div><div class="cstat"><b>0</b><span>Qualificado</span></div><div class="cstat"><b>1</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>12</b><span>Parados +7d · 52% da carteira</span></div><div class="cstat"><b>9</b><span>Perdidos</span></div><div class="cstat"><b>1</b><span>Nutrição / interesse</span></div></div>
           </div>
         </td></tr>
         <tr class="corr-row">
@@ -663,14 +670,14 @@
       </tbody>
       <tfoot><tr>
         <td>Total comercial (11 corretores)</td>
-        <td class="num">226</td>
+        <td class="num">227</td>
         <td class="num">122</td>
         <td class="num">109</td>
         <td class="num">82</td>
         <td class="num">6</td>
         <td class="num">20</td>
         <td class="num">6%</td>
-        <td class="num">309</td>
+        <td class="num">310</td>
       </tr></tfoot>
     </table>
     <div class="insight"><strong>Parados +7d</strong> = leads no funil de trabalho (entrada → proposta) sem nenhuma movimentação há mais de 7 dias — risco de esfriar. <strong>Clique numa linha</strong> pra abrir o funil completo do corretor. <strong>Conversão</strong> = chegaram a qualificado ou além ÷ recebidos; <span class="star">★</span> marca a melhor do período.</div>
@@ -692,41 +699,41 @@
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Tintoretto</div><div class="sub">Fundo de Funil | Formulário | Tintoretto | 03/09/25 #TP</div></td>
-          <td class="num" data-v="1307.77">R$ 1.307,77
+          <td class="num" data-v="1309.57">R$ 1.309,57
             <div class="bar-wrap"><div class="bar navy" style="width:100.0%"></div></div></td>
           <td class="num" data-v="111"><span class="num-big">111</span>
             <div class="bar-wrap"><div class="bar" style="width:100.0%"></div></div></td>
-          <td class="num" data-v="11.78">R$ 11,78</td>
+          <td class="num" data-v="11.80">R$ 11,80</td>
           <td class="num" data-v="10"><span style="color:var(--ok); font-weight:600;">10</span></td>
         </tr>
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Essence</div><div class="sub">Fundo de Funil | Formulário  | Essence | 30/04/26  #TP</div></td>
-          <td class="num" data-v="1108.46">R$ 1.108,46
-            <div class="bar-wrap"><div class="bar navy" style="width:84.8%"></div></div></td>
+          <td class="num" data-v="1111.40">R$ 1.111,40
+            <div class="bar-wrap"><div class="bar navy" style="width:84.9%"></div></div></td>
           <td class="num" data-v="71"><span class="num-big">71</span>
             <div class="bar-wrap"><div class="bar" style="width:64.0%"></div></div></td>
-          <td class="num" data-v="15.61">R$ 15,61</td>
+          <td class="num" data-v="15.65">R$ 15,65</td>
           <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
         </tr>
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Crivelli</div><div class="sub">Fundo de Funil | Formulário  | Crivelli | 21/11/25 #TP</div></td>
-          <td class="num" data-v="841.19">R$ 841,19
-            <div class="bar-wrap"><div class="bar navy" style="width:64.3%"></div></div></td>
-          <td class="num" data-v="65"><span class="num-big">65</span>
-            <div class="bar-wrap"><div class="bar" style="width:58.6%"></div></div></td>
-          <td class="num" data-v="12.94">R$ 12,94</td>
+          <td class="num" data-v="843.17">R$ 843,17
+            <div class="bar-wrap"><div class="bar navy" style="width:64.4%"></div></div></td>
+          <td class="num" data-v="66"><span class="num-big">66</span>
+            <div class="bar-wrap"><div class="bar" style="width:59.5%"></div></div></td>
+          <td class="num" data-v="12.78">R$ 12,78</td>
           <td class="num" data-v="4"><span style="color:var(--ok); font-weight:600;">4</span></td>
         </tr>
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Sunrise</div><div class="sub">Fundo de Funil | Formulário | Sunrise | 03.09/25 #TP</div></td>
-          <td class="num" data-v="964.51">R$ 964,51
-            <div class="bar-wrap"><div class="bar navy" style="width:73.8%"></div></div></td>
+          <td class="num" data-v="967.15">R$ 967,15
+            <div class="bar-wrap"><div class="bar navy" style="width:73.9%"></div></div></td>
           <td class="num" data-v="38"><span class="num-big">38</span>
             <div class="bar-wrap"><div class="bar" style="width:34.2%"></div></div></td>
-          <td class="num" data-v="25.38">R$ 25,38</td>
+          <td class="num" data-v="25.45">R$ 25,45</td>
           <td class="num" data-v="2"><span style="color:var(--ok); font-weight:600;">2</span></td>
         </tr>
         <tr data-status="PAUSED">
@@ -742,11 +749,11 @@
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Cocoon Milagres</div><div class="sub">Fundo de Funil | Formulário | Milagres | 21/05 #TP</div></td>
-          <td class="num" data-v="239.71">R$ 239,71
-            <div class="bar-wrap"><div class="bar navy" style="width:18.3%"></div></div></td>
+          <td class="num" data-v="240.53">R$ 240,53
+            <div class="bar-wrap"><div class="bar navy" style="width:18.4%"></div></div></td>
           <td class="num" data-v="9"><span class="num-big">9</span>
             <div class="bar-wrap"><div class="bar" style="width:8.1%"></div></div></td>
-          <td class="num" data-v="26.63">R$ 26,63</td>
+          <td class="num" data-v="26.73">R$ 26,73</td>
           <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
         </tr>
         <tr data-status="PAUSED">
@@ -773,7 +780,7 @@
           <td data-v="0"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Topo de Funil | Tráfego |  23/06 #TP</div>
             <div class="sub"><span class="pill topo">Topo de funil</span> · 1.249 visitas · 6 compart. · 0 salvos</div></td>
-          <td class="num" data-v="279.15"><span class="num-big">R$ 279,15</span>
+          <td class="num" data-v="279.16"><span class="num-big">R$ 279,16</span>
             <div class="bar-wrap"><div class="bar navy" style="width:21.3%"></div></div></td>
           <td class="num zero" data-v="0">—</td><td class="num zero" data-v="0">—</td><td class="num zero" data-v="0">—</td>
         </tr>
@@ -782,7 +789,7 @@
           <td><div class="strong">Topo de Funil | Contratação |  30/04/26 #TP</div>
             <div class="sub"><span class="pill topo">Topo de funil</span> · 514 visitas · 15 compart. · 2 salvos</div></td>
           <td class="num" data-v="92.26"><span class="num-big">R$ 92,26</span>
-            <div class="bar-wrap"><div class="bar navy" style="width:7.1%"></div></div></td>
+            <div class="bar-wrap"><div class="bar navy" style="width:7.0%"></div></div></td>
           <td class="num zero" data-v="0">—</td><td class="num zero" data-v="0">—</td><td class="num zero" data-v="0">—</td>
         </tr>
       </tbody>
@@ -802,9 +809,9 @@
       <tbody>
         <tr>
           <td><div class="strong">Tintoretto</div></td>
-          <td class="num" data-v="1307.77">R$ 1.307,77</td>
+          <td class="num" data-v="1309.57">R$ 1.309,57</td>
           <td class="num" data-v="111"><span class="num-big">111</span></td>
-          <td class="num" data-v="11.78">R$ 11,78</td>
+          <td class="num" data-v="11.80">R$ 11,80</td>
           <td class="num" data-v="10"><span style="color:var(--ok); font-weight:600;">10</span></td>
           <td class="num" data-v="9.0"><span class="num-big" style="color:var(--ok);">9%</span></td>
           <td class="num" data-v="88">88</td>
@@ -812,9 +819,9 @@
         </tr>
         <tr>
           <td><div class="strong">Essence</div></td>
-          <td class="num" data-v="1108.46">R$ 1.108,46</td>
+          <td class="num" data-v="1111.40">R$ 1.111,40</td>
           <td class="num" data-v="71"><span class="num-big">71</span></td>
-          <td class="num" data-v="15.61">R$ 15,61</td>
+          <td class="num" data-v="15.65">R$ 15,65</td>
           <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
           <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
           <td class="num" data-v="51">51</td>
@@ -822,19 +829,19 @@
         </tr>
         <tr>
           <td><div class="strong">Crivelli</div></td>
-          <td class="num" data-v="841.19">R$ 841,19</td>
-          <td class="num" data-v="65"><span class="num-big">65</span></td>
-          <td class="num" data-v="12.94">R$ 12,94</td>
+          <td class="num" data-v="843.17">R$ 843,17</td>
+          <td class="num" data-v="66"><span class="num-big">66</span></td>
+          <td class="num" data-v="12.78">R$ 12,78</td>
           <td class="num" data-v="4"><span style="color:var(--ok); font-weight:600;">4</span></td>
-          <td class="num" data-v="6.2"><span class="num-big" style="color:var(--text-soft);">6%</span></td>
-          <td class="num" data-v="46">46</td>
+          <td class="num" data-v="6.1"><span class="num-big" style="color:var(--text-soft);">6%</span></td>
+          <td class="num" data-v="47">47</td>
           <td class="num" data-v="19">19</td>
         </tr>
         <tr>
           <td><div class="strong">Sunrise</div></td>
-          <td class="num" data-v="964.51">R$ 964,51</td>
+          <td class="num" data-v="967.15">R$ 967,15</td>
           <td class="num" data-v="38"><span class="num-big">38</span></td>
-          <td class="num" data-v="25.38">R$ 25,38</td>
+          <td class="num" data-v="25.45">R$ 25,45</td>
           <td class="num" data-v="2"><span style="color:var(--ok); font-weight:600;">2</span></td>
           <td class="num" data-v="5.3"><span class="num-big" style="color:var(--text-soft);">5%</span></td>
           <td class="num" data-v="29">29</td>
@@ -852,9 +859,9 @@
         </tr>
         <tr>
           <td><div class="strong">Cocoon Milagres</div></td>
-          <td class="num" data-v="239.71">R$ 239,71</td>
+          <td class="num" data-v="240.53">R$ 240,53</td>
           <td class="num" data-v="9"><span class="num-big">9</span></td>
-          <td class="num" data-v="26.63">R$ 26,63</td>
+          <td class="num" data-v="26.73">R$ 26,73</td>
           <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
           <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
           <td class="num" data-v="4">4</td>
@@ -913,12 +920,12 @@
       </tbody>
       <tfoot><tr>
         <td>Total (11 empreendimentos)</td>
-        <td class="num">R$ 5.093,39</td>
-        <td class="num">326</td>
-        <td class="num">R$ 15,62</td>
+        <td class="num">R$ 5.103,57</td>
+        <td class="num">327</td>
+        <td class="num">R$ 15,61</td>
         <td class="num">20</td>
         <td class="num">6%</td>
-        <td class="num">243</td>
+        <td class="num">244</td>
         <td class="num">83</td>
       </tr></tfoot>
     </table>
@@ -960,23 +967,23 @@
 
     <section id="ritmo" class="reveal">
       <div class="section-head"><h2>Ritmo diário de leads</h2><div class="meta">Kommo · 28 dias</div></div>
-      <div class="daily-grid" style="grid-template-columns:repeat(28,1fr)"><div class="day-bar" style="height:59.3%" data-val="16"></div><div class="day-bar" style="height:44.4%" data-val="12"></div><div class="day-bar" style="height:100.0%" data-val="27"></div><div class="day-bar" style="height:55.6%" data-val="15"></div><div class="day-bar" style="height:3.7%" data-val="1"></div><div class="day-bar" style="height:81.5%" data-val="22"></div><div class="day-bar" style="height:51.9%" data-val="14"></div><div class="day-bar" style="height:33.3%" data-val="9"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:48.1%" data-val="13"></div><div class="day-bar" style="height:40.7%" data-val="11"></div><div class="day-bar" style="height:18.5%" data-val="5"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:51.9%" data-val="14"></div><div class="day-bar" style="height:37.0%" data-val="10"></div><div class="day-bar" style="height:70.4%" data-val="19"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:11.1%" data-val="3"></div><div class="day-bar" style="height:22.2%" data-val="6"></div><div class="day-bar" style="height:33.3%" data-val="9"></div><div class="day-bar" style="height:33.3%" data-val="9"></div><div class="day-bar" style="height:59.3%" data-val="16"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:88.9%" data-val="24"></div><div class="day-bar" style="height:51.9%" data-val="14"></div><div class="day-bar" style="height:37.0%" data-val="10"></div></div><div class="daily-x" style="grid-template-columns:repeat(28,1fr)"><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span><span>08</span><span>09</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span></div>
+      <div class="daily-grid" style="grid-template-columns:repeat(28,1fr)"><div class="day-bar" style="height:59.3%" data-val="16"></div><div class="day-bar" style="height:44.4%" data-val="12"></div><div class="day-bar" style="height:100.0%" data-val="27"></div><div class="day-bar" style="height:55.6%" data-val="15"></div><div class="day-bar" style="height:3.7%" data-val="1"></div><div class="day-bar" style="height:81.5%" data-val="22"></div><div class="day-bar" style="height:51.9%" data-val="14"></div><div class="day-bar" style="height:33.3%" data-val="9"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:48.1%" data-val="13"></div><div class="day-bar" style="height:40.7%" data-val="11"></div><div class="day-bar" style="height:18.5%" data-val="5"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:51.9%" data-val="14"></div><div class="day-bar" style="height:37.0%" data-val="10"></div><div class="day-bar" style="height:70.4%" data-val="19"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:11.1%" data-val="3"></div><div class="day-bar" style="height:22.2%" data-val="6"></div><div class="day-bar" style="height:33.3%" data-val="9"></div><div class="day-bar" style="height:33.3%" data-val="9"></div><div class="day-bar" style="height:59.3%" data-val="16"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:88.9%" data-val="24"></div><div class="day-bar" style="height:51.9%" data-val="14"></div><div class="day-bar" style="height:40.7%" data-val="11"></div></div><div class="daily-x" style="grid-template-columns:repeat(28,1fr)"><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span><span>08</span><span>09</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span></div>
       <div class="insight"><strong>Média:</strong> 11.7 leads/dia ao longo de 28 dias. Cada barra mostra os leads daquele dia.</div>
     </section>
   </div>
   </div>
-<script type="text/html" class="period-tpl" data-period="mes_atual" data-label="01 a 28 de Maio de 2026">  <div class="exec reveal"><h3>Resumo executivo</h3><p>No período foram <strong>327 leads</strong> ao custo de <strong>R$ 15,58</strong> cada (investimento de R$ 5.464,80), a um ritmo de <strong>12 leads/dia</strong>. Hoje há <strong>244 leads vivos no funil</strong>, sendo <strong>20 já qualificados ou em estágio avançado</strong> (reunião, proposta). A conversão média da equipe está em <strong>6,5%</strong>. Os motivos de perda estão detalhados na seção específica abaixo.</p></div>
+<script type="text/html" class="period-tpl" data-period="mes_atual" data-label="01 a 28 de Maio de 2026">  <div class="exec reveal"><h3>Resumo executivo</h3><p>No período foram <strong>328 leads</strong> ao custo de <strong>R$ 15,56</strong> cada (investimento de R$ 5.474,99), a um ritmo de <strong>12 leads/dia</strong>. Hoje há <strong>245 leads vivos no funil</strong>, sendo <strong>20 já qualificados ou em estágio avançado</strong> (reunião, proposta). A conversão média da equipe está em <strong>6,5%</strong>. Os motivos de perda estão detalhados na seção específica abaixo.</p></div>
   <div class="kpi-grid reveal-stagger">
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">Investimento</div>
-      <div class="kpi-value">R$ 5.464,80</div>
-      <div class="kpi-delta neutral">&#9660; 17% <span>vs. anterior</span></div>
+      <div class="kpi-value">R$ 5.474,99</div>
+      <div class="kpi-delta neutral">&#9660; 16% <span>vs. anterior</span></div>
       <div class="kpi-meta">8 campanhas de captação</div></div>
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">Leads gerados</div>
-      <div class="kpi-value">327</div>
+      <div class="kpi-value">328</div>
       <div class="kpi-delta down">&#9660; 58% <span>vs. anterior</span></div>
-      <div class="kpi-meta">Base: Kommo · 328 pela Meta</div></div>
+      <div class="kpi-meta">Base: Kommo · 329 pela Meta</div></div>
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">CPL médio</div>
-      <div class="kpi-value">R$ 15,58</div>
+      <div class="kpi-value">R$ 15,56</div>
       <div class="kpi-delta down">&#9650; 85% <span>vs. anterior</span></div>
       <div class="kpi-meta">Investimento ÷ leads Kommo</div></div>
     <div class="kpi"><div class="kpi-accent ok"></div><div class="kpi-label">Qualificados</div>
@@ -984,7 +991,7 @@
       <div class="kpi-delta up">&#9650; 40% <span>vs. anterior</span></div>
       <div class="kpi-meta">No estágio "Lead qualificado"</div></div>
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">Vivos no funil</div>
-      <div class="kpi-value">244</div>
+      <div class="kpi-value">245</div>
       <div class="kpi-meta">Em atendimento ativo no Kommo</div></div>
   </div>
   <section id="acoes" class="reveal">
@@ -1016,7 +1023,7 @@
         <span class="action-tag media">Média</span>
         <div class="action-body">
           <div class="action-title">Destravar o Follow-up</div>
-          <div class="action-desc"><span class="action-kicker">Gargalo no funil</span> · 109 leads parados em follow-up (45% do funil vivo). Definir uma rotina de retomada com o time.</div>
+          <div class="action-desc"><span class="action-kicker">Gargalo no funil</span> · 109 leads parados em follow-up (44% do funil vivo). Definir uma rotina de retomada com o time.</div>
         </div>
       </div>
       <div class="action media">
@@ -1045,11 +1052,11 @@
   </section>
   <section id="funil" class="reveal">
     <div class="section-head"><h2>Funil de vendas</h2>
-      <div class="meta">Kommo · todos os estágios<br>somam 327 leads</div></div>
+      <div class="meta">Kommo · todos os estágios<br>somam 328 leads</div></div>
     <div class="funnel">
       <div class="fstage"><div class="fname">Entrada / Lead novo</div>
-        <div class="fbar-wrap"><div class="fbar cold" style="width:2.8%"></div></div>
-        <div class="fnum"><b>3</b><span>1%</span></div></div>
+        <div class="fbar-wrap"><div class="fbar cold" style="width:3.7%"></div></div>
+        <div class="fnum"><b>4</b><span>1%</span></div></div>
       <div class="fstage"><div class="fname">Follow-up</div>
         <div class="fbar-wrap"><div class="fbar cold" style="width:100.0%"></div></div>
         <div class="fnum"><b>109</b><span>33%</span></div></div>
@@ -1080,7 +1087,13 @@
         <div class="fcard-top"><span class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg></span><div class="l">Encerrados (perda)</div></div>
         <div class="v">83</div></div>
     </div>
-    <div class="insight"><strong>Reconciliação:</strong> 244 leads vivos no funil + 83 encerrados = 327 leads, igual ao total do Kommo no período. Os números desta página batem 1:1 com o CRM.</div>
+    <div class="insight"><strong>Reconciliação:</strong> 245 leads vivos no funil + 83 encerrados = 328 leads, igual ao total do Kommo no período. Os números desta página batem 1:1 com o CRM.</div>
+  </section>
+  <section id="vendas" class="reveal">
+    <div class="section-head"><h2>Vendas &amp; resultado</h2>
+      <div class="meta">Meta Ads × Kommo<br>no período selecionado</div></div>
+    <div class="op-grid"><div class="opstat"><div class="opn" style="color:var(--navy)">0</div><div class="opl">Vendas no período</div></div><div class="opstat"><div class="opn" style="color:var(--navy)">0,0%</div><div class="opl">Taxa de fechamento</div></div><div class="opstat"><div class="opn" style="color:var(--navy)"><span class="zero">—</span></div><div class="opl">CAC (custo por venda)</div></div></div>
+    <div class="insight"><strong>Vendas</strong> = leads <em>criados neste período</em> que já chegaram à etapa "Venda" (cohort) — por isso períodos recentes tendem a 0, já que leads novos ainda não fecharam. O <strong>total acumulado</strong> da operação está em <em>Operação completa</em>, no fim. <strong>CAC</strong> = investido ÷ vendas; <strong>ROAS</strong> = VGV ÷ investido.</div>
   </section>
   <section id="corretores" class="reveal">
     <div class="section-head"><h2>Atividade por corretor</h2>
@@ -1174,7 +1187,7 @@
           <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="1">1</td>
           <td class="num" data-v="2"><span style="color:var(--ok); font-weight:600;">2</span></td>
-          <td class="num" data-v="6.5"><span class="num-big" style="color:var(--text-soft);">6%</span></td>
+          <td class="num" data-v="6.5"><span class="num-big" style="color:var(--ok);">6%</span></td>
           <td class="num" data-v="31"><span class="strong">31</span></td>
         </tr>
         <tr class="corr-detail" hidden><td colspan="9">
@@ -1236,19 +1249,19 @@
         </td></tr>
         <tr class="corr-row">
           <td><div class="strong"><span class="corr-caret">▸</span>Emanuel Antônio</div></td>
-          <td class="num" data-v="22"><span class="num-big">22</span></td>
+          <td class="num" data-v="23"><span class="num-big">23</span></td>
           <td class="num" data-v="12"><span class="num-big" style="color:var(--danger);">12</span></td>
           <td class="num" data-v="13">13</td>
           <td class="num" data-v="7">7</td>
           <td class="num" data-v="1">1</td>
           <td class="num" data-v="1"><span style="color:var(--ok); font-weight:600;">1</span></td>
-          <td class="num" data-v="3.2"><span class="num-big" style="color:var(--text-soft);">3%</span></td>
-          <td class="num" data-v="31"><span class="strong">31</span></td>
+          <td class="num" data-v="3.1"><span class="num-big" style="color:var(--text-soft);">3%</span></td>
+          <td class="num" data-v="32"><span class="strong">32</span></td>
         </tr>
         <tr class="corr-detail" hidden><td colspan="9">
           <div class="corr-panel">
             <div class="corr-panel-h">Funil de <strong>Emanuel Antônio</strong></div>
-            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>13</b><span>Follow-up</span></div><div class="cstat"><b>7</b><span>Em atendimento</span></div><div class="cstat"><b>0</b><span>Qualificado</span></div><div class="cstat"><b>1</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>12</b><span>Parados +7d · 55% da carteira</span></div><div class="cstat"><b>9</b><span>Perdidos</span></div><div class="cstat"><b>1</b><span>Nutrição / interesse</span></div></div>
+            <div class="cstats"><div class="cstat"><b>1</b><span>Entrada</span></div><div class="cstat"><b>13</b><span>Follow-up</span></div><div class="cstat"><b>7</b><span>Em atendimento</span></div><div class="cstat"><b>0</b><span>Qualificado</span></div><div class="cstat"><b>1</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>12</b><span>Parados +7d · 52% da carteira</span></div><div class="cstat"><b>9</b><span>Perdidos</span></div><div class="cstat"><b>1</b><span>Nutrição / interesse</span></div></div>
           </div>
         </td></tr>
         <tr class="corr-row">
@@ -1299,14 +1312,14 @@
       </tbody>
       <tfoot><tr>
         <td>Total comercial (11 corretores)</td>
-        <td class="num">226</td>
+        <td class="num">227</td>
         <td class="num">122</td>
         <td class="num">109</td>
         <td class="num">82</td>
         <td class="num">6</td>
         <td class="num">20</td>
         <td class="num">6%</td>
-        <td class="num">309</td>
+        <td class="num">310</td>
       </tr></tfoot>
     </table>
     <div class="insight"><strong>Parados +7d</strong> = leads no funil de trabalho (entrada → proposta) sem nenhuma movimentação há mais de 7 dias — risco de esfriar. <strong>Clique numa linha</strong> pra abrir o funil completo do corretor. <strong>Conversão</strong> = chegaram a qualificado ou além ÷ recebidos; <span class="star">★</span> marca a melhor do período.</div>
@@ -1328,41 +1341,41 @@
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Tintoretto</div><div class="sub">Fundo de Funil | Formulário | Tintoretto | 03/09/25 #TP</div></td>
-          <td class="num" data-v="1307.77">R$ 1.307,77
+          <td class="num" data-v="1309.57">R$ 1.309,57
             <div class="bar-wrap"><div class="bar navy" style="width:100.0%"></div></div></td>
           <td class="num" data-v="111"><span class="num-big">111</span>
             <div class="bar-wrap"><div class="bar" style="width:100.0%"></div></div></td>
-          <td class="num" data-v="11.78">R$ 11,78</td>
+          <td class="num" data-v="11.80">R$ 11,80</td>
           <td class="num" data-v="10"><span style="color:var(--ok); font-weight:600;">10</span></td>
         </tr>
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Essence</div><div class="sub">Fundo de Funil | Formulário  | Essence | 30/04/26  #TP</div></td>
-          <td class="num" data-v="1108.46">R$ 1.108,46
-            <div class="bar-wrap"><div class="bar navy" style="width:84.8%"></div></div></td>
+          <td class="num" data-v="1111.40">R$ 1.111,40
+            <div class="bar-wrap"><div class="bar navy" style="width:84.9%"></div></div></td>
           <td class="num" data-v="71"><span class="num-big">71</span>
             <div class="bar-wrap"><div class="bar" style="width:64.0%"></div></div></td>
-          <td class="num" data-v="15.61">R$ 15,61</td>
+          <td class="num" data-v="15.65">R$ 15,65</td>
           <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
         </tr>
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Crivelli</div><div class="sub">Fundo de Funil | Formulário  | Crivelli | 21/11/25 #TP</div></td>
-          <td class="num" data-v="841.19">R$ 841,19
-            <div class="bar-wrap"><div class="bar navy" style="width:64.3%"></div></div></td>
-          <td class="num" data-v="65"><span class="num-big">65</span>
-            <div class="bar-wrap"><div class="bar" style="width:58.6%"></div></div></td>
-          <td class="num" data-v="12.94">R$ 12,94</td>
+          <td class="num" data-v="843.17">R$ 843,17
+            <div class="bar-wrap"><div class="bar navy" style="width:64.4%"></div></div></td>
+          <td class="num" data-v="66"><span class="num-big">66</span>
+            <div class="bar-wrap"><div class="bar" style="width:59.5%"></div></div></td>
+          <td class="num" data-v="12.78">R$ 12,78</td>
           <td class="num" data-v="4"><span style="color:var(--ok); font-weight:600;">4</span></td>
         </tr>
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Sunrise</div><div class="sub">Fundo de Funil | Formulário | Sunrise | 03.09/25 #TP</div></td>
-          <td class="num" data-v="964.51">R$ 964,51
-            <div class="bar-wrap"><div class="bar navy" style="width:73.8%"></div></div></td>
+          <td class="num" data-v="967.15">R$ 967,15
+            <div class="bar-wrap"><div class="bar navy" style="width:73.9%"></div></div></td>
           <td class="num" data-v="38"><span class="num-big">38</span>
             <div class="bar-wrap"><div class="bar" style="width:34.2%"></div></div></td>
-          <td class="num" data-v="25.38">R$ 25,38</td>
+          <td class="num" data-v="25.45">R$ 25,45</td>
           <td class="num" data-v="2"><span style="color:var(--ok); font-weight:600;">2</span></td>
         </tr>
         <tr data-status="PAUSED">
@@ -1378,11 +1391,11 @@
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Cocoon Milagres</div><div class="sub">Fundo de Funil | Formulário | Milagres | 21/05 #TP</div></td>
-          <td class="num" data-v="239.71">R$ 239,71
-            <div class="bar-wrap"><div class="bar navy" style="width:18.3%"></div></div></td>
+          <td class="num" data-v="240.53">R$ 240,53
+            <div class="bar-wrap"><div class="bar navy" style="width:18.4%"></div></div></td>
           <td class="num" data-v="9"><span class="num-big">9</span>
             <div class="bar-wrap"><div class="bar" style="width:8.1%"></div></div></td>
-          <td class="num" data-v="26.63">R$ 26,63</td>
+          <td class="num" data-v="26.73">R$ 26,73</td>
           <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
         </tr>
         <tr data-status="PAUSED">
@@ -1409,7 +1422,7 @@
           <td data-v="0"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Topo de Funil | Tráfego |  23/06 #TP</div>
             <div class="sub"><span class="pill topo">Topo de funil</span> · 1.249 visitas · 6 compart. · 0 salvos</div></td>
-          <td class="num" data-v="279.15"><span class="num-big">R$ 279,15</span>
+          <td class="num" data-v="279.16"><span class="num-big">R$ 279,16</span>
             <div class="bar-wrap"><div class="bar navy" style="width:21.3%"></div></div></td>
           <td class="num zero" data-v="0">—</td><td class="num zero" data-v="0">—</td><td class="num zero" data-v="0">—</td>
         </tr>
@@ -1418,7 +1431,7 @@
           <td><div class="strong">Topo de Funil | Contratação |  30/04/26 #TP</div>
             <div class="sub"><span class="pill topo">Topo de funil</span> · 514 visitas · 15 compart. · 2 salvos</div></td>
           <td class="num" data-v="92.26"><span class="num-big">R$ 92,26</span>
-            <div class="bar-wrap"><div class="bar navy" style="width:7.1%"></div></div></td>
+            <div class="bar-wrap"><div class="bar navy" style="width:7.0%"></div></div></td>
           <td class="num zero" data-v="0">—</td><td class="num zero" data-v="0">—</td><td class="num zero" data-v="0">—</td>
         </tr>
       </tbody>
@@ -1438,9 +1451,9 @@
       <tbody>
         <tr>
           <td><div class="strong">Tintoretto</div></td>
-          <td class="num" data-v="1307.77">R$ 1.307,77</td>
+          <td class="num" data-v="1309.57">R$ 1.309,57</td>
           <td class="num" data-v="111"><span class="num-big">111</span></td>
-          <td class="num" data-v="11.78">R$ 11,78</td>
+          <td class="num" data-v="11.80">R$ 11,80</td>
           <td class="num" data-v="10"><span style="color:var(--ok); font-weight:600;">10</span></td>
           <td class="num" data-v="9.0"><span class="num-big" style="color:var(--ok);">9%</span></td>
           <td class="num" data-v="88">88</td>
@@ -1448,9 +1461,9 @@
         </tr>
         <tr>
           <td><div class="strong">Essence</div></td>
-          <td class="num" data-v="1108.46">R$ 1.108,46</td>
+          <td class="num" data-v="1111.40">R$ 1.111,40</td>
           <td class="num" data-v="71"><span class="num-big">71</span></td>
-          <td class="num" data-v="15.61">R$ 15,61</td>
+          <td class="num" data-v="15.65">R$ 15,65</td>
           <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
           <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
           <td class="num" data-v="51">51</td>
@@ -1458,19 +1471,19 @@
         </tr>
         <tr>
           <td><div class="strong">Crivelli</div></td>
-          <td class="num" data-v="841.19">R$ 841,19</td>
-          <td class="num" data-v="65"><span class="num-big">65</span></td>
-          <td class="num" data-v="12.94">R$ 12,94</td>
+          <td class="num" data-v="843.17">R$ 843,17</td>
+          <td class="num" data-v="66"><span class="num-big">66</span></td>
+          <td class="num" data-v="12.78">R$ 12,78</td>
           <td class="num" data-v="4"><span style="color:var(--ok); font-weight:600;">4</span></td>
-          <td class="num" data-v="6.2"><span class="num-big" style="color:var(--text-soft);">6%</span></td>
-          <td class="num" data-v="46">46</td>
+          <td class="num" data-v="6.1"><span class="num-big" style="color:var(--text-soft);">6%</span></td>
+          <td class="num" data-v="47">47</td>
           <td class="num" data-v="19">19</td>
         </tr>
         <tr>
           <td><div class="strong">Sunrise</div></td>
-          <td class="num" data-v="964.51">R$ 964,51</td>
+          <td class="num" data-v="967.15">R$ 967,15</td>
           <td class="num" data-v="38"><span class="num-big">38</span></td>
-          <td class="num" data-v="25.38">R$ 25,38</td>
+          <td class="num" data-v="25.45">R$ 25,45</td>
           <td class="num" data-v="2"><span style="color:var(--ok); font-weight:600;">2</span></td>
           <td class="num" data-v="5.3"><span class="num-big" style="color:var(--text-soft);">5%</span></td>
           <td class="num" data-v="29">29</td>
@@ -1488,9 +1501,9 @@
         </tr>
         <tr>
           <td><div class="strong">Cocoon Milagres</div></td>
-          <td class="num" data-v="239.71">R$ 239,71</td>
+          <td class="num" data-v="240.53">R$ 240,53</td>
           <td class="num" data-v="9"><span class="num-big">9</span></td>
-          <td class="num" data-v="26.63">R$ 26,63</td>
+          <td class="num" data-v="26.73">R$ 26,73</td>
           <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
           <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
           <td class="num" data-v="4">4</td>
@@ -1549,12 +1562,12 @@
       </tbody>
       <tfoot><tr>
         <td>Total (11 empreendimentos)</td>
-        <td class="num">R$ 5.093,39</td>
-        <td class="num">326</td>
-        <td class="num">R$ 15,62</td>
+        <td class="num">R$ 5.103,57</td>
+        <td class="num">327</td>
+        <td class="num">R$ 15,61</td>
         <td class="num">20</td>
         <td class="num">6%</td>
-        <td class="num">243</td>
+        <td class="num">244</td>
         <td class="num">83</td>
       </tr></tfoot>
     </table>
@@ -1596,23 +1609,23 @@
 
     <section id="ritmo" class="reveal">
       <div class="section-head"><h2>Ritmo diário de leads</h2><div class="meta">Kommo · 28 dias</div></div>
-      <div class="daily-grid" style="grid-template-columns:repeat(28,1fr)"><div class="day-bar" style="height:59.3%" data-val="16"></div><div class="day-bar" style="height:44.4%" data-val="12"></div><div class="day-bar" style="height:100.0%" data-val="27"></div><div class="day-bar" style="height:55.6%" data-val="15"></div><div class="day-bar" style="height:3.7%" data-val="1"></div><div class="day-bar" style="height:81.5%" data-val="22"></div><div class="day-bar" style="height:51.9%" data-val="14"></div><div class="day-bar" style="height:33.3%" data-val="9"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:48.1%" data-val="13"></div><div class="day-bar" style="height:40.7%" data-val="11"></div><div class="day-bar" style="height:18.5%" data-val="5"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:51.9%" data-val="14"></div><div class="day-bar" style="height:37.0%" data-val="10"></div><div class="day-bar" style="height:70.4%" data-val="19"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:11.1%" data-val="3"></div><div class="day-bar" style="height:22.2%" data-val="6"></div><div class="day-bar" style="height:33.3%" data-val="9"></div><div class="day-bar" style="height:33.3%" data-val="9"></div><div class="day-bar" style="height:59.3%" data-val="16"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:88.9%" data-val="24"></div><div class="day-bar" style="height:51.9%" data-val="14"></div><div class="day-bar" style="height:37.0%" data-val="10"></div></div><div class="daily-x" style="grid-template-columns:repeat(28,1fr)"><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span><span>08</span><span>09</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span></div>
+      <div class="daily-grid" style="grid-template-columns:repeat(28,1fr)"><div class="day-bar" style="height:59.3%" data-val="16"></div><div class="day-bar" style="height:44.4%" data-val="12"></div><div class="day-bar" style="height:100.0%" data-val="27"></div><div class="day-bar" style="height:55.6%" data-val="15"></div><div class="day-bar" style="height:3.7%" data-val="1"></div><div class="day-bar" style="height:81.5%" data-val="22"></div><div class="day-bar" style="height:51.9%" data-val="14"></div><div class="day-bar" style="height:33.3%" data-val="9"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:48.1%" data-val="13"></div><div class="day-bar" style="height:40.7%" data-val="11"></div><div class="day-bar" style="height:18.5%" data-val="5"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:51.9%" data-val="14"></div><div class="day-bar" style="height:37.0%" data-val="10"></div><div class="day-bar" style="height:70.4%" data-val="19"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:11.1%" data-val="3"></div><div class="day-bar" style="height:22.2%" data-val="6"></div><div class="day-bar" style="height:33.3%" data-val="9"></div><div class="day-bar" style="height:33.3%" data-val="9"></div><div class="day-bar" style="height:59.3%" data-val="16"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:88.9%" data-val="24"></div><div class="day-bar" style="height:51.9%" data-val="14"></div><div class="day-bar" style="height:40.7%" data-val="11"></div></div><div class="daily-x" style="grid-template-columns:repeat(28,1fr)"><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span><span>08</span><span>09</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span></div>
       <div class="insight"><strong>Média:</strong> 11.7 leads/dia ao longo de 28 dias. Cada barra mostra os leads daquele dia.</div>
     </section>
   </div>
 </script>
-<script type="text/html" class="period-tpl" data-period="ultimos_7" data-label="22 a 28 de Maio de 2026">  <div class="exec reveal"><h3>Resumo executivo</h3><p>No período foram <strong>90 leads</strong> ao custo de <strong>R$ 16,76</strong> cada (investimento de R$ 1.576,66), a um ritmo de <strong>13 leads/dia</strong>. Hoje há <strong>77 leads vivos no funil</strong>, sendo <strong>3 já qualificados ou em estágio avançado</strong> (reunião, proposta). A conversão média da equipe está em <strong>3,3%</strong>. Os motivos de perda estão detalhados na seção específica abaixo.</p></div>
+<script type="text/html" class="period-tpl" data-period="ultimos_7" data-label="22 a 28 de Maio de 2026">  <div class="exec reveal"><h3>Resumo executivo</h3><p>No período foram <strong>91 leads</strong> ao custo de <strong>R$ 16,68</strong> cada (investimento de R$ 1.586,85), a um ritmo de <strong>13 leads/dia</strong>. Hoje há <strong>78 leads vivos no funil</strong>, sendo <strong>3 já qualificados ou em estágio avançado</strong> (reunião, proposta). A conversão média da equipe está em <strong>3,3%</strong>. Os motivos de perda estão detalhados na seção específica abaixo.</p></div>
   <div class="kpi-grid reveal-stagger">
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">Investimento</div>
-      <div class="kpi-value">R$ 1.576,66</div>
-      <div class="kpi-delta neutral">&#9650; 47% <span>vs. anterior</span></div>
+      <div class="kpi-value">R$ 1.586,85</div>
+      <div class="kpi-delta neutral">&#9650; 48% <span>vs. anterior</span></div>
       <div class="kpi-meta">5 campanhas de captação</div></div>
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">Leads gerados</div>
-      <div class="kpi-value">90</div>
-      <div class="kpi-delta up">&#9650; 32% <span>vs. anterior</span></div>
-      <div class="kpi-meta">Base: Kommo · 88 pela Meta</div></div>
+      <div class="kpi-value">91</div>
+      <div class="kpi-delta up">&#9650; 34% <span>vs. anterior</span></div>
+      <div class="kpi-meta">Base: Kommo · 89 pela Meta</div></div>
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">CPL médio</div>
-      <div class="kpi-value">R$ 16,76</div>
+      <div class="kpi-value">R$ 16,68</div>
       <div class="kpi-delta down">&#9650; 6% <span>vs. anterior</span></div>
       <div class="kpi-meta">Investimento ÷ leads Kommo</div></div>
     <div class="kpi"><div class="kpi-accent ok"></div><div class="kpi-label">Qualificados</div>
@@ -1620,7 +1633,7 @@
       <div class="kpi-delta down">&#9660; 60% <span>vs. anterior</span></div>
       <div class="kpi-meta">No estágio "Lead qualificado"</div></div>
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">Vivos no funil</div>
-      <div class="kpi-value">77</div>
+      <div class="kpi-value">78</div>
       <div class="kpi-meta">Em atendimento ativo no Kommo</div></div>
   </div>
   <section id="acoes" class="reveal">
@@ -1681,14 +1694,14 @@
   </section>
   <section id="funil" class="reveal">
     <div class="section-head"><h2>Funil de vendas</h2>
-      <div class="meta">Kommo · todos os estágios<br>somam 90 leads</div></div>
+      <div class="meta">Kommo · todos os estágios<br>somam 91 leads</div></div>
     <div class="funnel">
       <div class="fstage"><div class="fname">Entrada / Lead novo</div>
-        <div class="fbar-wrap"><div class="fbar cold" style="width:6.7%"></div></div>
-        <div class="fnum"><b>3</b><span>3%</span></div></div>
+        <div class="fbar-wrap"><div class="fbar cold" style="width:8.9%"></div></div>
+        <div class="fnum"><b>4</b><span>4%</span></div></div>
       <div class="fstage"><div class="fname">Follow-up</div>
         <div class="fbar-wrap"><div class="fbar cold" style="width:100.0%"></div></div>
-        <div class="fnum"><b>45</b><span>50%</span></div></div>
+        <div class="fnum"><b>45</b><span>49%</span></div></div>
       <div class="fstage"><div class="fname">Em atendimento</div>
         <div class="fbar-wrap"><div class="fbar" style="width:57.8%"></div></div>
         <div class="fnum"><b>26</b><span>29%</span></div></div>
@@ -1716,7 +1729,13 @@
         <div class="fcard-top"><span class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg></span><div class="l">Encerrados (perda)</div></div>
         <div class="v">13</div></div>
     </div>
-    <div class="insight"><strong>Reconciliação:</strong> 77 leads vivos no funil + 13 encerrados = 90 leads, igual ao total do Kommo no período. Os números desta página batem 1:1 com o CRM.</div>
+    <div class="insight"><strong>Reconciliação:</strong> 78 leads vivos no funil + 13 encerrados = 91 leads, igual ao total do Kommo no período. Os números desta página batem 1:1 com o CRM.</div>
+  </section>
+  <section id="vendas" class="reveal">
+    <div class="section-head"><h2>Vendas &amp; resultado</h2>
+      <div class="meta">Meta Ads × Kommo<br>no período selecionado</div></div>
+    <div class="op-grid"><div class="opstat"><div class="opn" style="color:var(--navy)">0</div><div class="opl">Vendas no período</div></div><div class="opstat"><div class="opn" style="color:var(--navy)">0,0%</div><div class="opl">Taxa de fechamento</div></div><div class="opstat"><div class="opn" style="color:var(--navy)"><span class="zero">—</span></div><div class="opl">CAC (custo por venda)</div></div></div>
+    <div class="insight"><strong>Vendas</strong> = leads <em>criados neste período</em> que já chegaram à etapa "Venda" (cohort) — por isso períodos recentes tendem a 0, já que leads novos ainda não fecharam. O <strong>total acumulado</strong> da operação está em <em>Operação completa</em>, no fim. <strong>CAC</strong> = investido ÷ vendas; <strong>ROAS</strong> = VGV ÷ investido.</div>
   </section>
   <section id="corretores" class="reveal">
     <div class="section-head"><h2>Atividade por corretor</h2>
@@ -1837,6 +1856,23 @@
           </div>
         </td></tr>
         <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Emanuel Antônio</div></td>
+          <td class="num" data-v="8"><span class="num-big">8</span></td>
+          <td class="num" data-v="0"><span class="zero">—</span></td>
+          <td class="num" data-v="4">4</td>
+          <td class="num" data-v="3">3</td>
+          <td class="num" data-v="0"><span class="zero">—</span></td>
+          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
+          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
+          <td class="num" data-v="9"><span class="strong">9</span></td>
+        </tr>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Emanuel Antônio</strong></div>
+            <div class="cstats"><div class="cstat"><b>1</b><span>Entrada</span></div><div class="cstat"><b>4</b><span>Follow-up</span></div><div class="cstat"><b>3</b><span>Em atendimento</span></div><div class="cstat"><b>0</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>0</b><span>Parados +7d</span></div><div class="cstat"><b>1</b><span>Perdidos</span></div><div class="cstat"><b>0</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
           <td><div class="strong"><span class="corr-caret">▸</span>Ruy</div></td>
           <td class="num" data-v="8"><span class="num-big">8</span></td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -1868,23 +1904,6 @@
           <div class="corr-panel">
             <div class="corr-panel-h">Funil de <strong>Carlos Pereira</strong></div>
             <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>3</b><span>Follow-up</span></div><div class="cstat"><b>4</b><span>Em atendimento</span></div><div class="cstat"><b>0</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>0</b><span>Parados +7d</span></div><div class="cstat"><b>1</b><span>Perdidos</span></div><div class="cstat"><b>0</b><span>Nutrição / interesse</span></div></div>
-          </div>
-        </td></tr>
-        <tr class="corr-row">
-          <td><div class="strong"><span class="corr-caret">▸</span>Emanuel Antônio</div></td>
-          <td class="num" data-v="7"><span class="num-big">7</span></td>
-          <td class="num" data-v="0"><span class="zero">—</span></td>
-          <td class="num" data-v="4">4</td>
-          <td class="num" data-v="3">3</td>
-          <td class="num" data-v="0"><span class="zero">—</span></td>
-          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
-          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
-          <td class="num" data-v="8"><span class="strong">8</span></td>
-        </tr>
-        <tr class="corr-detail" hidden><td colspan="9">
-          <div class="corr-panel">
-            <div class="corr-panel-h">Funil de <strong>Emanuel Antônio</strong></div>
-            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>4</b><span>Follow-up</span></div><div class="cstat"><b>3</b><span>Em atendimento</span></div><div class="cstat"><b>0</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>0</b><span>Parados +7d</span></div><div class="cstat"><b>1</b><span>Perdidos</span></div><div class="cstat"><b>0</b><span>Nutrição / interesse</span></div></div>
           </div>
         </td></tr>
         <tr class="corr-row">
@@ -1924,14 +1943,14 @@
       </tbody>
       <tfoot><tr>
         <td>Total comercial (11 corretores)</td>
-        <td class="num">77</td>
+        <td class="num">78</td>
         <td class="num">0</td>
         <td class="num">45</td>
         <td class="num">26</td>
         <td class="num">1</td>
         <td class="num">3</td>
         <td class="num">3%</td>
-        <td class="num">90</td>
+        <td class="num">91</td>
       </tr></tfoot>
     </table>
     <div class="insight"><strong>Parados +7d</strong> = leads no funil de trabalho (entrada → proposta) sem nenhuma movimentação há mais de 7 dias — risco de esfriar. <strong>Clique numa linha</strong> pra abrir o funil completo do corretor. <strong>Conversão</strong> = chegaram a qualificado ou além ÷ recebidos; <span class="star">★</span> marca a melhor do período.</div>
@@ -1953,59 +1972,59 @@
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Tintoretto</div><div class="sub">Fundo de Funil | Formulário | Tintoretto | 03/09/25 #TP</div></td>
-          <td class="num" data-v="363.76">R$ 363,76
-            <div class="bar-wrap"><div class="bar navy" style="width:98.8%"></div></div></td>
+          <td class="num" data-v="365.56">R$ 365,56
+            <div class="bar-wrap"><div class="bar navy" style="width:98.5%"></div></div></td>
           <td class="num" data-v="24"><span class="num-big">24</span>
             <div class="bar-wrap"><div class="bar" style="width:100.0%"></div></div></td>
-          <td class="num" data-v="15.16">R$ 15,16</td>
+          <td class="num" data-v="15.23">R$ 15,23</td>
           <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
         </tr>
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Essence</div><div class="sub">Fundo de Funil | Formulário  | Essence | 30/04/26  #TP</div></td>
-          <td class="num" data-v="368.04">R$ 368,04
+          <td class="num" data-v="370.98">R$ 370,98
             <div class="bar-wrap"><div class="bar navy" style="width:100.0%"></div></div></td>
           <td class="num" data-v="23"><span class="num-big">23</span>
             <div class="bar-wrap"><div class="bar" style="width:95.8%"></div></div></td>
-          <td class="num" data-v="16.00">R$ 16,00</td>
+          <td class="num" data-v="16.13">R$ 16,13</td>
           <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
         </tr>
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Crivelli</div><div class="sub">Fundo de Funil | Formulário  | Crivelli | 21/11/25 #TP</div></td>
-          <td class="num" data-v="257.90">R$ 257,90
+          <td class="num" data-v="259.88">R$ 259,88
             <div class="bar-wrap"><div class="bar navy" style="width:70.1%"></div></div></td>
-          <td class="num" data-v="21"><span class="num-big">21</span>
-            <div class="bar-wrap"><div class="bar" style="width:87.5%"></div></div></td>
-          <td class="num" data-v="12.28">R$ 12,28</td>
+          <td class="num" data-v="22"><span class="num-big">22</span>
+            <div class="bar-wrap"><div class="bar" style="width:91.7%"></div></div></td>
+          <td class="num" data-v="11.81">R$ 11,81</td>
           <td class="num" data-v="2"><span style="color:var(--ok); font-weight:600;">2</span></td>
         </tr>
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Sunrise</div><div class="sub">Fundo de Funil | Formulário | Sunrise | 03.09/25 #TP</div></td>
-          <td class="num" data-v="294.26">R$ 294,26
+          <td class="num" data-v="296.90">R$ 296,90
             <div class="bar-wrap"><div class="bar navy" style="width:80.0%"></div></div></td>
           <td class="num" data-v="8"><span class="num-big">8</span>
             <div class="bar-wrap"><div class="bar" style="width:33.3%"></div></div></td>
-          <td class="num" data-v="36.78">R$ 36,78</td>
+          <td class="num" data-v="37.11">R$ 37,11</td>
           <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
         </tr>
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Cocoon Milagres</div><div class="sub">Fundo de Funil | Formulário | Milagres | 21/05 #TP</div></td>
-          <td class="num" data-v="224.02">R$ 224,02
-            <div class="bar-wrap"><div class="bar navy" style="width:60.9%"></div></div></td>
+          <td class="num" data-v="224.84">R$ 224,84
+            <div class="bar-wrap"><div class="bar navy" style="width:60.6%"></div></div></td>
           <td class="num" data-v="8"><span class="num-big">8</span>
             <div class="bar-wrap"><div class="bar" style="width:33.3%"></div></div></td>
-          <td class="num" data-v="28.00">R$ 28,00</td>
+          <td class="num" data-v="28.11">R$ 28,11</td>
           <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
         </tr>
         <tr data-status="ACTIVE">
           <td data-v="0"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Topo de Funil | Tráfego |  23/06 #TP</div>
             <div class="sub"><span class="pill topo">Topo de funil</span> · 265 visitas · 1 compart. · 0 salvos</div></td>
-          <td class="num" data-v="68.68"><span class="num-big">R$ 68,68</span>
-            <div class="bar-wrap"><div class="bar navy" style="width:18.7%"></div></div></td>
+          <td class="num" data-v="68.69"><span class="num-big">R$ 68,69</span>
+            <div class="bar-wrap"><div class="bar navy" style="width:18.5%"></div></div></td>
           <td class="num zero" data-v="0">—</td><td class="num zero" data-v="0">—</td><td class="num zero" data-v="0">—</td>
         </tr>
       </tbody>
@@ -2025,9 +2044,9 @@
       <tbody>
         <tr>
           <td><div class="strong">Tintoretto</div></td>
-          <td class="num" data-v="363.76">R$ 363,76</td>
+          <td class="num" data-v="365.56">R$ 365,56</td>
           <td class="num" data-v="24"><span class="num-big">24</span></td>
-          <td class="num" data-v="15.16">R$ 15,16</td>
+          <td class="num" data-v="15.23">R$ 15,23</td>
           <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
           <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
           <td class="num" data-v="19">19</td>
@@ -2035,9 +2054,9 @@
         </tr>
         <tr>
           <td><div class="strong">Essence</div></td>
-          <td class="num" data-v="368.04">R$ 368,04</td>
+          <td class="num" data-v="370.98">R$ 370,98</td>
           <td class="num" data-v="23"><span class="num-big">23</span></td>
-          <td class="num" data-v="16.00">R$ 16,00</td>
+          <td class="num" data-v="16.13">R$ 16,13</td>
           <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
           <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
           <td class="num" data-v="23">23</td>
@@ -2045,19 +2064,19 @@
         </tr>
         <tr>
           <td><div class="strong">Crivelli</div></td>
-          <td class="num" data-v="257.90">R$ 257,90</td>
-          <td class="num" data-v="21"><span class="num-big">21</span></td>
-          <td class="num" data-v="12.28">R$ 12,28</td>
+          <td class="num" data-v="259.88">R$ 259,88</td>
+          <td class="num" data-v="22"><span class="num-big">22</span></td>
+          <td class="num" data-v="11.81">R$ 11,81</td>
           <td class="num" data-v="2"><span style="color:var(--ok); font-weight:600;">2</span></td>
-          <td class="num" data-v="9.5"><span class="num-big" style="color:var(--ok);">10%</span></td>
-          <td class="num" data-v="21">21</td>
+          <td class="num" data-v="9.1"><span class="num-big" style="color:var(--ok);">9%</span></td>
+          <td class="num" data-v="22">22</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
         </tr>
         <tr>
           <td><div class="strong">Sunrise</div></td>
-          <td class="num" data-v="294.26">R$ 294,26</td>
+          <td class="num" data-v="296.90">R$ 296,90</td>
           <td class="num" data-v="8"><span class="num-big">8</span></td>
-          <td class="num" data-v="36.78">R$ 36,78</td>
+          <td class="num" data-v="37.11">R$ 37,11</td>
           <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
           <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
           <td class="num" data-v="6">6</td>
@@ -2065,9 +2084,9 @@
         </tr>
         <tr>
           <td><div class="strong">Cocoon Milagres</div></td>
-          <td class="num" data-v="224.02">R$ 224,02</td>
+          <td class="num" data-v="224.84">R$ 224,84</td>
           <td class="num" data-v="8"><span class="num-big">8</span></td>
-          <td class="num" data-v="28.00">R$ 28,00</td>
+          <td class="num" data-v="28.11">R$ 28,11</td>
           <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
           <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
           <td class="num" data-v="3">3</td>
@@ -2096,12 +2115,12 @@
       </tbody>
       <tfoot><tr>
         <td>Total (7 empreendimentos)</td>
-        <td class="num">R$ 1.507,98</td>
-        <td class="num">90</td>
-        <td class="num">R$ 16,76</td>
+        <td class="num">R$ 1.518,16</td>
+        <td class="num">91</td>
+        <td class="num">R$ 16,68</td>
         <td class="num">3</td>
         <td class="num">3%</td>
-        <td class="num">77</td>
+        <td class="num">78</td>
         <td class="num">13</td>
       </tr></tfoot>
     </table>
@@ -2137,23 +2156,23 @@
 
     <section id="ritmo" class="reveal">
       <div class="section-head"><h2>Ritmo diário de leads</h2><div class="meta">Kommo · 7 dias</div></div>
-      <div class="daily-grid" style="grid-template-columns:repeat(7,1fr)"><div class="day-bar" style="height:37.5%" data-val="9"></div><div class="day-bar" style="height:37.5%" data-val="9"></div><div class="day-bar" style="height:66.7%" data-val="16"></div><div class="day-bar" style="height:33.3%" data-val="8"></div><div class="day-bar" style="height:100.0%" data-val="24"></div><div class="day-bar" style="height:58.3%" data-val="14"></div><div class="day-bar" style="height:41.7%" data-val="10"></div></div><div class="daily-x" style="grid-template-columns:repeat(7,1fr)"><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span></div>
-      <div class="insight"><strong>Média:</strong> 12.9 leads/dia ao longo de 7 dias. Cada barra mostra os leads daquele dia.</div>
+      <div class="daily-grid" style="grid-template-columns:repeat(7,1fr)"><div class="day-bar" style="height:37.5%" data-val="9"></div><div class="day-bar" style="height:37.5%" data-val="9"></div><div class="day-bar" style="height:66.7%" data-val="16"></div><div class="day-bar" style="height:33.3%" data-val="8"></div><div class="day-bar" style="height:100.0%" data-val="24"></div><div class="day-bar" style="height:58.3%" data-val="14"></div><div class="day-bar" style="height:45.8%" data-val="11"></div></div><div class="daily-x" style="grid-template-columns:repeat(7,1fr)"><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span></div>
+      <div class="insight"><strong>Média:</strong> 13.0 leads/dia ao longo de 7 dias. Cada barra mostra os leads daquele dia.</div>
     </section>
   </div>
 </script>
-<script type="text/html" class="period-tpl" data-period="ultimos_30" data-label="29/04/2026 — 28/05/2026">  <div class="exec reveal"><h3>Resumo executivo</h3><p>No período foram <strong>340 leads</strong> ao custo de <strong>R$ 16,05</strong> cada (investimento de R$ 5.854,53), a um ritmo de <strong>11 leads/dia</strong>. Hoje há <strong>254 leads vivos no funil</strong>, sendo <strong>20 já qualificados ou em estágio avançado</strong> (reunião, proposta). A conversão média da equipe está em <strong>6,3%</strong>. Os motivos de perda estão detalhados na seção específica abaixo.</p></div>
+<script type="text/html" class="period-tpl" data-period="ultimos_30" data-label="29/04/2026 — 28/05/2026">  <div class="exec reveal"><h3>Resumo executivo</h3><p>No período foram <strong>341 leads</strong> ao custo de <strong>R$ 16,04</strong> cada (investimento de R$ 5.864,72), a um ritmo de <strong>11 leads/dia</strong>. Hoje há <strong>255 leads vivos no funil</strong>, sendo <strong>20 já qualificados ou em estágio avançado</strong> (reunião, proposta). A conversão média da equipe está em <strong>6,3%</strong>. Os motivos de perda estão detalhados na seção específica abaixo.</p></div>
   <div class="kpi-grid reveal-stagger">
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">Investimento</div>
-      <div class="kpi-value">R$ 5.854,53</div>
+      <div class="kpi-value">R$ 5.864,72</div>
       <div class="kpi-delta neutral">&#9660; 12% <span>vs. anterior</span></div>
       <div class="kpi-meta">11 campanhas de captação</div></div>
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">Leads gerados</div>
-      <div class="kpi-value">340</div>
+      <div class="kpi-value">341</div>
       <div class="kpi-delta down">&#9660; 57% <span>vs. anterior</span></div>
-      <div class="kpi-meta">Base: Kommo · 341 pela Meta</div></div>
+      <div class="kpi-meta">Base: Kommo · 342 pela Meta</div></div>
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">CPL médio</div>
-      <div class="kpi-value">R$ 16,05</div>
+      <div class="kpi-value">R$ 16,04</div>
       <div class="kpi-delta down">&#9650; 90% <span>vs. anterior</span></div>
       <div class="kpi-meta">Investimento ÷ leads Kommo</div></div>
     <div class="kpi"><div class="kpi-accent ok"></div><div class="kpi-label">Qualificados</div>
@@ -2161,7 +2180,7 @@
       <div class="kpi-delta up">&#9650; 40% <span>vs. anterior</span></div>
       <div class="kpi-meta">No estágio "Lead qualificado"</div></div>
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">Vivos no funil</div>
-      <div class="kpi-value">254</div>
+      <div class="kpi-value">255</div>
       <div class="kpi-meta">Em atendimento ativo no Kommo</div></div>
   </div>
   <section id="acoes" class="reveal">
@@ -2222,11 +2241,11 @@
   </section>
   <section id="funil" class="reveal">
     <div class="section-head"><h2>Funil de vendas</h2>
-      <div class="meta">Kommo · todos os estágios<br>somam 340 leads</div></div>
+      <div class="meta">Kommo · todos os estágios<br>somam 341 leads</div></div>
     <div class="funnel">
       <div class="fstage"><div class="fname">Entrada / Lead novo</div>
-        <div class="fbar-wrap"><div class="fbar cold" style="width:2.7%"></div></div>
-        <div class="fnum"><b>3</b><span>1%</span></div></div>
+        <div class="fbar-wrap"><div class="fbar cold" style="width:3.6%"></div></div>
+        <div class="fnum"><b>4</b><span>1%</span></div></div>
       <div class="fstage"><div class="fname">Follow-up</div>
         <div class="fbar-wrap"><div class="fbar cold" style="width:100.0%"></div></div>
         <div class="fnum"><b>110</b><span>32%</span></div></div>
@@ -2257,7 +2276,13 @@
         <div class="fcard-top"><span class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg></span><div class="l">Encerrados (perda)</div></div>
         <div class="v">86</div></div>
     </div>
-    <div class="insight"><strong>Reconciliação:</strong> 254 leads vivos no funil + 86 encerrados = 340 leads, igual ao total do Kommo no período. Os números desta página batem 1:1 com o CRM.</div>
+    <div class="insight"><strong>Reconciliação:</strong> 255 leads vivos no funil + 86 encerrados = 341 leads, igual ao total do Kommo no período. Os números desta página batem 1:1 com o CRM.</div>
+  </section>
+  <section id="vendas" class="reveal">
+    <div class="section-head"><h2>Vendas &amp; resultado</h2>
+      <div class="meta">Meta Ads × Kommo<br>no período selecionado</div></div>
+    <div class="op-grid"><div class="opstat"><div class="opn" style="color:var(--navy)">0</div><div class="opl">Vendas no período</div></div><div class="opstat"><div class="opn" style="color:var(--navy)">0,0%</div><div class="opl">Taxa de fechamento</div></div><div class="opstat"><div class="opn" style="color:var(--navy)"><span class="zero">—</span></div><div class="opl">CAC (custo por venda)</div></div></div>
+    <div class="insight"><strong>Vendas</strong> = leads <em>criados neste período</em> que já chegaram à etapa "Venda" (cohort) — por isso períodos recentes tendem a 0, já que leads novos ainda não fecharam. O <strong>total acumulado</strong> da operação está em <em>Operação completa</em>, no fim. <strong>CAC</strong> = investido ÷ vendas; <strong>ROAS</strong> = VGV ÷ investido.</div>
   </section>
   <section id="corretores" class="reveal">
     <div class="section-head"><h2>Atividade por corretor</h2>
@@ -2413,19 +2438,19 @@
         </td></tr>
         <tr class="corr-row">
           <td><div class="strong"><span class="corr-caret">▸</span>Emanuel Antônio</div></td>
-          <td class="num" data-v="22"><span class="num-big">22</span></td>
+          <td class="num" data-v="23"><span class="num-big">23</span></td>
           <td class="num" data-v="12"><span class="num-big" style="color:var(--danger);">12</span></td>
           <td class="num" data-v="13">13</td>
           <td class="num" data-v="7">7</td>
           <td class="num" data-v="1">1</td>
           <td class="num" data-v="1"><span style="color:var(--ok); font-weight:600;">1</span></td>
-          <td class="num" data-v="3.1"><span class="num-big" style="color:var(--text-soft);">3%</span></td>
-          <td class="num" data-v="32"><span class="strong">32</span></td>
+          <td class="num" data-v="3.0"><span class="num-big" style="color:var(--text-soft);">3%</span></td>
+          <td class="num" data-v="33"><span class="strong">33</span></td>
         </tr>
         <tr class="corr-detail" hidden><td colspan="9">
           <div class="corr-panel">
             <div class="corr-panel-h">Funil de <strong>Emanuel Antônio</strong></div>
-            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>13</b><span>Follow-up</span></div><div class="cstat"><b>7</b><span>Em atendimento</span></div><div class="cstat"><b>0</b><span>Qualificado</span></div><div class="cstat"><b>1</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>12</b><span>Parados +7d · 55% da carteira</span></div><div class="cstat"><b>10</b><span>Perdidos</span></div><div class="cstat"><b>1</b><span>Nutrição / interesse</span></div></div>
+            <div class="cstats"><div class="cstat"><b>1</b><span>Entrada</span></div><div class="cstat"><b>13</b><span>Follow-up</span></div><div class="cstat"><b>7</b><span>Em atendimento</span></div><div class="cstat"><b>0</b><span>Qualificado</span></div><div class="cstat"><b>1</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>12</b><span>Parados +7d · 52% da carteira</span></div><div class="cstat"><b>10</b><span>Perdidos</span></div><div class="cstat"><b>1</b><span>Nutrição / interesse</span></div></div>
           </div>
         </td></tr>
         <tr class="corr-row">
@@ -2476,14 +2501,14 @@
       </tbody>
       <tfoot><tr>
         <td>Total comercial (11 corretores)</td>
-        <td class="num">230</td>
+        <td class="num">231</td>
         <td class="num">124</td>
         <td class="num">110</td>
         <td class="num">83</td>
         <td class="num">6</td>
         <td class="num">20</td>
         <td class="num">6%</td>
-        <td class="num">316</td>
+        <td class="num">317</td>
       </tr></tfoot>
     </table>
     <div class="insight"><strong>Parados +7d</strong> = leads no funil de trabalho (entrada → proposta) sem nenhuma movimentação há mais de 7 dias — risco de esfriar. <strong>Clique numa linha</strong> pra abrir o funil completo do corretor. <strong>Conversão</strong> = chegaram a qualificado ou além ÷ recebidos; <span class="star">★</span> marca a melhor do período.</div>
@@ -2505,31 +2530,31 @@
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Tintoretto</div><div class="sub">Fundo de Funil | Formulário | Tintoretto | 03/09/25 #TP</div></td>
-          <td class="num" data-v="1390.46">R$ 1.390,46
+          <td class="num" data-v="1392.26">R$ 1.392,26
             <div class="bar-wrap"><div class="bar navy" style="width:100.0%"></div></div></td>
           <td class="num" data-v="114"><span class="num-big">114</span>
             <div class="bar-wrap"><div class="bar" style="width:100.0%"></div></div></td>
-          <td class="num" data-v="12.20">R$ 12,20</td>
+          <td class="num" data-v="12.21">R$ 12,21</td>
           <td class="num" data-v="10"><span style="color:var(--ok); font-weight:600;">10</span></td>
         </tr>
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Crivelli</div><div class="sub">Fundo de Funil | Formulário  | Crivelli | 21/11/25 #TP</div></td>
-          <td class="num" data-v="922.72">R$ 922,72
+          <td class="num" data-v="924.70">R$ 924,70
             <div class="bar-wrap"><div class="bar navy" style="width:66.4%"></div></div></td>
-          <td class="num" data-v="73"><span class="num-big">73</span>
-            <div class="bar-wrap"><div class="bar" style="width:64.0%"></div></div></td>
-          <td class="num" data-v="12.64">R$ 12,64</td>
+          <td class="num" data-v="74"><span class="num-big">74</span>
+            <div class="bar-wrap"><div class="bar" style="width:64.9%"></div></div></td>
+          <td class="num" data-v="12.50">R$ 12,50</td>
           <td class="num" data-v="4"><span style="color:var(--ok); font-weight:600;">4</span></td>
         </tr>
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Essence</div><div class="sub">Fundo de Funil | Formulário  | Essence | 30/04/26  #TP</div></td>
-          <td class="num" data-v="1117.91">R$ 1.117,91
-            <div class="bar-wrap"><div class="bar navy" style="width:80.4%"></div></div></td>
+          <td class="num" data-v="1120.85">R$ 1.120,85
+            <div class="bar-wrap"><div class="bar navy" style="width:80.5%"></div></div></td>
           <td class="num" data-v="71"><span class="num-big">71</span>
             <div class="bar-wrap"><div class="bar" style="width:62.3%"></div></div></td>
-          <td class="num" data-v="15.75">R$ 15,75</td>
+          <td class="num" data-v="15.79">R$ 15,79</td>
           <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
         </tr>
         <tr data-status="PAUSED">
@@ -2545,11 +2570,11 @@
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Sunrise</div><div class="sub">Fundo de Funil | Formulário | Sunrise | 03.09/25 #TP</div></td>
-          <td class="num" data-v="991.15">R$ 991,15
-            <div class="bar-wrap"><div class="bar navy" style="width:71.3%"></div></div></td>
+          <td class="num" data-v="993.79">R$ 993,79
+            <div class="bar-wrap"><div class="bar navy" style="width:71.4%"></div></div></td>
           <td class="num" data-v="38"><span class="num-big">38</span>
             <div class="bar-wrap"><div class="bar" style="width:33.3%"></div></div></td>
-          <td class="num" data-v="26.08">R$ 26,08</td>
+          <td class="num" data-v="26.15">R$ 26,15</td>
           <td class="num" data-v="2"><span style="color:var(--ok); font-weight:600;">2</span></td>
         </tr>
         <tr data-status="PAUSED">
@@ -2565,11 +2590,11 @@
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Cocoon Milagres</div><div class="sub">Fundo de Funil | Formulário | Milagres | 21/05 #TP</div></td>
-          <td class="num" data-v="239.71">R$ 239,71
-            <div class="bar-wrap"><div class="bar navy" style="width:17.2%"></div></div></td>
+          <td class="num" data-v="240.53">R$ 240,53
+            <div class="bar-wrap"><div class="bar navy" style="width:17.3%"></div></div></td>
           <td class="num" data-v="9"><span class="num-big">9</span>
             <div class="bar-wrap"><div class="bar" style="width:7.9%"></div></div></td>
-          <td class="num" data-v="26.63">R$ 26,63</td>
+          <td class="num" data-v="26.73">R$ 26,73</td>
           <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
         </tr>
         <tr data-status="PAUSED">
@@ -2616,7 +2641,7 @@
           <td data-v="0"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Topo de Funil | Tráfego |  23/06 #TP</div>
             <div class="sub"><span class="pill topo">Topo de funil</span> · 1.311 visitas · 6 compart. · 0 salvos</div></td>
-          <td class="num" data-v="296.18"><span class="num-big">R$ 296,18</span>
+          <td class="num" data-v="296.19"><span class="num-big">R$ 296,19</span>
             <div class="bar-wrap"><div class="bar navy" style="width:21.3%"></div></div></td>
           <td class="num zero" data-v="0">—</td><td class="num zero" data-v="0">—</td><td class="num zero" data-v="0">—</td>
         </tr>
@@ -2645,9 +2670,9 @@
       <tbody>
         <tr>
           <td><div class="strong">Tintoretto</div></td>
-          <td class="num" data-v="1390.46">R$ 1.390,46</td>
+          <td class="num" data-v="1392.26">R$ 1.392,26</td>
           <td class="num" data-v="114"><span class="num-big">114</span></td>
-          <td class="num" data-v="12.20">R$ 12,20</td>
+          <td class="num" data-v="12.21">R$ 12,21</td>
           <td class="num" data-v="10"><span style="color:var(--ok); font-weight:600;">10</span></td>
           <td class="num" data-v="8.8"><span class="num-big" style="color:var(--ok);">9%</span></td>
           <td class="num" data-v="90">90</td>
@@ -2655,19 +2680,19 @@
         </tr>
         <tr>
           <td><div class="strong">Crivelli</div></td>
-          <td class="num" data-v="922.72">R$ 922,72</td>
-          <td class="num" data-v="73"><span class="num-big">73</span></td>
-          <td class="num" data-v="12.64">R$ 12,64</td>
+          <td class="num" data-v="924.70">R$ 924,70</td>
+          <td class="num" data-v="74"><span class="num-big">74</span></td>
+          <td class="num" data-v="12.50">R$ 12,50</td>
           <td class="num" data-v="4"><span style="color:var(--ok); font-weight:600;">4</span></td>
-          <td class="num" data-v="5.5"><span class="num-big" style="color:var(--text-soft);">5%</span></td>
-          <td class="num" data-v="53">53</td>
+          <td class="num" data-v="5.4"><span class="num-big" style="color:var(--text-soft);">5%</span></td>
+          <td class="num" data-v="54">54</td>
           <td class="num" data-v="20">20</td>
         </tr>
         <tr>
           <td><div class="strong">Essence</div></td>
-          <td class="num" data-v="1117.92">R$ 1.117,92</td>
+          <td class="num" data-v="1120.86">R$ 1.120,86</td>
           <td class="num" data-v="71"><span class="num-big">71</span></td>
-          <td class="num" data-v="15.75">R$ 15,75</td>
+          <td class="num" data-v="15.79">R$ 15,79</td>
           <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
           <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
           <td class="num" data-v="51">51</td>
@@ -2675,9 +2700,9 @@
         </tr>
         <tr>
           <td><div class="strong">Sunrise</div></td>
-          <td class="num" data-v="991.15">R$ 991,15</td>
+          <td class="num" data-v="993.79">R$ 993,79</td>
           <td class="num" data-v="38"><span class="num-big">38</span></td>
-          <td class="num" data-v="26.08">R$ 26,08</td>
+          <td class="num" data-v="26.15">R$ 26,15</td>
           <td class="num" data-v="2"><span style="color:var(--ok); font-weight:600;">2</span></td>
           <td class="num" data-v="5.3"><span class="num-big" style="color:var(--text-soft);">5%</span></td>
           <td class="num" data-v="29">29</td>
@@ -2695,9 +2720,9 @@
         </tr>
         <tr>
           <td><div class="strong">Cocoon Milagres</div></td>
-          <td class="num" data-v="239.71">R$ 239,71</td>
+          <td class="num" data-v="240.53">R$ 240,53</td>
           <td class="num" data-v="9"><span class="num-big">9</span></td>
-          <td class="num" data-v="26.63">R$ 26,63</td>
+          <td class="num" data-v="26.73">R$ 26,73</td>
           <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
           <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
           <td class="num" data-v="4">4</td>
@@ -2756,12 +2781,12 @@
       </tbody>
       <tfoot><tr>
         <td>Total (11 empreendimentos)</td>
-        <td class="num">R$ 5.422,56</td>
-        <td class="num">339</td>
-        <td class="num">R$ 16,00</td>
+        <td class="num">R$ 5.432,74</td>
+        <td class="num">340</td>
+        <td class="num">R$ 15,98</td>
         <td class="num">20</td>
         <td class="num">6%</td>
-        <td class="num">253</td>
+        <td class="num">254</td>
         <td class="num">86</td>
       </tr></tfoot>
     </table>
@@ -2806,8 +2831,8 @@
 
     <section id="ritmo" class="reveal">
       <div class="section-head"><h2>Ritmo diário de leads</h2><div class="meta">Kommo · 30 dias</div></div>
-      <div class="daily-grid" style="grid-template-columns:repeat(30,1fr)"><div class="day-bar" style="height:14.8%" data-val="4"></div><div class="day-bar" style="height:33.3%" data-val="9"></div><div class="day-bar" style="height:59.3%" data-val="16"></div><div class="day-bar" style="height:44.4%" data-val="12"></div><div class="day-bar" style="height:100.0%" data-val="27"></div><div class="day-bar" style="height:55.6%" data-val="15"></div><div class="day-bar" style="height:3.7%" data-val="1"></div><div class="day-bar" style="height:81.5%" data-val="22"></div><div class="day-bar" style="height:51.9%" data-val="14"></div><div class="day-bar" style="height:33.3%" data-val="9"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:48.1%" data-val="13"></div><div class="day-bar" style="height:40.7%" data-val="11"></div><div class="day-bar" style="height:18.5%" data-val="5"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:51.9%" data-val="14"></div><div class="day-bar" style="height:37.0%" data-val="10"></div><div class="day-bar" style="height:70.4%" data-val="19"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:11.1%" data-val="3"></div><div class="day-bar" style="height:22.2%" data-val="6"></div><div class="day-bar" style="height:33.3%" data-val="9"></div><div class="day-bar" style="height:33.3%" data-val="9"></div><div class="day-bar" style="height:59.3%" data-val="16"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:88.9%" data-val="24"></div><div class="day-bar" style="height:51.9%" data-val="14"></div><div class="day-bar" style="height:37.0%" data-val="10"></div></div><div class="daily-x" style="grid-template-columns:repeat(30,1fr)"><span>29</span><span>30</span><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span><span>08</span><span>09</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span></div>
-      <div class="insight"><strong>Média:</strong> 11.3 leads/dia ao longo de 30 dias. Cada barra mostra os leads daquele dia.</div>
+      <div class="daily-grid" style="grid-template-columns:repeat(30,1fr)"><div class="day-bar" style="height:14.8%" data-val="4"></div><div class="day-bar" style="height:33.3%" data-val="9"></div><div class="day-bar" style="height:59.3%" data-val="16"></div><div class="day-bar" style="height:44.4%" data-val="12"></div><div class="day-bar" style="height:100.0%" data-val="27"></div><div class="day-bar" style="height:55.6%" data-val="15"></div><div class="day-bar" style="height:3.7%" data-val="1"></div><div class="day-bar" style="height:81.5%" data-val="22"></div><div class="day-bar" style="height:51.9%" data-val="14"></div><div class="day-bar" style="height:33.3%" data-val="9"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:48.1%" data-val="13"></div><div class="day-bar" style="height:40.7%" data-val="11"></div><div class="day-bar" style="height:18.5%" data-val="5"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:51.9%" data-val="14"></div><div class="day-bar" style="height:37.0%" data-val="10"></div><div class="day-bar" style="height:70.4%" data-val="19"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:11.1%" data-val="3"></div><div class="day-bar" style="height:22.2%" data-val="6"></div><div class="day-bar" style="height:33.3%" data-val="9"></div><div class="day-bar" style="height:33.3%" data-val="9"></div><div class="day-bar" style="height:59.3%" data-val="16"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:88.9%" data-val="24"></div><div class="day-bar" style="height:51.9%" data-val="14"></div><div class="day-bar" style="height:40.7%" data-val="11"></div></div><div class="daily-x" style="grid-template-columns:repeat(30,1fr)"><span>29</span><span>30</span><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span><span>08</span><span>09</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span></div>
+      <div class="insight"><strong>Média:</strong> 11.4 leads/dia ao longo de 30 dias. Cada barra mostra os leads daquele dia.</div>
     </section>
   </div>
 </script>
@@ -2927,6 +2952,12 @@
         <div class="v">93</div></div>
     </div>
     <div class="insight"><strong>Reconciliação:</strong> 698 leads vivos no funil + 93 encerrados = 793 leads, igual ao total do Kommo no período. Os números desta página batem 1:1 com o CRM.</div>
+  </section>
+  <section id="vendas" class="reveal">
+    <div class="section-head"><h2>Vendas &amp; resultado</h2>
+      <div class="meta">Meta Ads × Kommo<br>no período selecionado</div></div>
+    <div class="op-grid"><div class="opstat"><div class="opn" style="color:var(--ok)">2</div><div class="opl">Vendas no período</div></div><div class="opstat"><div class="opn" style="color:var(--navy)">0,3%</div><div class="opl">Taxa de fechamento</div></div><div class="opstat"><div class="opn" style="color:var(--navy)">R$ 3.472,99</div><div class="opl">CAC (custo por venda)</div></div><div class="opstat"><div class="opn" style="color:var(--ok)">R$ 1.294.000,00</div><div class="opl">VGV (vendido)</div></div><div class="opstat"><div class="opn" style="color:var(--navy)">R$ 647.000,00</div><div class="opl">Ticket médio</div></div><div class="opstat"><div class="opn" style="color:var(--navy)">186x</div><div class="opl">ROAS (VGV ÷ investido)</div></div></div>
+    <div class="insight"><strong>Vendas</strong> = leads <em>criados neste período</em> que já chegaram à etapa "Venda" (cohort) — por isso períodos recentes tendem a 0, já que leads novos ainda não fecharam. O <strong>total acumulado</strong> da operação está em <em>Operação completa</em>, no fim. <strong>CAC</strong> = investido ÷ vendas; <strong>ROAS</strong> = VGV ÷ investido.</div>
   </section>
   <section id="corretores" class="reveal">
     <div class="section-head"><h2>Atividade por corretor</h2>
@@ -3594,14 +3625,15 @@
     <div class="section-head"><h2>Operação completa</h2>
       <div class="meta">Kommo · desde Dezembro de 2025<br>5 meses de operação</div></div>
     <div class="op-grid">
-      <div class="opstat"><div class="opn">10.829</div><div class="opl">Leads no total</div></div>
+      <div class="opstat"><div class="opn">10.830</div><div class="opl">Leads no total</div></div>
       <div class="opstat"><div class="opn">51 <small>· 0%</small></div><div class="opl">Qualificados</div></div>
-      <div class="opstat"><div class="opn">9.854</div><div class="opl">Em atendimento</div></div>
+      <div class="opstat"><div class="opn">9.855</div><div class="opl">Em atendimento</div></div>
       <div class="opstat"><div class="opn" style="color:var(--ok)">13</div><div class="opl">Vendas</div></div>
+      <div class="opstat"><div class="opn" style="color:var(--ok)">R$ 8.258.225,00</div><div class="opl">VGV (vendido)</div></div>
       <div class="opstat"><div class="opn">962</div><div class="opl">Encerrados</div></div>
       <div class="opstat"><div class="opn">1%</div><div class="opl">Conversão histórica</div></div>
     </div>
-    <div class="insight">Acumulado de <strong>toda a operação no Kommo</strong> desde Dezembro de 2025 — visão de longo prazo, independente do período selecionado acima, a uma média de ~2.086 leads/mês.</div>
+    <div class="insight">Acumulado de <strong>toda a operação no Kommo</strong> desde Dezembro de 2025 — visão de longo prazo, independente do período selecionado acima.</div>
   </section>
   <div class="glossary reveal" id="glossario">
     <h3>Como ler este painel</h3>
