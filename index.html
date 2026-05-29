@@ -122,6 +122,21 @@
   .zero { color:var(--text-mute); }
   .star { color:var(--gold); margin-left:5px; font-size:12px; }
 
+  .corr-row { cursor:pointer; }
+  .corr-caret { display:inline-block; width:10px; margin-right:8px; color:var(--maia-blue);
+    font-size:10px; transition:transform .18s; }
+  .corr-row.open .corr-caret { transform:rotate(90deg); }
+  tr.corr-detail > td { padding:2px 12px 16px; background:#fbfdff; }
+  .corr-panel { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:16px 18px; }
+  .corr-panel-h { font-size:11px; letter-spacing:1.2px; text-transform:uppercase; color:var(--text-mute); margin-bottom:13px; }
+  .corr-panel-h strong { color:var(--navy); font-family:'Playfair Display',serif; letter-spacing:.5px; }
+  .cstats { display:grid; grid-template-columns:repeat(auto-fill, minmax(118px,1fr)); gap:10px; }
+  .cstat { border:1px solid var(--border); border-radius:10px; padding:11px 13px; }
+  .cstat b { font-family:'Playfair Display',serif; font-size:20px; color:var(--navy); display:block; line-height:1; }
+  .cstat span { font-size:10.5px; color:var(--text-soft); margin-top:5px; display:block; line-height:1.3; }
+  .cstat.warn { border-color:#f6d9b8; background:#fff8f0; }
+  .cstat.warn b { color:var(--warn); }
+
   .camp-filter { display:flex; gap:7px; margin:-4px 0 18px; flex-wrap:wrap; }
   .chip { font-family:inherit; font-size:11.5px; font-weight:600; color:var(--text-soft);
     background:#f4f7fa; border:1px solid var(--border); border-radius:100px; padding:6px 14px;
@@ -246,6 +261,7 @@
     tbody td:first-child { position:sticky; left:0; z-index:1; background:var(--card); }
     tbody tr:hover td:first-child { background:#fbfcfd; }
     tbody tr.top td:first-child { background:#fffdf3; }
+    tbody tr.corr-detail td { position:static; background:#fbfdff; }
     .daily-grid, .daily-x { grid-template-columns:none !important; grid-auto-flow:column; grid-auto-columns:minmax(24px,1fr); }
     .totop { right:16px; bottom:16px; }
   }
@@ -282,26 +298,26 @@
     </div>
     <h1>Painel <em>comercial</em> &amp; tráfego</h1>
     <p>Performance de campanhas e funil de vendas · <span id="period-label">01 a 28 de Maio de 2026</span></p>
-    <div class="updated">Atualizado em 28/05/2026 às 20:35 · Fontes: Meta Ads + Kommo CRM</div>
+    <div class="updated">Atualizado em 28/05/2026 às 21:11 · Fontes: Meta Ads + Kommo CRM</div>
   </header>
   <div class="periods" id="periods" role="group" aria-label="Período"><button type="button" class="pchip active" data-period="mes_atual">Mês atual</button><button type="button" class="pchip" data-period="ultimos_7">Últimos 7 dias</button><button type="button" class="pchip" data-period="ultimos_30">Últimos 30 dias</button><button type="button" class="pchip" data-period="mes_passado">Mês passado</button></div>
   <div id="period-content">
-  <div class="exec reveal"><h3>Resumo executivo</h3><p>No período foram <strong>324 leads</strong> ao custo de <strong>R$ 15,60</strong> cada (investimento de R$ 5.424,49), a um ritmo de <strong>12 leads/dia</strong>. Hoje há <strong>241 leads vivos no funil</strong>, sendo <strong>20 já qualificados ou em estágio avançado</strong> (reunião, proposta). A conversão média da equipe está em <strong>6,5%</strong>. Os motivos de perda estão detalhados na seção específica abaixo.</p></div>
+  <div class="exec reveal"><h3>Resumo executivo</h3><p>No período foram <strong>325 leads</strong> ao custo de <strong>R$ 15,58</strong> cada (investimento de R$ 5.434,28), a um ritmo de <strong>12 leads/dia</strong>. Hoje há <strong>242 leads vivos no funil</strong>, sendo <strong>20 já qualificados ou em estágio avançado</strong> (reunião, proposta). A conversão média da equipe está em <strong>6,5%</strong>. Os motivos de perda estão detalhados na seção específica abaixo.</p></div>
   <div class="kpi-grid reveal-stagger">
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">Investimento</div>
-      <div class="kpi-value">R$ 5.424,49</div>
+      <div class="kpi-value">R$ 5.434,28</div>
       <div class="kpi-meta">8 campanhas de captação</div></div>
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">Leads gerados</div>
-      <div class="kpi-value">324</div>
+      <div class="kpi-value">325</div>
       <div class="kpi-meta">Base: Kommo · 326 pela Meta</div></div>
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">CPL médio</div>
-      <div class="kpi-value">R$ 15,60</div>
+      <div class="kpi-value">R$ 15,58</div>
       <div class="kpi-meta">Investimento ÷ leads Kommo</div></div>
     <div class="kpi"><div class="kpi-accent ok"></div><div class="kpi-label">Qualificados</div>
       <div class="kpi-value">14 <small>· 4%</small></div>
       <div class="kpi-meta">No estágio "Lead qualificado"</div></div>
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">Vivos no funil</div>
-      <div class="kpi-value">241</div>
+      <div class="kpi-value">242</div>
       <div class="kpi-meta">Em atendimento ativo no Kommo</div></div>
   </div>
   <section id="acoes" class="reveal">
@@ -362,11 +378,11 @@
   </section>
   <section id="funil" class="reveal">
     <div class="section-head"><h2>Funil de vendas</h2>
-      <div class="meta">Kommo · todos os estágios<br>somam 324 leads</div></div>
+      <div class="meta">Kommo · todos os estágios<br>somam 325 leads</div></div>
     <div class="funnel">
       <div class="fstage"><div class="fname">Entrada / Lead novo</div>
-        <div class="fbar-wrap"><div class="fbar cold" style="width:1.0%"></div></div>
-        <div class="fnum"><b>1</b><span>0%</span></div></div>
+        <div class="fbar-wrap"><div class="fbar cold" style="width:1.9%"></div></div>
+        <div class="fnum"><b>2</b><span>1%</span></div></div>
       <div class="fstage"><div class="fname">Follow-up</div>
         <div class="fbar-wrap"><div class="fbar cold" style="width:100.0%"></div></div>
         <div class="fnum"><b>108</b><span>33%</span></div></div>
@@ -391,15 +407,16 @@
       <div class="fcard"><div class="l">Em nutrição</div><div class="v">28</div></div>
       <div class="fcard"><div class="l">Encerrados (perda)</div><div class="v">83</div></div>
     </div>
-    <div class="insight"><strong>Reconciliação:</strong> 241 leads vivos no funil + 83 encerrados = 324 leads, igual ao total do Kommo no período. Os números desta página batem 1:1 com o CRM.</div>
+    <div class="insight"><strong>Reconciliação:</strong> 242 leads vivos no funil + 83 encerrados = 325 leads, igual ao total do Kommo no período. Os números desta página batem 1:1 com o CRM.</div>
   </section>
   <section id="corretores" class="reveal">
     <div class="section-head"><h2>Atividade por corretor</h2>
-      <div class="meta">Kommo · 11 corretores · clique nos títulos pra ordenar</div></div>
+      <div class="meta">Kommo · 11 corretores · clique numa linha p/ detalhe</div></div>
     <table class="sortable">
       <thead><tr>
         <th>Corretor</th>
         <th class="num">Em carteira</th>
+        <th class="num">Parados +7d</th>
         <th class="num">Follow-up</th>
         <th class="num">Em atend.</th>
         <th class="num">Reunião</th>
@@ -408,9 +425,10 @@
         <th class="num">Total</th>
       </tr></thead>
       <tbody>
-        <tr class="top">
-          <td><div class="strong">Arthur Arcanjo<span class="star">★</span></div></td>
+        <tr class="corr-row top">
+          <td><div class="strong"><span class="corr-caret">▸</span>Arthur Arcanjo<span class="star">★</span></div></td>
           <td class="num" data-v="15"><span class="num-big">15</span></td>
+          <td class="num" data-v="8"><span class="num-big" style="color:var(--danger);">8</span></td>
           <td class="num" data-v="4">4</td>
           <td class="num" data-v="4">4</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -418,9 +436,16 @@
           <td class="num" data-v="25.0"><span class="num-big" style="color:var(--ok);">25%</span></td>
           <td class="num" data-v="28"><span class="strong">28</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Roberto Maia</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Arthur Arcanjo</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>4</b><span>Follow-up</span></div><div class="cstat"><b>4</b><span>Em atendimento</span></div><div class="cstat"><b>7</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>8</b><span>Parados +7d · 53% da carteira</span></div><div class="cstat"><b>13</b><span>Perdidos</span></div><div class="cstat"><b>0</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Roberto Maia</div></td>
           <td class="num" data-v="7"><span class="num-big">7</span></td>
+          <td class="num" data-v="2"><span class="num-big" style="color:var(--warn);">2</span></td>
           <td class="num" data-v="3">3</td>
           <td class="num" data-v="3">3</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -428,9 +453,16 @@
           <td class="num" data-v="14.3"><span class="num-big" style="color:var(--ok);">14%</span></td>
           <td class="num" data-v="7"><span class="strong">7</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Fernando Akila</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Roberto Maia</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>3</b><span>Follow-up</span></div><div class="cstat"><b>3</b><span>Em atendimento</span></div><div class="cstat"><b>1</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>2</b><span>Parados +7d · 29% da carteira</span></div><div class="cstat"><b>0</b><span>Perdidos</span></div><div class="cstat"><b>0</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Fernando Akila</div></td>
           <td class="num" data-v="16"><span class="num-big">16</span></td>
+          <td class="num" data-v="10"><span class="num-big" style="color:var(--danger);">10</span></td>
           <td class="num" data-v="7">7</td>
           <td class="num" data-v="6">6</td>
           <td class="num" data-v="3">3</td>
@@ -438,9 +470,16 @@
           <td class="num" data-v="10.0"><span class="num-big" style="color:var(--ok);">10%</span></td>
           <td class="num" data-v="30"><span class="strong">30</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Tayse Barbosa</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Fernando Akila</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>7</b><span>Follow-up</span></div><div class="cstat"><b>6</b><span>Em atendimento</span></div><div class="cstat"><b>0</b><span>Qualificado</span></div><div class="cstat"><b>3</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>10</b><span>Parados +7d · 62% da carteira</span></div><div class="cstat"><b>14</b><span>Perdidos</span></div><div class="cstat"><b>0</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Tayse Barbosa</div></td>
           <td class="num" data-v="24"><span class="num-big">24</span></td>
+          <td class="num" data-v="16"><span class="num-big" style="color:var(--danger);">16</span></td>
           <td class="num" data-v="10">10</td>
           <td class="num" data-v="11">11</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -448,9 +487,16 @@
           <td class="num" data-v="6.9"><span class="num-big" style="color:var(--ok);">7%</span></td>
           <td class="num" data-v="29"><span class="strong">29</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Silvio</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Tayse Barbosa</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>10</b><span>Follow-up</span></div><div class="cstat"><b>11</b><span>Em atendimento</span></div><div class="cstat"><b>2</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>16</b><span>Parados +7d · 67% da carteira</span></div><div class="cstat"><b>5</b><span>Perdidos</span></div><div class="cstat"><b>1</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Silvio</div></td>
           <td class="num" data-v="22"><span class="num-big">22</span></td>
+          <td class="num" data-v="4"><span class="num-big" style="color:var(--text-soft);">4</span></td>
           <td class="num" data-v="11">11</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="1">1</td>
@@ -458,9 +504,16 @@
           <td class="num" data-v="6.5"><span class="num-big" style="color:var(--text-soft);">6%</span></td>
           <td class="num" data-v="31"><span class="strong">31</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Ruy</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Silvio</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>11</b><span>Follow-up</span></div><div class="cstat"><b>0</b><span>Em atendimento</span></div><div class="cstat"><b>1</b><span>Qualificado</span></div><div class="cstat"><b>1</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>4</b><span>Parados +7d · 18% da carteira</span></div><div class="cstat"><b>9</b><span>Perdidos</span></div><div class="cstat"><b>9</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Ruy</div></td>
           <td class="num" data-v="27"><span class="num-big">27</span></td>
+          <td class="num" data-v="19"><span class="num-big" style="color:var(--danger);">19</span></td>
           <td class="num" data-v="17">17</td>
           <td class="num" data-v="9">9</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -468,19 +521,33 @@
           <td class="num" data-v="3.6"><span class="num-big" style="color:var(--text-soft);">4%</span></td>
           <td class="num" data-v="28"><span class="strong">28</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Sara Gomes</div></td>
-          <td class="num" data-v="21"><span class="num-big">21</span></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Ruy</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>17</b><span>Follow-up</span></div><div class="cstat"><b>9</b><span>Em atendimento</span></div><div class="cstat"><b>1</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>19</b><span>Parados +7d · 70% da carteira</span></div><div class="cstat"><b>1</b><span>Perdidos</span></div><div class="cstat"><b>0</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Sara Gomes</div></td>
+          <td class="num" data-v="22"><span class="num-big">22</span></td>
+          <td class="num" data-v="10"><span class="num-big" style="color:var(--danger);">10</span></td>
           <td class="num" data-v="9">9</td>
           <td class="num" data-v="11">11</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="1"><span style="color:var(--ok); font-weight:600;">1</span></td>
-          <td class="num" data-v="3.6"><span class="num-big" style="color:var(--text-soft);">4%</span></td>
-          <td class="num" data-v="28"><span class="strong">28</span></td>
+          <td class="num" data-v="3.4"><span class="num-big" style="color:var(--text-soft);">3%</span></td>
+          <td class="num" data-v="29"><span class="strong">29</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Carlos Pereira</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Sara Gomes</strong></div>
+            <div class="cstats"><div class="cstat"><b>1</b><span>Entrada</span></div><div class="cstat"><b>9</b><span>Follow-up</span></div><div class="cstat"><b>11</b><span>Em atendimento</span></div><div class="cstat"><b>1</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>10</b><span>Parados +7d · 45% da carteira</span></div><div class="cstat"><b>7</b><span>Perdidos</span></div><div class="cstat"><b>0</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Carlos Pereira</div></td>
           <td class="num" data-v="24"><span class="num-big">24</span></td>
+          <td class="num" data-v="14"><span class="num-big" style="color:var(--danger);">14</span></td>
           <td class="num" data-v="9">9</td>
           <td class="num" data-v="14">14</td>
           <td class="num" data-v="1">1</td>
@@ -488,9 +555,16 @@
           <td class="num" data-v="3.3"><span class="num-big" style="color:var(--text-soft);">3%</span></td>
           <td class="num" data-v="30"><span class="strong">30</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Emanuel Antônio</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Carlos Pereira</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>9</b><span>Follow-up</span></div><div class="cstat"><b>14</b><span>Em atendimento</span></div><div class="cstat"><b>0</b><span>Qualificado</span></div><div class="cstat"><b>1</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>14</b><span>Parados +7d · 58% da carteira</span></div><div class="cstat"><b>6</b><span>Perdidos</span></div><div class="cstat"><b>0</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Emanuel Antônio</div></td>
           <td class="num" data-v="22"><span class="num-big">22</span></td>
+          <td class="num" data-v="12"><span class="num-big" style="color:var(--danger);">12</span></td>
           <td class="num" data-v="12">12</td>
           <td class="num" data-v="7">7</td>
           <td class="num" data-v="1">1</td>
@@ -498,9 +572,16 @@
           <td class="num" data-v="3.2"><span class="num-big" style="color:var(--text-soft);">3%</span></td>
           <td class="num" data-v="31"><span class="strong">31</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Marcos Lima</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Emanuel Antônio</strong></div>
+            <div class="cstats"><div class="cstat"><b>1</b><span>Entrada</span></div><div class="cstat"><b>12</b><span>Follow-up</span></div><div class="cstat"><b>7</b><span>Em atendimento</span></div><div class="cstat"><b>0</b><span>Qualificado</span></div><div class="cstat"><b>1</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>12</b><span>Parados +7d · 55% da carteira</span></div><div class="cstat"><b>9</b><span>Perdidos</span></div><div class="cstat"><b>1</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Marcos Lima</div></td>
           <td class="num" data-v="31"><span class="num-big">31</span></td>
+          <td class="num" data-v="20"><span class="num-big" style="color:var(--danger);">20</span></td>
           <td class="num" data-v="20">20</td>
           <td class="num" data-v="9">9</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -508,9 +589,16 @@
           <td class="num" data-v="2.9"><span class="num-big" style="color:var(--text-soft);">3%</span></td>
           <td class="num" data-v="34"><span class="strong">34</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Simone Venancio</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Marcos Lima</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>20</b><span>Follow-up</span></div><div class="cstat"><b>9</b><span>Em atendimento</span></div><div class="cstat"><b>1</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>20</b><span>Parados +7d · 65% da carteira</span></div><div class="cstat"><b>3</b><span>Perdidos</span></div><div class="cstat"><b>1</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Simone Venancio</div></td>
           <td class="num" data-v="14"><span class="num-big">14</span></td>
+          <td class="num" data-v="7"><span class="num-big" style="color:var(--danger);">7</span></td>
           <td class="num" data-v="6">6</td>
           <td class="num" data-v="8">8</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -518,9 +606,16 @@
           <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
           <td class="num" data-v="30"><span class="strong">30</span></td>
         </tr>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Simone Venancio</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>6</b><span>Follow-up</span></div><div class="cstat"><b>8</b><span>Em atendimento</span></div><div class="cstat"><b>0</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>7</b><span>Parados +7d · 50% da carteira</span></div><div class="cstat"><b>16</b><span>Perdidos</span></div><div class="cstat"><b>0</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
         <tr>
           <td><div class="strong">Trilha <span class="pill nutri">Nutrição</span></div></td>
           <td class="num" data-v="18"><span class="num-big">18</span></td>
+          <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -531,16 +626,17 @@
       </tbody>
       <tfoot><tr>
         <td>Total comercial (11 corretores)</td>
-        <td class="num">223</td>
+        <td class="num">224</td>
+        <td class="num">122</td>
         <td class="num">108</td>
         <td class="num">82</td>
         <td class="num">6</td>
         <td class="num">20</td>
         <td class="num">7%</td>
-        <td class="num">306</td>
+        <td class="num">307</td>
       </tr></tfoot>
     </table>
-    <div class="insight"><strong>Conversão</strong> = leads que chegaram a <em>Qualificado ou além</em> (reunião, proposta, venda) ÷ leads recebidos. O <span class="star">★</span> marca a melhor conversão do período. "Em carteira" são os leads vivos sob responsabilidade do corretor — bom indicador de carga de trabalho ativa.</div>
+    <div class="insight"><strong>Parados +7d</strong> = leads no funil de trabalho (entrada → proposta) sem nenhuma movimentação há mais de 7 dias — risco de esfriar. <strong>Clique numa linha</strong> pra abrir o funil completo do corretor. <strong>Conversão</strong> = chegaram a qualificado ou além ÷ recebidos; <span class="star">★</span> marca a melhor do período.</div>
   </section>
   <section id="campanhas" class="reveal">
     <div class="section-head"><h2>Desempenho por campanha</h2>
@@ -559,41 +655,41 @@
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Tintoretto</div><div class="sub">Fundo de Funil | Formulário | Tintoretto | 03/09/25 #TP</div></td>
-          <td class="num" data-v="1299.72">R$ 1.299,72
+          <td class="num" data-v="1302.32">R$ 1.302,32
             <div class="bar-wrap"><div class="bar navy" style="width:100.0%"></div></div></td>
           <td class="num" data-v="111"><span class="num-big">111</span>
             <div class="bar-wrap"><div class="bar" style="width:100.0%"></div></div></td>
-          <td class="num" data-v="11.71">R$ 11,71</td>
+          <td class="num" data-v="11.73">R$ 11,73</td>
           <td class="num" data-v="10"><span style="color:var(--ok); font-weight:600;">10</span></td>
         </tr>
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Essence</div><div class="sub">Fundo de Funil | Formulário  | Essence | 30/04/26  #TP</div></td>
-          <td class="num" data-v="1089.57">R$ 1.089,57
-            <div class="bar-wrap"><div class="bar navy" style="width:83.8%"></div></div></td>
-          <td class="num" data-v="70"><span class="num-big">70</span>
-            <div class="bar-wrap"><div class="bar" style="width:63.1%"></div></div></td>
-          <td class="num" data-v="15.57">R$ 15,57</td>
+          <td class="num" data-v="1092.89">R$ 1.092,89
+            <div class="bar-wrap"><div class="bar navy" style="width:83.9%"></div></div></td>
+          <td class="num" data-v="71"><span class="num-big">71</span>
+            <div class="bar-wrap"><div class="bar" style="width:64.0%"></div></div></td>
+          <td class="num" data-v="15.39">R$ 15,39</td>
           <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
         </tr>
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Crivelli</div><div class="sub">Fundo de Funil | Formulário  | Crivelli | 21/11/25 #TP</div></td>
-          <td class="num" data-v="836.24">R$ 836,24
+          <td class="num" data-v="837.54">R$ 837,54
             <div class="bar-wrap"><div class="bar navy" style="width:64.3%"></div></div></td>
           <td class="num" data-v="63"><span class="num-big">63</span>
             <div class="bar-wrap"><div class="bar" style="width:56.8%"></div></div></td>
-          <td class="num" data-v="13.27">R$ 13,27</td>
+          <td class="num" data-v="13.29">R$ 13,29</td>
           <td class="num" data-v="4"><span style="color:var(--ok); font-weight:600;">4</span></td>
         </tr>
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Sunrise</div><div class="sub">Fundo de Funil | Formulário | Sunrise | 03.09/25 #TP</div></td>
-          <td class="num" data-v="961.79">R$ 961,79
-            <div class="bar-wrap"><div class="bar navy" style="width:74.0%"></div></div></td>
+          <td class="num" data-v="962.30">R$ 962,30
+            <div class="bar-wrap"><div class="bar navy" style="width:73.9%"></div></div></td>
           <td class="num" data-v="38"><span class="num-big">38</span>
             <div class="bar-wrap"><div class="bar" style="width:34.2%"></div></div></td>
-          <td class="num" data-v="25.31">R$ 25,31</td>
+          <td class="num" data-v="25.32">R$ 25,32</td>
           <td class="num" data-v="2"><span style="color:var(--ok); font-weight:600;">2</span></td>
         </tr>
         <tr data-status="PAUSED">
@@ -609,18 +705,18 @@
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Cocoon Milagres</div><div class="sub">Fundo de Funil | Formulário | Milagres | 21/05 #TP</div></td>
-          <td class="num" data-v="235.75">R$ 235,75
-            <div class="bar-wrap"><div class="bar navy" style="width:18.1%"></div></div></td>
+          <td class="num" data-v="237.58">R$ 237,58
+            <div class="bar-wrap"><div class="bar navy" style="width:18.2%"></div></div></td>
           <td class="num" data-v="9"><span class="num-big">9</span>
             <div class="bar-wrap"><div class="bar" style="width:8.1%"></div></div></td>
-          <td class="num" data-v="26.19">R$ 26,19</td>
+          <td class="num" data-v="26.40">R$ 26,40</td>
           <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
         </tr>
         <tr data-status="PAUSED">
           <td data-v="1"><span class="pill muted">Pausada</span></td>
           <td><div class="strong">Reserva Aya</div><div class="sub">Fundo de Funil | Formulário | Reserva Aya | 07.01 #TP</div></td>
           <td class="num" data-v="157.99">R$ 157,99
-            <div class="bar-wrap"><div class="bar navy" style="width:12.2%"></div></div></td>
+            <div class="bar-wrap"><div class="bar navy" style="width:12.1%"></div></div></td>
           <td class="num" data-v="4"><span class="num-big">4</span>
             <div class="bar-wrap"><div class="bar" style="width:3.6%"></div></div></td>
           <td class="num" data-v="39.50">R$ 39,50</td>
@@ -630,7 +726,7 @@
           <td data-v="1"><span class="pill muted">Pausada</span></td>
           <td><div class="strong">Edf. Ravenna</div><div class="sub">Fundo de Funil | Formulário  | Edf. Ravenna | 28/04/26 #TP</div></td>
           <td class="num" data-v="276.20">R$ 276,20
-            <div class="bar-wrap"><div class="bar navy" style="width:21.3%"></div></div></td>
+            <div class="bar-wrap"><div class="bar navy" style="width:21.2%"></div></div></td>
           <td class="num" data-v="2"><span class="num-big">2</span>
             <div class="bar-wrap"><div class="bar" style="width:1.8%"></div></div></td>
           <td class="num" data-v="138.10">R$ 138,10</td>
@@ -640,7 +736,7 @@
           <td data-v="0"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Topo de Funil | Tráfego |  23/06 #TP</div>
             <div class="sub"><span class="pill topo">Topo de funil</span> · 1.243 visitas · 6 compart. · 0 salvos</div></td>
-          <td class="num" data-v="277.41"><span class="num-big">R$ 277,41</span>
+          <td class="num" data-v="277.64"><span class="num-big">R$ 277,64</span>
             <div class="bar-wrap"><div class="bar navy" style="width:21.3%"></div></div></td>
           <td class="num zero" data-v="0">—</td><td class="num zero" data-v="0">—</td><td class="num zero" data-v="0">—</td>
         </tr>
@@ -692,27 +788,27 @@
 
     <section id="ritmo" class="reveal">
       <div class="section-head"><h2>Ritmo diário de leads</h2><div class="meta">Kommo · 28 dias</div></div>
-      <div class="daily-grid" style="grid-template-columns:repeat(28,1fr)"><div class="day-bar" style="height:59.3%" data-val="16"></div><div class="day-bar" style="height:44.4%" data-val="12"></div><div class="day-bar" style="height:100.0%" data-val="27"></div><div class="day-bar" style="height:55.6%" data-val="15"></div><div class="day-bar" style="height:3.7%" data-val="1"></div><div class="day-bar" style="height:81.5%" data-val="22"></div><div class="day-bar" style="height:51.9%" data-val="14"></div><div class="day-bar" style="height:33.3%" data-val="9"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:48.1%" data-val="13"></div><div class="day-bar" style="height:40.7%" data-val="11"></div><div class="day-bar" style="height:18.5%" data-val="5"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:51.9%" data-val="14"></div><div class="day-bar" style="height:37.0%" data-val="10"></div><div class="day-bar" style="height:70.4%" data-val="19"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:11.1%" data-val="3"></div><div class="day-bar" style="height:22.2%" data-val="6"></div><div class="day-bar" style="height:33.3%" data-val="9"></div><div class="day-bar" style="height:33.3%" data-val="9"></div><div class="day-bar" style="height:59.3%" data-val="16"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:88.9%" data-val="24"></div><div class="day-bar" style="height:51.9%" data-val="14"></div><div class="day-bar" style="height:25.9%" data-val="7"></div></div><div class="daily-x" style="grid-template-columns:repeat(28,1fr)"><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span><span>08</span><span>09</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span></div>
+      <div class="daily-grid" style="grid-template-columns:repeat(28,1fr)"><div class="day-bar" style="height:59.3%" data-val="16"></div><div class="day-bar" style="height:44.4%" data-val="12"></div><div class="day-bar" style="height:100.0%" data-val="27"></div><div class="day-bar" style="height:55.6%" data-val="15"></div><div class="day-bar" style="height:3.7%" data-val="1"></div><div class="day-bar" style="height:81.5%" data-val="22"></div><div class="day-bar" style="height:51.9%" data-val="14"></div><div class="day-bar" style="height:33.3%" data-val="9"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:48.1%" data-val="13"></div><div class="day-bar" style="height:40.7%" data-val="11"></div><div class="day-bar" style="height:18.5%" data-val="5"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:51.9%" data-val="14"></div><div class="day-bar" style="height:37.0%" data-val="10"></div><div class="day-bar" style="height:70.4%" data-val="19"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:11.1%" data-val="3"></div><div class="day-bar" style="height:22.2%" data-val="6"></div><div class="day-bar" style="height:33.3%" data-val="9"></div><div class="day-bar" style="height:33.3%" data-val="9"></div><div class="day-bar" style="height:59.3%" data-val="16"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:88.9%" data-val="24"></div><div class="day-bar" style="height:51.9%" data-val="14"></div><div class="day-bar" style="height:29.6%" data-val="8"></div></div><div class="daily-x" style="grid-template-columns:repeat(28,1fr)"><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span><span>08</span><span>09</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span></div>
       <div class="insight"><strong>Média:</strong> 11.6 leads/dia ao longo de 28 dias. Cada barra mostra os leads daquele dia.</div>
     </section>
   </div>
   </div>
-<script type="text/html" class="period-tpl" data-period="mes_atual" data-label="01 a 28 de Maio de 2026">  <div class="exec reveal"><h3>Resumo executivo</h3><p>No período foram <strong>324 leads</strong> ao custo de <strong>R$ 15,60</strong> cada (investimento de R$ 5.424,49), a um ritmo de <strong>12 leads/dia</strong>. Hoje há <strong>241 leads vivos no funil</strong>, sendo <strong>20 já qualificados ou em estágio avançado</strong> (reunião, proposta). A conversão média da equipe está em <strong>6,5%</strong>. Os motivos de perda estão detalhados na seção específica abaixo.</p></div>
+<script type="text/html" class="period-tpl" data-period="mes_atual" data-label="01 a 28 de Maio de 2026">  <div class="exec reveal"><h3>Resumo executivo</h3><p>No período foram <strong>325 leads</strong> ao custo de <strong>R$ 15,58</strong> cada (investimento de R$ 5.434,28), a um ritmo de <strong>12 leads/dia</strong>. Hoje há <strong>242 leads vivos no funil</strong>, sendo <strong>20 já qualificados ou em estágio avançado</strong> (reunião, proposta). A conversão média da equipe está em <strong>6,5%</strong>. Os motivos de perda estão detalhados na seção específica abaixo.</p></div>
   <div class="kpi-grid reveal-stagger">
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">Investimento</div>
-      <div class="kpi-value">R$ 5.424,49</div>
+      <div class="kpi-value">R$ 5.434,28</div>
       <div class="kpi-meta">8 campanhas de captação</div></div>
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">Leads gerados</div>
-      <div class="kpi-value">324</div>
+      <div class="kpi-value">325</div>
       <div class="kpi-meta">Base: Kommo · 326 pela Meta</div></div>
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">CPL médio</div>
-      <div class="kpi-value">R$ 15,60</div>
+      <div class="kpi-value">R$ 15,58</div>
       <div class="kpi-meta">Investimento ÷ leads Kommo</div></div>
     <div class="kpi"><div class="kpi-accent ok"></div><div class="kpi-label">Qualificados</div>
       <div class="kpi-value">14 <small>· 4%</small></div>
       <div class="kpi-meta">No estágio "Lead qualificado"</div></div>
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">Vivos no funil</div>
-      <div class="kpi-value">241</div>
+      <div class="kpi-value">242</div>
       <div class="kpi-meta">Em atendimento ativo no Kommo</div></div>
   </div>
   <section id="acoes" class="reveal">
@@ -773,11 +869,11 @@
   </section>
   <section id="funil" class="reveal">
     <div class="section-head"><h2>Funil de vendas</h2>
-      <div class="meta">Kommo · todos os estágios<br>somam 324 leads</div></div>
+      <div class="meta">Kommo · todos os estágios<br>somam 325 leads</div></div>
     <div class="funnel">
       <div class="fstage"><div class="fname">Entrada / Lead novo</div>
-        <div class="fbar-wrap"><div class="fbar cold" style="width:1.0%"></div></div>
-        <div class="fnum"><b>1</b><span>0%</span></div></div>
+        <div class="fbar-wrap"><div class="fbar cold" style="width:1.9%"></div></div>
+        <div class="fnum"><b>2</b><span>1%</span></div></div>
       <div class="fstage"><div class="fname">Follow-up</div>
         <div class="fbar-wrap"><div class="fbar cold" style="width:100.0%"></div></div>
         <div class="fnum"><b>108</b><span>33%</span></div></div>
@@ -802,15 +898,16 @@
       <div class="fcard"><div class="l">Em nutrição</div><div class="v">28</div></div>
       <div class="fcard"><div class="l">Encerrados (perda)</div><div class="v">83</div></div>
     </div>
-    <div class="insight"><strong>Reconciliação:</strong> 241 leads vivos no funil + 83 encerrados = 324 leads, igual ao total do Kommo no período. Os números desta página batem 1:1 com o CRM.</div>
+    <div class="insight"><strong>Reconciliação:</strong> 242 leads vivos no funil + 83 encerrados = 325 leads, igual ao total do Kommo no período. Os números desta página batem 1:1 com o CRM.</div>
   </section>
   <section id="corretores" class="reveal">
     <div class="section-head"><h2>Atividade por corretor</h2>
-      <div class="meta">Kommo · 11 corretores · clique nos títulos pra ordenar</div></div>
+      <div class="meta">Kommo · 11 corretores · clique numa linha p/ detalhe</div></div>
     <table class="sortable">
       <thead><tr>
         <th>Corretor</th>
         <th class="num">Em carteira</th>
+        <th class="num">Parados +7d</th>
         <th class="num">Follow-up</th>
         <th class="num">Em atend.</th>
         <th class="num">Reunião</th>
@@ -819,9 +916,10 @@
         <th class="num">Total</th>
       </tr></thead>
       <tbody>
-        <tr class="top">
-          <td><div class="strong">Arthur Arcanjo<span class="star">★</span></div></td>
+        <tr class="corr-row top">
+          <td><div class="strong"><span class="corr-caret">▸</span>Arthur Arcanjo<span class="star">★</span></div></td>
           <td class="num" data-v="15"><span class="num-big">15</span></td>
+          <td class="num" data-v="8"><span class="num-big" style="color:var(--danger);">8</span></td>
           <td class="num" data-v="4">4</td>
           <td class="num" data-v="4">4</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -829,9 +927,16 @@
           <td class="num" data-v="25.0"><span class="num-big" style="color:var(--ok);">25%</span></td>
           <td class="num" data-v="28"><span class="strong">28</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Roberto Maia</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Arthur Arcanjo</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>4</b><span>Follow-up</span></div><div class="cstat"><b>4</b><span>Em atendimento</span></div><div class="cstat"><b>7</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>8</b><span>Parados +7d · 53% da carteira</span></div><div class="cstat"><b>13</b><span>Perdidos</span></div><div class="cstat"><b>0</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Roberto Maia</div></td>
           <td class="num" data-v="7"><span class="num-big">7</span></td>
+          <td class="num" data-v="2"><span class="num-big" style="color:var(--warn);">2</span></td>
           <td class="num" data-v="3">3</td>
           <td class="num" data-v="3">3</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -839,9 +944,16 @@
           <td class="num" data-v="14.3"><span class="num-big" style="color:var(--ok);">14%</span></td>
           <td class="num" data-v="7"><span class="strong">7</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Fernando Akila</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Roberto Maia</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>3</b><span>Follow-up</span></div><div class="cstat"><b>3</b><span>Em atendimento</span></div><div class="cstat"><b>1</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>2</b><span>Parados +7d · 29% da carteira</span></div><div class="cstat"><b>0</b><span>Perdidos</span></div><div class="cstat"><b>0</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Fernando Akila</div></td>
           <td class="num" data-v="16"><span class="num-big">16</span></td>
+          <td class="num" data-v="10"><span class="num-big" style="color:var(--danger);">10</span></td>
           <td class="num" data-v="7">7</td>
           <td class="num" data-v="6">6</td>
           <td class="num" data-v="3">3</td>
@@ -849,9 +961,16 @@
           <td class="num" data-v="10.0"><span class="num-big" style="color:var(--ok);">10%</span></td>
           <td class="num" data-v="30"><span class="strong">30</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Tayse Barbosa</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Fernando Akila</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>7</b><span>Follow-up</span></div><div class="cstat"><b>6</b><span>Em atendimento</span></div><div class="cstat"><b>0</b><span>Qualificado</span></div><div class="cstat"><b>3</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>10</b><span>Parados +7d · 62% da carteira</span></div><div class="cstat"><b>14</b><span>Perdidos</span></div><div class="cstat"><b>0</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Tayse Barbosa</div></td>
           <td class="num" data-v="24"><span class="num-big">24</span></td>
+          <td class="num" data-v="16"><span class="num-big" style="color:var(--danger);">16</span></td>
           <td class="num" data-v="10">10</td>
           <td class="num" data-v="11">11</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -859,9 +978,16 @@
           <td class="num" data-v="6.9"><span class="num-big" style="color:var(--ok);">7%</span></td>
           <td class="num" data-v="29"><span class="strong">29</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Silvio</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Tayse Barbosa</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>10</b><span>Follow-up</span></div><div class="cstat"><b>11</b><span>Em atendimento</span></div><div class="cstat"><b>2</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>16</b><span>Parados +7d · 67% da carteira</span></div><div class="cstat"><b>5</b><span>Perdidos</span></div><div class="cstat"><b>1</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Silvio</div></td>
           <td class="num" data-v="22"><span class="num-big">22</span></td>
+          <td class="num" data-v="4"><span class="num-big" style="color:var(--text-soft);">4</span></td>
           <td class="num" data-v="11">11</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="1">1</td>
@@ -869,9 +995,16 @@
           <td class="num" data-v="6.5"><span class="num-big" style="color:var(--text-soft);">6%</span></td>
           <td class="num" data-v="31"><span class="strong">31</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Ruy</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Silvio</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>11</b><span>Follow-up</span></div><div class="cstat"><b>0</b><span>Em atendimento</span></div><div class="cstat"><b>1</b><span>Qualificado</span></div><div class="cstat"><b>1</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>4</b><span>Parados +7d · 18% da carteira</span></div><div class="cstat"><b>9</b><span>Perdidos</span></div><div class="cstat"><b>9</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Ruy</div></td>
           <td class="num" data-v="27"><span class="num-big">27</span></td>
+          <td class="num" data-v="19"><span class="num-big" style="color:var(--danger);">19</span></td>
           <td class="num" data-v="17">17</td>
           <td class="num" data-v="9">9</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -879,19 +1012,33 @@
           <td class="num" data-v="3.6"><span class="num-big" style="color:var(--text-soft);">4%</span></td>
           <td class="num" data-v="28"><span class="strong">28</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Sara Gomes</div></td>
-          <td class="num" data-v="21"><span class="num-big">21</span></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Ruy</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>17</b><span>Follow-up</span></div><div class="cstat"><b>9</b><span>Em atendimento</span></div><div class="cstat"><b>1</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>19</b><span>Parados +7d · 70% da carteira</span></div><div class="cstat"><b>1</b><span>Perdidos</span></div><div class="cstat"><b>0</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Sara Gomes</div></td>
+          <td class="num" data-v="22"><span class="num-big">22</span></td>
+          <td class="num" data-v="10"><span class="num-big" style="color:var(--danger);">10</span></td>
           <td class="num" data-v="9">9</td>
           <td class="num" data-v="11">11</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="1"><span style="color:var(--ok); font-weight:600;">1</span></td>
-          <td class="num" data-v="3.6"><span class="num-big" style="color:var(--text-soft);">4%</span></td>
-          <td class="num" data-v="28"><span class="strong">28</span></td>
+          <td class="num" data-v="3.4"><span class="num-big" style="color:var(--text-soft);">3%</span></td>
+          <td class="num" data-v="29"><span class="strong">29</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Carlos Pereira</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Sara Gomes</strong></div>
+            <div class="cstats"><div class="cstat"><b>1</b><span>Entrada</span></div><div class="cstat"><b>9</b><span>Follow-up</span></div><div class="cstat"><b>11</b><span>Em atendimento</span></div><div class="cstat"><b>1</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>10</b><span>Parados +7d · 45% da carteira</span></div><div class="cstat"><b>7</b><span>Perdidos</span></div><div class="cstat"><b>0</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Carlos Pereira</div></td>
           <td class="num" data-v="24"><span class="num-big">24</span></td>
+          <td class="num" data-v="14"><span class="num-big" style="color:var(--danger);">14</span></td>
           <td class="num" data-v="9">9</td>
           <td class="num" data-v="14">14</td>
           <td class="num" data-v="1">1</td>
@@ -899,9 +1046,16 @@
           <td class="num" data-v="3.3"><span class="num-big" style="color:var(--text-soft);">3%</span></td>
           <td class="num" data-v="30"><span class="strong">30</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Emanuel Antônio</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Carlos Pereira</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>9</b><span>Follow-up</span></div><div class="cstat"><b>14</b><span>Em atendimento</span></div><div class="cstat"><b>0</b><span>Qualificado</span></div><div class="cstat"><b>1</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>14</b><span>Parados +7d · 58% da carteira</span></div><div class="cstat"><b>6</b><span>Perdidos</span></div><div class="cstat"><b>0</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Emanuel Antônio</div></td>
           <td class="num" data-v="22"><span class="num-big">22</span></td>
+          <td class="num" data-v="12"><span class="num-big" style="color:var(--danger);">12</span></td>
           <td class="num" data-v="12">12</td>
           <td class="num" data-v="7">7</td>
           <td class="num" data-v="1">1</td>
@@ -909,9 +1063,16 @@
           <td class="num" data-v="3.2"><span class="num-big" style="color:var(--text-soft);">3%</span></td>
           <td class="num" data-v="31"><span class="strong">31</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Marcos Lima</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Emanuel Antônio</strong></div>
+            <div class="cstats"><div class="cstat"><b>1</b><span>Entrada</span></div><div class="cstat"><b>12</b><span>Follow-up</span></div><div class="cstat"><b>7</b><span>Em atendimento</span></div><div class="cstat"><b>0</b><span>Qualificado</span></div><div class="cstat"><b>1</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>12</b><span>Parados +7d · 55% da carteira</span></div><div class="cstat"><b>9</b><span>Perdidos</span></div><div class="cstat"><b>1</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Marcos Lima</div></td>
           <td class="num" data-v="31"><span class="num-big">31</span></td>
+          <td class="num" data-v="20"><span class="num-big" style="color:var(--danger);">20</span></td>
           <td class="num" data-v="20">20</td>
           <td class="num" data-v="9">9</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -919,9 +1080,16 @@
           <td class="num" data-v="2.9"><span class="num-big" style="color:var(--text-soft);">3%</span></td>
           <td class="num" data-v="34"><span class="strong">34</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Simone Venancio</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Marcos Lima</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>20</b><span>Follow-up</span></div><div class="cstat"><b>9</b><span>Em atendimento</span></div><div class="cstat"><b>1</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>20</b><span>Parados +7d · 65% da carteira</span></div><div class="cstat"><b>3</b><span>Perdidos</span></div><div class="cstat"><b>1</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Simone Venancio</div></td>
           <td class="num" data-v="14"><span class="num-big">14</span></td>
+          <td class="num" data-v="7"><span class="num-big" style="color:var(--danger);">7</span></td>
           <td class="num" data-v="6">6</td>
           <td class="num" data-v="8">8</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -929,9 +1097,16 @@
           <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
           <td class="num" data-v="30"><span class="strong">30</span></td>
         </tr>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Simone Venancio</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>6</b><span>Follow-up</span></div><div class="cstat"><b>8</b><span>Em atendimento</span></div><div class="cstat"><b>0</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>7</b><span>Parados +7d · 50% da carteira</span></div><div class="cstat"><b>16</b><span>Perdidos</span></div><div class="cstat"><b>0</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
         <tr>
           <td><div class="strong">Trilha <span class="pill nutri">Nutrição</span></div></td>
           <td class="num" data-v="18"><span class="num-big">18</span></td>
+          <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -942,16 +1117,17 @@
       </tbody>
       <tfoot><tr>
         <td>Total comercial (11 corretores)</td>
-        <td class="num">223</td>
+        <td class="num">224</td>
+        <td class="num">122</td>
         <td class="num">108</td>
         <td class="num">82</td>
         <td class="num">6</td>
         <td class="num">20</td>
         <td class="num">7%</td>
-        <td class="num">306</td>
+        <td class="num">307</td>
       </tr></tfoot>
     </table>
-    <div class="insight"><strong>Conversão</strong> = leads que chegaram a <em>Qualificado ou além</em> (reunião, proposta, venda) ÷ leads recebidos. O <span class="star">★</span> marca a melhor conversão do período. "Em carteira" são os leads vivos sob responsabilidade do corretor — bom indicador de carga de trabalho ativa.</div>
+    <div class="insight"><strong>Parados +7d</strong> = leads no funil de trabalho (entrada → proposta) sem nenhuma movimentação há mais de 7 dias — risco de esfriar. <strong>Clique numa linha</strong> pra abrir o funil completo do corretor. <strong>Conversão</strong> = chegaram a qualificado ou além ÷ recebidos; <span class="star">★</span> marca a melhor do período.</div>
   </section>
   <section id="campanhas" class="reveal">
     <div class="section-head"><h2>Desempenho por campanha</h2>
@@ -970,41 +1146,41 @@
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Tintoretto</div><div class="sub">Fundo de Funil | Formulário | Tintoretto | 03/09/25 #TP</div></td>
-          <td class="num" data-v="1299.72">R$ 1.299,72
+          <td class="num" data-v="1302.32">R$ 1.302,32
             <div class="bar-wrap"><div class="bar navy" style="width:100.0%"></div></div></td>
           <td class="num" data-v="111"><span class="num-big">111</span>
             <div class="bar-wrap"><div class="bar" style="width:100.0%"></div></div></td>
-          <td class="num" data-v="11.71">R$ 11,71</td>
+          <td class="num" data-v="11.73">R$ 11,73</td>
           <td class="num" data-v="10"><span style="color:var(--ok); font-weight:600;">10</span></td>
         </tr>
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Essence</div><div class="sub">Fundo de Funil | Formulário  | Essence | 30/04/26  #TP</div></td>
-          <td class="num" data-v="1089.57">R$ 1.089,57
-            <div class="bar-wrap"><div class="bar navy" style="width:83.8%"></div></div></td>
-          <td class="num" data-v="70"><span class="num-big">70</span>
-            <div class="bar-wrap"><div class="bar" style="width:63.1%"></div></div></td>
-          <td class="num" data-v="15.57">R$ 15,57</td>
+          <td class="num" data-v="1092.89">R$ 1.092,89
+            <div class="bar-wrap"><div class="bar navy" style="width:83.9%"></div></div></td>
+          <td class="num" data-v="71"><span class="num-big">71</span>
+            <div class="bar-wrap"><div class="bar" style="width:64.0%"></div></div></td>
+          <td class="num" data-v="15.39">R$ 15,39</td>
           <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
         </tr>
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Crivelli</div><div class="sub">Fundo de Funil | Formulário  | Crivelli | 21/11/25 #TP</div></td>
-          <td class="num" data-v="836.24">R$ 836,24
+          <td class="num" data-v="837.54">R$ 837,54
             <div class="bar-wrap"><div class="bar navy" style="width:64.3%"></div></div></td>
           <td class="num" data-v="63"><span class="num-big">63</span>
             <div class="bar-wrap"><div class="bar" style="width:56.8%"></div></div></td>
-          <td class="num" data-v="13.27">R$ 13,27</td>
+          <td class="num" data-v="13.29">R$ 13,29</td>
           <td class="num" data-v="4"><span style="color:var(--ok); font-weight:600;">4</span></td>
         </tr>
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Sunrise</div><div class="sub">Fundo de Funil | Formulário | Sunrise | 03.09/25 #TP</div></td>
-          <td class="num" data-v="961.79">R$ 961,79
-            <div class="bar-wrap"><div class="bar navy" style="width:74.0%"></div></div></td>
+          <td class="num" data-v="962.30">R$ 962,30
+            <div class="bar-wrap"><div class="bar navy" style="width:73.9%"></div></div></td>
           <td class="num" data-v="38"><span class="num-big">38</span>
             <div class="bar-wrap"><div class="bar" style="width:34.2%"></div></div></td>
-          <td class="num" data-v="25.31">R$ 25,31</td>
+          <td class="num" data-v="25.32">R$ 25,32</td>
           <td class="num" data-v="2"><span style="color:var(--ok); font-weight:600;">2</span></td>
         </tr>
         <tr data-status="PAUSED">
@@ -1020,18 +1196,18 @@
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Cocoon Milagres</div><div class="sub">Fundo de Funil | Formulário | Milagres | 21/05 #TP</div></td>
-          <td class="num" data-v="235.75">R$ 235,75
-            <div class="bar-wrap"><div class="bar navy" style="width:18.1%"></div></div></td>
+          <td class="num" data-v="237.58">R$ 237,58
+            <div class="bar-wrap"><div class="bar navy" style="width:18.2%"></div></div></td>
           <td class="num" data-v="9"><span class="num-big">9</span>
             <div class="bar-wrap"><div class="bar" style="width:8.1%"></div></div></td>
-          <td class="num" data-v="26.19">R$ 26,19</td>
+          <td class="num" data-v="26.40">R$ 26,40</td>
           <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
         </tr>
         <tr data-status="PAUSED">
           <td data-v="1"><span class="pill muted">Pausada</span></td>
           <td><div class="strong">Reserva Aya</div><div class="sub">Fundo de Funil | Formulário | Reserva Aya | 07.01 #TP</div></td>
           <td class="num" data-v="157.99">R$ 157,99
-            <div class="bar-wrap"><div class="bar navy" style="width:12.2%"></div></div></td>
+            <div class="bar-wrap"><div class="bar navy" style="width:12.1%"></div></div></td>
           <td class="num" data-v="4"><span class="num-big">4</span>
             <div class="bar-wrap"><div class="bar" style="width:3.6%"></div></div></td>
           <td class="num" data-v="39.50">R$ 39,50</td>
@@ -1041,7 +1217,7 @@
           <td data-v="1"><span class="pill muted">Pausada</span></td>
           <td><div class="strong">Edf. Ravenna</div><div class="sub">Fundo de Funil | Formulário  | Edf. Ravenna | 28/04/26 #TP</div></td>
           <td class="num" data-v="276.20">R$ 276,20
-            <div class="bar-wrap"><div class="bar navy" style="width:21.3%"></div></div></td>
+            <div class="bar-wrap"><div class="bar navy" style="width:21.2%"></div></div></td>
           <td class="num" data-v="2"><span class="num-big">2</span>
             <div class="bar-wrap"><div class="bar" style="width:1.8%"></div></div></td>
           <td class="num" data-v="138.10">R$ 138,10</td>
@@ -1051,7 +1227,7 @@
           <td data-v="0"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Topo de Funil | Tráfego |  23/06 #TP</div>
             <div class="sub"><span class="pill topo">Topo de funil</span> · 1.243 visitas · 6 compart. · 0 salvos</div></td>
-          <td class="num" data-v="277.41"><span class="num-big">R$ 277,41</span>
+          <td class="num" data-v="277.64"><span class="num-big">R$ 277,64</span>
             <div class="bar-wrap"><div class="bar navy" style="width:21.3%"></div></div></td>
           <td class="num zero" data-v="0">—</td><td class="num zero" data-v="0">—</td><td class="num zero" data-v="0">—</td>
         </tr>
@@ -1103,27 +1279,27 @@
 
     <section id="ritmo" class="reveal">
       <div class="section-head"><h2>Ritmo diário de leads</h2><div class="meta">Kommo · 28 dias</div></div>
-      <div class="daily-grid" style="grid-template-columns:repeat(28,1fr)"><div class="day-bar" style="height:59.3%" data-val="16"></div><div class="day-bar" style="height:44.4%" data-val="12"></div><div class="day-bar" style="height:100.0%" data-val="27"></div><div class="day-bar" style="height:55.6%" data-val="15"></div><div class="day-bar" style="height:3.7%" data-val="1"></div><div class="day-bar" style="height:81.5%" data-val="22"></div><div class="day-bar" style="height:51.9%" data-val="14"></div><div class="day-bar" style="height:33.3%" data-val="9"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:48.1%" data-val="13"></div><div class="day-bar" style="height:40.7%" data-val="11"></div><div class="day-bar" style="height:18.5%" data-val="5"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:51.9%" data-val="14"></div><div class="day-bar" style="height:37.0%" data-val="10"></div><div class="day-bar" style="height:70.4%" data-val="19"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:11.1%" data-val="3"></div><div class="day-bar" style="height:22.2%" data-val="6"></div><div class="day-bar" style="height:33.3%" data-val="9"></div><div class="day-bar" style="height:33.3%" data-val="9"></div><div class="day-bar" style="height:59.3%" data-val="16"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:88.9%" data-val="24"></div><div class="day-bar" style="height:51.9%" data-val="14"></div><div class="day-bar" style="height:25.9%" data-val="7"></div></div><div class="daily-x" style="grid-template-columns:repeat(28,1fr)"><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span><span>08</span><span>09</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span></div>
+      <div class="daily-grid" style="grid-template-columns:repeat(28,1fr)"><div class="day-bar" style="height:59.3%" data-val="16"></div><div class="day-bar" style="height:44.4%" data-val="12"></div><div class="day-bar" style="height:100.0%" data-val="27"></div><div class="day-bar" style="height:55.6%" data-val="15"></div><div class="day-bar" style="height:3.7%" data-val="1"></div><div class="day-bar" style="height:81.5%" data-val="22"></div><div class="day-bar" style="height:51.9%" data-val="14"></div><div class="day-bar" style="height:33.3%" data-val="9"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:48.1%" data-val="13"></div><div class="day-bar" style="height:40.7%" data-val="11"></div><div class="day-bar" style="height:18.5%" data-val="5"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:51.9%" data-val="14"></div><div class="day-bar" style="height:37.0%" data-val="10"></div><div class="day-bar" style="height:70.4%" data-val="19"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:11.1%" data-val="3"></div><div class="day-bar" style="height:22.2%" data-val="6"></div><div class="day-bar" style="height:33.3%" data-val="9"></div><div class="day-bar" style="height:33.3%" data-val="9"></div><div class="day-bar" style="height:59.3%" data-val="16"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:88.9%" data-val="24"></div><div class="day-bar" style="height:51.9%" data-val="14"></div><div class="day-bar" style="height:29.6%" data-val="8"></div></div><div class="daily-x" style="grid-template-columns:repeat(28,1fr)"><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span><span>08</span><span>09</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span></div>
       <div class="insight"><strong>Média:</strong> 11.6 leads/dia ao longo de 28 dias. Cada barra mostra os leads daquele dia.</div>
     </section>
   </div>
 </script>
-<script type="text/html" class="period-tpl" data-period="ultimos_7" data-label="22 a 28 de Maio de 2026">  <div class="exec reveal"><h3>Resumo executivo</h3><p>No período foram <strong>87 leads</strong> ao custo de <strong>R$ 16,89</strong> cada (investimento de R$ 1.536,35), a um ritmo de <strong>12 leads/dia</strong>. Hoje há <strong>74 leads vivos no funil</strong>, sendo <strong>3 já qualificados ou em estágio avançado</strong> (reunião, proposta). A conversão média da equipe está em <strong>3,4%</strong>. Os motivos de perda estão detalhados na seção específica abaixo.</p></div>
+<script type="text/html" class="period-tpl" data-period="ultimos_7" data-label="22 a 28 de Maio de 2026">  <div class="exec reveal"><h3>Resumo executivo</h3><p>No período foram <strong>88 leads</strong> ao custo de <strong>R$ 16,81</strong> cada (investimento de R$ 1.546,14), a um ritmo de <strong>13 leads/dia</strong>. Hoje há <strong>75 leads vivos no funil</strong>, sendo <strong>3 já qualificados ou em estágio avançado</strong> (reunião, proposta). A conversão média da equipe está em <strong>3,4%</strong>. Os motivos de perda estão detalhados na seção específica abaixo.</p></div>
   <div class="kpi-grid reveal-stagger">
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">Investimento</div>
-      <div class="kpi-value">R$ 1.536,35</div>
+      <div class="kpi-value">R$ 1.546,14</div>
       <div class="kpi-meta">5 campanhas de captação</div></div>
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">Leads gerados</div>
-      <div class="kpi-value">87</div>
+      <div class="kpi-value">88</div>
       <div class="kpi-meta">Base: Kommo · 86 pela Meta</div></div>
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">CPL médio</div>
-      <div class="kpi-value">R$ 16,89</div>
+      <div class="kpi-value">R$ 16,81</div>
       <div class="kpi-meta">Investimento ÷ leads Kommo</div></div>
     <div class="kpi"><div class="kpi-accent ok"></div><div class="kpi-label">Qualificados</div>
       <div class="kpi-value">2 <small>· 2%</small></div>
       <div class="kpi-meta">No estágio "Lead qualificado"</div></div>
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">Vivos no funil</div>
-      <div class="kpi-value">74</div>
+      <div class="kpi-value">75</div>
       <div class="kpi-meta">Em atendimento ativo no Kommo</div></div>
   </div>
   <section id="acoes" class="reveal">
@@ -1140,8 +1316,8 @@
       <div class="action alta">
         <span class="action-tag alta">Alta</span>
         <div class="action-body">
-          <div class="action-title">Reunir com Tayse Barbosa</div>
-          <div class="action-desc"><span class="action-kicker">Acompanhar time</span> · 7 leads em carteira e nenhuma qualificação no período. Revisar abordagem, cadência e objeções junto com ele.</div>
+          <div class="action-title">Reunir com Sara Gomes</div>
+          <div class="action-desc"><span class="action-kicker">Acompanhar time</span> · 8 leads em carteira e nenhuma qualificação no período. Revisar abordagem, cadência e objeções junto com ele.</div>
         </div>
       </div>
       <div class="action media">
@@ -1184,14 +1360,14 @@
   </section>
   <section id="funil" class="reveal">
     <div class="section-head"><h2>Funil de vendas</h2>
-      <div class="meta">Kommo · todos os estágios<br>somam 87 leads</div></div>
+      <div class="meta">Kommo · todos os estágios<br>somam 88 leads</div></div>
     <div class="funnel">
       <div class="fstage"><div class="fname">Entrada / Lead novo</div>
-        <div class="fbar-wrap"><div class="fbar cold" style="width:2.3%"></div></div>
-        <div class="fnum"><b>1</b><span>1%</span></div></div>
+        <div class="fbar-wrap"><div class="fbar cold" style="width:4.5%"></div></div>
+        <div class="fnum"><b>2</b><span>2%</span></div></div>
       <div class="fstage"><div class="fname">Follow-up</div>
         <div class="fbar-wrap"><div class="fbar cold" style="width:100.0%"></div></div>
-        <div class="fnum"><b>44</b><span>51%</span></div></div>
+        <div class="fnum"><b>44</b><span>50%</span></div></div>
       <div class="fstage"><div class="fname">Em atendimento</div>
         <div class="fbar-wrap"><div class="fbar" style="width:59.1%"></div></div>
         <div class="fnum"><b>26</b><span>30%</span></div></div>
@@ -1213,15 +1389,16 @@
       <div class="fcard"><div class="l">Em nutrição</div><div class="v">0</div></div>
       <div class="fcard"><div class="l">Encerrados (perda)</div><div class="v">13</div></div>
     </div>
-    <div class="insight"><strong>Reconciliação:</strong> 74 leads vivos no funil + 13 encerrados = 87 leads, igual ao total do Kommo no período. Os números desta página batem 1:1 com o CRM.</div>
+    <div class="insight"><strong>Reconciliação:</strong> 75 leads vivos no funil + 13 encerrados = 88 leads, igual ao total do Kommo no período. Os números desta página batem 1:1 com o CRM.</div>
   </section>
   <section id="corretores" class="reveal">
     <div class="section-head"><h2>Atividade por corretor</h2>
-      <div class="meta">Kommo · 11 corretores · clique nos títulos pra ordenar</div></div>
+      <div class="meta">Kommo · 11 corretores · clique numa linha p/ detalhe</div></div>
     <table class="sortable">
       <thead><tr>
         <th>Corretor</th>
         <th class="num">Em carteira</th>
+        <th class="num">Parados +7d</th>
         <th class="num">Follow-up</th>
         <th class="num">Em atend.</th>
         <th class="num">Reunião</th>
@@ -1230,9 +1407,10 @@
         <th class="num">Total</th>
       </tr></thead>
       <tbody>
-        <tr class="top">
-          <td><div class="strong">Roberto Maia<span class="star">★</span></div></td>
+        <tr class="corr-row top">
+          <td><div class="strong"><span class="corr-caret">▸</span>Roberto Maia<span class="star">★</span></div></td>
           <td class="num" data-v="5"><span class="num-big">5</span></td>
+          <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="2">2</td>
           <td class="num" data-v="2">2</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -1240,9 +1418,16 @@
           <td class="num" data-v="20.0"><span class="num-big" style="color:var(--ok);">20%</span></td>
           <td class="num" data-v="5"><span class="strong">5</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Silvio</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Roberto Maia</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>2</b><span>Follow-up</span></div><div class="cstat"><b>2</b><span>Em atendimento</span></div><div class="cstat"><b>1</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>0</b><span>Parados +7d</span></div><div class="cstat"><b>0</b><span>Perdidos</span></div><div class="cstat"><b>0</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Silvio</div></td>
           <td class="num" data-v="8"><span class="num-big">8</span></td>
+          <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="7">7</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="1">1</td>
@@ -1250,9 +1435,16 @@
           <td class="num" data-v="11.1"><span class="num-big" style="color:var(--ok);">11%</span></td>
           <td class="num" data-v="9"><span class="strong">9</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Arthur Arcanjo</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Silvio</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>7</b><span>Follow-up</span></div><div class="cstat"><b>0</b><span>Em atendimento</span></div><div class="cstat"><b>0</b><span>Qualificado</span></div><div class="cstat"><b>1</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>0</b><span>Parados +7d</span></div><div class="cstat"><b>1</b><span>Perdidos</span></div><div class="cstat"><b>0</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Arthur Arcanjo</div></td>
           <td class="num" data-v="7"><span class="num-big">7</span></td>
+          <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="4">4</td>
           <td class="num" data-v="2">2</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -1260,9 +1452,16 @@
           <td class="num" data-v="11.1"><span class="num-big" style="color:var(--ok);">11%</span></td>
           <td class="num" data-v="9"><span class="strong">9</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Marcos Lima</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Arthur Arcanjo</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>4</b><span>Follow-up</span></div><div class="cstat"><b>2</b><span>Em atendimento</span></div><div class="cstat"><b>1</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>0</b><span>Parados +7d</span></div><div class="cstat"><b>2</b><span>Perdidos</span></div><div class="cstat"><b>0</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Marcos Lima</div></td>
           <td class="num" data-v="8"><span class="num-big">8</span></td>
+          <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="5">5</td>
           <td class="num" data-v="3">3</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -1270,9 +1469,33 @@
           <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
           <td class="num" data-v="8"><span class="strong">8</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Tayse Barbosa</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Marcos Lima</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>5</b><span>Follow-up</span></div><div class="cstat"><b>3</b><span>Em atendimento</span></div><div class="cstat"><b>0</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>0</b><span>Parados +7d</span></div><div class="cstat"><b>0</b><span>Perdidos</span></div><div class="cstat"><b>0</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Sara Gomes</div></td>
+          <td class="num" data-v="8"><span class="num-big">8</span></td>
+          <td class="num" data-v="0"><span class="zero">—</span></td>
+          <td class="num" data-v="3">3</td>
+          <td class="num" data-v="4">4</td>
+          <td class="num" data-v="0"><span class="zero">—</span></td>
+          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
+          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
+          <td class="num" data-v="9"><span class="strong">9</span></td>
+        </tr>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Sara Gomes</strong></div>
+            <div class="cstats"><div class="cstat"><b>1</b><span>Entrada</span></div><div class="cstat"><b>3</b><span>Follow-up</span></div><div class="cstat"><b>4</b><span>Em atendimento</span></div><div class="cstat"><b>0</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>0</b><span>Parados +7d</span></div><div class="cstat"><b>1</b><span>Perdidos</span></div><div class="cstat"><b>0</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Tayse Barbosa</div></td>
           <td class="num" data-v="7"><span class="num-big">7</span></td>
+          <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="6">6</td>
           <td class="num" data-v="1">1</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -1280,9 +1503,16 @@
           <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
           <td class="num" data-v="8"><span class="strong">8</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Carlos Pereira</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Tayse Barbosa</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>6</b><span>Follow-up</span></div><div class="cstat"><b>1</b><span>Em atendimento</span></div><div class="cstat"><b>0</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>0</b><span>Parados +7d</span></div><div class="cstat"><b>1</b><span>Perdidos</span></div><div class="cstat"><b>0</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Carlos Pereira</div></td>
           <td class="num" data-v="7"><span class="num-big">7</span></td>
+          <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="3">3</td>
           <td class="num" data-v="4">4</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -1290,9 +1520,33 @@
           <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
           <td class="num" data-v="8"><span class="strong">8</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Sara Gomes</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Carlos Pereira</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>3</b><span>Follow-up</span></div><div class="cstat"><b>4</b><span>Em atendimento</span></div><div class="cstat"><b>0</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>0</b><span>Parados +7d</span></div><div class="cstat"><b>1</b><span>Perdidos</span></div><div class="cstat"><b>0</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Emanuel Antônio</div></td>
           <td class="num" data-v="7"><span class="num-big">7</span></td>
+          <td class="num" data-v="0"><span class="zero">—</span></td>
+          <td class="num" data-v="3">3</td>
+          <td class="num" data-v="3">3</td>
+          <td class="num" data-v="0"><span class="zero">—</span></td>
+          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
+          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
+          <td class="num" data-v="8"><span class="strong">8</span></td>
+        </tr>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Emanuel Antônio</strong></div>
+            <div class="cstats"><div class="cstat"><b>1</b><span>Entrada</span></div><div class="cstat"><b>3</b><span>Follow-up</span></div><div class="cstat"><b>3</b><span>Em atendimento</span></div><div class="cstat"><b>0</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>0</b><span>Parados +7d</span></div><div class="cstat"><b>1</b><span>Perdidos</span></div><div class="cstat"><b>0</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Ruy</div></td>
+          <td class="num" data-v="7"><span class="num-big">7</span></td>
+          <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="3">3</td>
           <td class="num" data-v="4">4</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -1300,29 +1554,16 @@
           <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
           <td class="num" data-v="8"><span class="strong">8</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Emanuel Antônio</div></td>
-          <td class="num" data-v="7"><span class="num-big">7</span></td>
-          <td class="num" data-v="3">3</td>
-          <td class="num" data-v="3">3</td>
-          <td class="num" data-v="0"><span class="zero">—</span></td>
-          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
-          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
-          <td class="num" data-v="8"><span class="strong">8</span></td>
-        </tr>
-        <tr>
-          <td><div class="strong">Ruy</div></td>
-          <td class="num" data-v="7"><span class="num-big">7</span></td>
-          <td class="num" data-v="3">3</td>
-          <td class="num" data-v="4">4</td>
-          <td class="num" data-v="0"><span class="zero">—</span></td>
-          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
-          <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
-          <td class="num" data-v="8"><span class="strong">8</span></td>
-        </tr>
-        <tr>
-          <td><div class="strong">Fernando Akila</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Ruy</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>3</b><span>Follow-up</span></div><div class="cstat"><b>4</b><span>Em atendimento</span></div><div class="cstat"><b>0</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>0</b><span>Parados +7d</span></div><div class="cstat"><b>1</b><span>Perdidos</span></div><div class="cstat"><b>0</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Fernando Akila</div></td>
           <td class="num" data-v="6"><span class="num-big">6</span></td>
+          <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="6">6</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -1330,9 +1571,16 @@
           <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
           <td class="num" data-v="8"><span class="strong">8</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Simone Venancio</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Fernando Akila</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>6</b><span>Follow-up</span></div><div class="cstat"><b>0</b><span>Em atendimento</span></div><div class="cstat"><b>0</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>0</b><span>Parados +7d</span></div><div class="cstat"><b>2</b><span>Perdidos</span></div><div class="cstat"><b>0</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Simone Venancio</div></td>
           <td class="num" data-v="5"><span class="num-big">5</span></td>
+          <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="2">2</td>
           <td class="num" data-v="3">3</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -1340,19 +1588,26 @@
           <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
           <td class="num" data-v="8"><span class="strong">8</span></td>
         </tr>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Simone Venancio</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>2</b><span>Follow-up</span></div><div class="cstat"><b>3</b><span>Em atendimento</span></div><div class="cstat"><b>0</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>0</b><span>Parados +7d</span></div><div class="cstat"><b>3</b><span>Perdidos</span></div><div class="cstat"><b>0</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
       </tbody>
       <tfoot><tr>
         <td>Total comercial (11 corretores)</td>
-        <td class="num">74</td>
+        <td class="num">75</td>
+        <td class="num">0</td>
         <td class="num">44</td>
         <td class="num">26</td>
         <td class="num">1</td>
         <td class="num">3</td>
         <td class="num">3%</td>
-        <td class="num">87</td>
+        <td class="num">88</td>
       </tr></tfoot>
     </table>
-    <div class="insight"><strong>Conversão</strong> = leads que chegaram a <em>Qualificado ou além</em> (reunião, proposta, venda) ÷ leads recebidos. O <span class="star">★</span> marca a melhor conversão do período. "Em carteira" são os leads vivos sob responsabilidade do corretor — bom indicador de carga de trabalho ativa.</div>
+    <div class="insight"><strong>Parados +7d</strong> = leads no funil de trabalho (entrada → proposta) sem nenhuma movimentação há mais de 7 dias — risco de esfriar. <strong>Clique numa linha</strong> pra abrir o funil completo do corretor. <strong>Conversão</strong> = chegaram a qualificado ou além ÷ recebidos; <span class="star">★</span> marca a melhor do período.</div>
   </section>
   <section id="campanhas" class="reveal">
     <div class="section-head"><h2>Desempenho por campanha</h2>
@@ -1371,59 +1626,59 @@
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Tintoretto</div><div class="sub">Fundo de Funil | Formulário | Tintoretto | 03/09/25 #TP</div></td>
-          <td class="num" data-v="355.71">R$ 355,71
+          <td class="num" data-v="358.31">R$ 358,31
             <div class="bar-wrap"><div class="bar navy" style="width:100.0%"></div></div></td>
           <td class="num" data-v="24"><span class="num-big">24</span>
             <div class="bar-wrap"><div class="bar" style="width:100.0%"></div></div></td>
-          <td class="num" data-v="14.82">R$ 14,82</td>
+          <td class="num" data-v="14.93">R$ 14,93</td>
           <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
         </tr>
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Essence</div><div class="sub">Fundo de Funil | Formulário  | Essence | 30/04/26  #TP</div></td>
-          <td class="num" data-v="349.15">R$ 349,15
-            <div class="bar-wrap"><div class="bar navy" style="width:98.2%"></div></div></td>
-          <td class="num" data-v="22"><span class="num-big">22</span>
-            <div class="bar-wrap"><div class="bar" style="width:91.7%"></div></div></td>
-          <td class="num" data-v="15.87">R$ 15,87</td>
+          <td class="num" data-v="352.47">R$ 352,47
+            <div class="bar-wrap"><div class="bar navy" style="width:98.4%"></div></div></td>
+          <td class="num" data-v="23"><span class="num-big">23</span>
+            <div class="bar-wrap"><div class="bar" style="width:95.8%"></div></div></td>
+          <td class="num" data-v="15.32">R$ 15,32</td>
           <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
         </tr>
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Crivelli</div><div class="sub">Fundo de Funil | Formulário  | Crivelli | 21/11/25 #TP</div></td>
-          <td class="num" data-v="252.95">R$ 252,95
-            <div class="bar-wrap"><div class="bar navy" style="width:71.1%"></div></div></td>
+          <td class="num" data-v="254.25">R$ 254,25
+            <div class="bar-wrap"><div class="bar navy" style="width:71.0%"></div></div></td>
           <td class="num" data-v="19"><span class="num-big">19</span>
             <div class="bar-wrap"><div class="bar" style="width:79.2%"></div></div></td>
-          <td class="num" data-v="13.31">R$ 13,31</td>
+          <td class="num" data-v="13.38">R$ 13,38</td>
           <td class="num" data-v="2"><span style="color:var(--ok); font-weight:600;">2</span></td>
         </tr>
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Sunrise</div><div class="sub">Fundo de Funil | Formulário | Sunrise | 03.09/25 #TP</div></td>
-          <td class="num" data-v="291.54">R$ 291,54
-            <div class="bar-wrap"><div class="bar navy" style="width:82.0%"></div></div></td>
+          <td class="num" data-v="292.05">R$ 292,05
+            <div class="bar-wrap"><div class="bar navy" style="width:81.5%"></div></div></td>
           <td class="num" data-v="8"><span class="num-big">8</span>
             <div class="bar-wrap"><div class="bar" style="width:33.3%"></div></div></td>
-          <td class="num" data-v="36.44">R$ 36,44</td>
+          <td class="num" data-v="36.51">R$ 36,51</td>
           <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
         </tr>
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Cocoon Milagres</div><div class="sub">Fundo de Funil | Formulário | Milagres | 21/05 #TP</div></td>
-          <td class="num" data-v="220.06">R$ 220,06
+          <td class="num" data-v="221.89">R$ 221,89
             <div class="bar-wrap"><div class="bar navy" style="width:61.9%"></div></div></td>
           <td class="num" data-v="8"><span class="num-big">8</span>
             <div class="bar-wrap"><div class="bar" style="width:33.3%"></div></div></td>
-          <td class="num" data-v="27.51">R$ 27,51</td>
+          <td class="num" data-v="27.74">R$ 27,74</td>
           <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
         </tr>
         <tr data-status="ACTIVE">
           <td data-v="0"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Topo de Funil | Tráfego |  23/06 #TP</div>
             <div class="sub"><span class="pill topo">Topo de funil</span> · 259 visitas · 1 compart. · 0 salvos</div></td>
-          <td class="num" data-v="66.94"><span class="num-big">R$ 66,94</span>
-            <div class="bar-wrap"><div class="bar navy" style="width:18.8%"></div></div></td>
+          <td class="num" data-v="67.17"><span class="num-big">R$ 67,17</span>
+            <div class="bar-wrap"><div class="bar navy" style="width:18.7%"></div></div></td>
           <td class="num zero" data-v="0">—</td><td class="num zero" data-v="0">—</td><td class="num zero" data-v="0">—</td>
         </tr>
       </tbody>
@@ -1460,27 +1715,27 @@
 
     <section id="ritmo" class="reveal">
       <div class="section-head"><h2>Ritmo diário de leads</h2><div class="meta">Kommo · 7 dias</div></div>
-      <div class="daily-grid" style="grid-template-columns:repeat(7,1fr)"><div class="day-bar" style="height:37.5%" data-val="9"></div><div class="day-bar" style="height:37.5%" data-val="9"></div><div class="day-bar" style="height:66.7%" data-val="16"></div><div class="day-bar" style="height:33.3%" data-val="8"></div><div class="day-bar" style="height:100.0%" data-val="24"></div><div class="day-bar" style="height:58.3%" data-val="14"></div><div class="day-bar" style="height:29.2%" data-val="7"></div></div><div class="daily-x" style="grid-template-columns:repeat(7,1fr)"><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span></div>
-      <div class="insight"><strong>Média:</strong> 12.4 leads/dia ao longo de 7 dias. Cada barra mostra os leads daquele dia.</div>
+      <div class="daily-grid" style="grid-template-columns:repeat(7,1fr)"><div class="day-bar" style="height:37.5%" data-val="9"></div><div class="day-bar" style="height:37.5%" data-val="9"></div><div class="day-bar" style="height:66.7%" data-val="16"></div><div class="day-bar" style="height:33.3%" data-val="8"></div><div class="day-bar" style="height:100.0%" data-val="24"></div><div class="day-bar" style="height:58.3%" data-val="14"></div><div class="day-bar" style="height:33.3%" data-val="8"></div></div><div class="daily-x" style="grid-template-columns:repeat(7,1fr)"><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span></div>
+      <div class="insight"><strong>Média:</strong> 12.6 leads/dia ao longo de 7 dias. Cada barra mostra os leads daquele dia.</div>
     </section>
   </div>
 </script>
-<script type="text/html" class="period-tpl" data-period="ultimos_30" data-label="29/04/2026 — 28/05/2026">  <div class="exec reveal"><h3>Resumo executivo</h3><p>No período foram <strong>337 leads</strong> ao custo de <strong>R$ 16,08</strong> cada (investimento de R$ 5.814,22), a um ritmo de <strong>11 leads/dia</strong>. Hoje há <strong>251 leads vivos no funil</strong>, sendo <strong>20 já qualificados ou em estágio avançado</strong> (reunião, proposta). A conversão média da equipe está em <strong>6,4%</strong>. Os motivos de perda estão detalhados na seção específica abaixo.</p></div>
+<script type="text/html" class="period-tpl" data-period="ultimos_30" data-label="29/04/2026 — 28/05/2026">  <div class="exec reveal"><h3>Resumo executivo</h3><p>No período foram <strong>338 leads</strong> ao custo de <strong>R$ 16,06</strong> cada (investimento de R$ 5.824,01), a um ritmo de <strong>11 leads/dia</strong>. Hoje há <strong>252 leads vivos no funil</strong>, sendo <strong>20 já qualificados ou em estágio avançado</strong> (reunião, proposta). A conversão média da equipe está em <strong>6,4%</strong>. Os motivos de perda estão detalhados na seção específica abaixo.</p></div>
   <div class="kpi-grid reveal-stagger">
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">Investimento</div>
-      <div class="kpi-value">R$ 5.814,22</div>
+      <div class="kpi-value">R$ 5.824,01</div>
       <div class="kpi-meta">11 campanhas de captação</div></div>
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">Leads gerados</div>
-      <div class="kpi-value">337</div>
+      <div class="kpi-value">338</div>
       <div class="kpi-meta">Base: Kommo · 339 pela Meta</div></div>
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">CPL médio</div>
-      <div class="kpi-value">R$ 16,08</div>
+      <div class="kpi-value">R$ 16,06</div>
       <div class="kpi-meta">Investimento ÷ leads Kommo</div></div>
     <div class="kpi"><div class="kpi-accent ok"></div><div class="kpi-label">Qualificados</div>
       <div class="kpi-value">14 <small>· 4%</small></div>
       <div class="kpi-meta">No estágio "Lead qualificado"</div></div>
     <div class="kpi"><div class="kpi-accent"></div><div class="kpi-label">Vivos no funil</div>
-      <div class="kpi-value">251</div>
+      <div class="kpi-value">252</div>
       <div class="kpi-meta">Em atendimento ativo no Kommo</div></div>
   </div>
   <section id="acoes" class="reveal">
@@ -1541,11 +1796,11 @@
   </section>
   <section id="funil" class="reveal">
     <div class="section-head"><h2>Funil de vendas</h2>
-      <div class="meta">Kommo · todos os estágios<br>somam 337 leads</div></div>
+      <div class="meta">Kommo · todos os estágios<br>somam 338 leads</div></div>
     <div class="funnel">
       <div class="fstage"><div class="fname">Entrada / Lead novo</div>
-        <div class="fbar-wrap"><div class="fbar cold" style="width:1.0%"></div></div>
-        <div class="fnum"><b>1</b><span>0%</span></div></div>
+        <div class="fbar-wrap"><div class="fbar cold" style="width:1.8%"></div></div>
+        <div class="fnum"><b>2</b><span>1%</span></div></div>
       <div class="fstage"><div class="fname">Follow-up</div>
         <div class="fbar-wrap"><div class="fbar cold" style="width:100.0%"></div></div>
         <div class="fnum"><b>109</b><span>32%</span></div></div>
@@ -1570,15 +1825,16 @@
       <div class="fcard"><div class="l">Em nutrição</div><div class="v">36</div></div>
       <div class="fcard"><div class="l">Encerrados (perda)</div><div class="v">86</div></div>
     </div>
-    <div class="insight"><strong>Reconciliação:</strong> 251 leads vivos no funil + 86 encerrados = 337 leads, igual ao total do Kommo no período. Os números desta página batem 1:1 com o CRM.</div>
+    <div class="insight"><strong>Reconciliação:</strong> 252 leads vivos no funil + 86 encerrados = 338 leads, igual ao total do Kommo no período. Os números desta página batem 1:1 com o CRM.</div>
   </section>
   <section id="corretores" class="reveal">
     <div class="section-head"><h2>Atividade por corretor</h2>
-      <div class="meta">Kommo · 11 corretores · clique nos títulos pra ordenar</div></div>
+      <div class="meta">Kommo · 11 corretores · clique numa linha p/ detalhe</div></div>
     <table class="sortable">
       <thead><tr>
         <th>Corretor</th>
         <th class="num">Em carteira</th>
+        <th class="num">Parados +7d</th>
         <th class="num">Follow-up</th>
         <th class="num">Em atend.</th>
         <th class="num">Reunião</th>
@@ -1587,9 +1843,10 @@
         <th class="num">Total</th>
       </tr></thead>
       <tbody>
-        <tr class="top">
-          <td><div class="strong">Arthur Arcanjo<span class="star">★</span></div></td>
+        <tr class="corr-row top">
+          <td><div class="strong"><span class="corr-caret">▸</span>Arthur Arcanjo<span class="star">★</span></div></td>
           <td class="num" data-v="15"><span class="num-big">15</span></td>
+          <td class="num" data-v="8"><span class="num-big" style="color:var(--danger);">8</span></td>
           <td class="num" data-v="4">4</td>
           <td class="num" data-v="4">4</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -1597,9 +1854,16 @@
           <td class="num" data-v="25.0"><span class="num-big" style="color:var(--ok);">25%</span></td>
           <td class="num" data-v="28"><span class="strong">28</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Roberto Maia</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Arthur Arcanjo</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>4</b><span>Follow-up</span></div><div class="cstat"><b>4</b><span>Em atendimento</span></div><div class="cstat"><b>7</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>8</b><span>Parados +7d · 53% da carteira</span></div><div class="cstat"><b>13</b><span>Perdidos</span></div><div class="cstat"><b>0</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Roberto Maia</div></td>
           <td class="num" data-v="7"><span class="num-big">7</span></td>
+          <td class="num" data-v="2"><span class="num-big" style="color:var(--warn);">2</span></td>
           <td class="num" data-v="3">3</td>
           <td class="num" data-v="3">3</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -1607,9 +1871,16 @@
           <td class="num" data-v="12.5"><span class="num-big" style="color:var(--ok);">12%</span></td>
           <td class="num" data-v="8"><span class="strong">8</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Fernando Akila</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Roberto Maia</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>3</b><span>Follow-up</span></div><div class="cstat"><b>3</b><span>Em atendimento</span></div><div class="cstat"><b>1</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>2</b><span>Parados +7d · 29% da carteira</span></div><div class="cstat"><b>1</b><span>Perdidos</span></div><div class="cstat"><b>0</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Fernando Akila</div></td>
           <td class="num" data-v="16"><span class="num-big">16</span></td>
+          <td class="num" data-v="10"><span class="num-big" style="color:var(--danger);">10</span></td>
           <td class="num" data-v="7">7</td>
           <td class="num" data-v="6">6</td>
           <td class="num" data-v="3">3</td>
@@ -1617,9 +1888,16 @@
           <td class="num" data-v="9.7"><span class="num-big" style="color:var(--ok);">10%</span></td>
           <td class="num" data-v="31"><span class="strong">31</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Tayse Barbosa</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Fernando Akila</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>7</b><span>Follow-up</span></div><div class="cstat"><b>6</b><span>Em atendimento</span></div><div class="cstat"><b>0</b><span>Qualificado</span></div><div class="cstat"><b>3</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>10</b><span>Parados +7d · 62% da carteira</span></div><div class="cstat"><b>15</b><span>Perdidos</span></div><div class="cstat"><b>0</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Tayse Barbosa</div></td>
           <td class="num" data-v="24"><span class="num-big">24</span></td>
+          <td class="num" data-v="16"><span class="num-big" style="color:var(--danger);">16</span></td>
           <td class="num" data-v="10">10</td>
           <td class="num" data-v="11">11</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -1627,9 +1905,16 @@
           <td class="num" data-v="6.9"><span class="num-big" style="color:var(--ok);">7%</span></td>
           <td class="num" data-v="29"><span class="strong">29</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Silvio</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Tayse Barbosa</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>10</b><span>Follow-up</span></div><div class="cstat"><b>11</b><span>Em atendimento</span></div><div class="cstat"><b>2</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>16</b><span>Parados +7d · 67% da carteira</span></div><div class="cstat"><b>5</b><span>Perdidos</span></div><div class="cstat"><b>1</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Silvio</div></td>
           <td class="num" data-v="24"><span class="num-big">24</span></td>
+          <td class="num" data-v="4"><span class="num-big" style="color:var(--text-soft);">4</span></td>
           <td class="num" data-v="11">11</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="1">1</td>
@@ -1637,19 +1922,16 @@
           <td class="num" data-v="6.1"><span class="num-big" style="color:var(--text-soft);">6%</span></td>
           <td class="num" data-v="33"><span class="strong">33</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Sara Gomes</div></td>
-          <td class="num" data-v="21"><span class="num-big">21</span></td>
-          <td class="num" data-v="9">9</td>
-          <td class="num" data-v="11">11</td>
-          <td class="num" data-v="0"><span class="zero">—</span></td>
-          <td class="num" data-v="1"><span style="color:var(--ok); font-weight:600;">1</span></td>
-          <td class="num" data-v="3.6"><span class="num-big" style="color:var(--text-soft);">4%</span></td>
-          <td class="num" data-v="28"><span class="strong">28</span></td>
-        </tr>
-        <tr>
-          <td><div class="strong">Ruy</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Silvio</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>11</b><span>Follow-up</span></div><div class="cstat"><b>0</b><span>Em atendimento</span></div><div class="cstat"><b>1</b><span>Qualificado</span></div><div class="cstat"><b>1</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>4</b><span>Parados +7d · 17% da carteira</span></div><div class="cstat"><b>9</b><span>Perdidos</span></div><div class="cstat"><b>11</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Ruy</div></td>
           <td class="num" data-v="28"><span class="num-big">28</span></td>
+          <td class="num" data-v="20"><span class="num-big" style="color:var(--danger);">20</span></td>
           <td class="num" data-v="18">18</td>
           <td class="num" data-v="9">9</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -1657,9 +1939,33 @@
           <td class="num" data-v="3.4"><span class="num-big" style="color:var(--text-soft);">3%</span></td>
           <td class="num" data-v="29"><span class="strong">29</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Carlos Pereira</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Ruy</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>18</b><span>Follow-up</span></div><div class="cstat"><b>9</b><span>Em atendimento</span></div><div class="cstat"><b>1</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>20</b><span>Parados +7d · 71% da carteira</span></div><div class="cstat"><b>1</b><span>Perdidos</span></div><div class="cstat"><b>0</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Sara Gomes</div></td>
+          <td class="num" data-v="22"><span class="num-big">22</span></td>
+          <td class="num" data-v="10"><span class="num-big" style="color:var(--danger);">10</span></td>
+          <td class="num" data-v="9">9</td>
+          <td class="num" data-v="11">11</td>
+          <td class="num" data-v="0"><span class="zero">—</span></td>
+          <td class="num" data-v="1"><span style="color:var(--ok); font-weight:600;">1</span></td>
+          <td class="num" data-v="3.4"><span class="num-big" style="color:var(--text-soft);">3%</span></td>
+          <td class="num" data-v="29"><span class="strong">29</span></td>
+        </tr>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Sara Gomes</strong></div>
+            <div class="cstats"><div class="cstat"><b>1</b><span>Entrada</span></div><div class="cstat"><b>9</b><span>Follow-up</span></div><div class="cstat"><b>11</b><span>Em atendimento</span></div><div class="cstat"><b>1</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>10</b><span>Parados +7d · 45% da carteira</span></div><div class="cstat"><b>7</b><span>Perdidos</span></div><div class="cstat"><b>0</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Carlos Pereira</div></td>
           <td class="num" data-v="24"><span class="num-big">24</span></td>
+          <td class="num" data-v="14"><span class="num-big" style="color:var(--danger);">14</span></td>
           <td class="num" data-v="9">9</td>
           <td class="num" data-v="14">14</td>
           <td class="num" data-v="1">1</td>
@@ -1667,9 +1973,16 @@
           <td class="num" data-v="3.3"><span class="num-big" style="color:var(--text-soft);">3%</span></td>
           <td class="num" data-v="30"><span class="strong">30</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Emanuel Antônio</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Carlos Pereira</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>9</b><span>Follow-up</span></div><div class="cstat"><b>14</b><span>Em atendimento</span></div><div class="cstat"><b>0</b><span>Qualificado</span></div><div class="cstat"><b>1</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>14</b><span>Parados +7d · 58% da carteira</span></div><div class="cstat"><b>6</b><span>Perdidos</span></div><div class="cstat"><b>0</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Emanuel Antônio</div></td>
           <td class="num" data-v="22"><span class="num-big">22</span></td>
+          <td class="num" data-v="12"><span class="num-big" style="color:var(--danger);">12</span></td>
           <td class="num" data-v="12">12</td>
           <td class="num" data-v="7">7</td>
           <td class="num" data-v="1">1</td>
@@ -1677,9 +1990,16 @@
           <td class="num" data-v="3.1"><span class="num-big" style="color:var(--text-soft);">3%</span></td>
           <td class="num" data-v="32"><span class="strong">32</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Marcos Lima</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Emanuel Antônio</strong></div>
+            <div class="cstats"><div class="cstat"><b>1</b><span>Entrada</span></div><div class="cstat"><b>12</b><span>Follow-up</span></div><div class="cstat"><b>7</b><span>Em atendimento</span></div><div class="cstat"><b>0</b><span>Qualificado</span></div><div class="cstat"><b>1</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>12</b><span>Parados +7d · 55% da carteira</span></div><div class="cstat"><b>10</b><span>Perdidos</span></div><div class="cstat"><b>1</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Marcos Lima</div></td>
           <td class="num" data-v="31"><span class="num-big">31</span></td>
+          <td class="num" data-v="20"><span class="num-big" style="color:var(--danger);">20</span></td>
           <td class="num" data-v="20">20</td>
           <td class="num" data-v="9">9</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -1687,9 +2007,16 @@
           <td class="num" data-v="2.9"><span class="num-big" style="color:var(--text-soft);">3%</span></td>
           <td class="num" data-v="34"><span class="strong">34</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Simone Venancio</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Marcos Lima</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>20</b><span>Follow-up</span></div><div class="cstat"><b>9</b><span>Em atendimento</span></div><div class="cstat"><b>1</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>20</b><span>Parados +7d · 65% da carteira</span></div><div class="cstat"><b>3</b><span>Perdidos</span></div><div class="cstat"><b>1</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Simone Venancio</div></td>
           <td class="num" data-v="15"><span class="num-big">15</span></td>
+          <td class="num" data-v="8"><span class="num-big" style="color:var(--danger);">8</span></td>
           <td class="num" data-v="6">6</td>
           <td class="num" data-v="9">9</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -1697,9 +2024,16 @@
           <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
           <td class="num" data-v="31"><span class="strong">31</span></td>
         </tr>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Simone Venancio</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>6</b><span>Follow-up</span></div><div class="cstat"><b>9</b><span>Em atendimento</span></div><div class="cstat"><b>0</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>8</b><span>Parados +7d · 53% da carteira</span></div><div class="cstat"><b>16</b><span>Perdidos</span></div><div class="cstat"><b>0</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
         <tr>
           <td><div class="strong">Trilha <span class="pill nutri">Nutrição</span></div></td>
           <td class="num" data-v="24"><span class="num-big">24</span></td>
+          <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -1710,16 +2044,17 @@
       </tbody>
       <tfoot><tr>
         <td>Total comercial (11 corretores)</td>
-        <td class="num">227</td>
+        <td class="num">228</td>
+        <td class="num">124</td>
         <td class="num">109</td>
         <td class="num">83</td>
         <td class="num">6</td>
         <td class="num">20</td>
         <td class="num">6%</td>
-        <td class="num">313</td>
+        <td class="num">314</td>
       </tr></tfoot>
     </table>
-    <div class="insight"><strong>Conversão</strong> = leads que chegaram a <em>Qualificado ou além</em> (reunião, proposta, venda) ÷ leads recebidos. O <span class="star">★</span> marca a melhor conversão do período. "Em carteira" são os leads vivos sob responsabilidade do corretor — bom indicador de carga de trabalho ativa.</div>
+    <div class="insight"><strong>Parados +7d</strong> = leads no funil de trabalho (entrada → proposta) sem nenhuma movimentação há mais de 7 dias — risco de esfriar. <strong>Clique numa linha</strong> pra abrir o funil completo do corretor. <strong>Conversão</strong> = chegaram a qualificado ou além ÷ recebidos; <span class="star">★</span> marca a melhor do período.</div>
   </section>
   <section id="campanhas" class="reveal">
     <div class="section-head"><h2>Desempenho por campanha</h2>
@@ -1738,51 +2073,51 @@
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Tintoretto</div><div class="sub">Fundo de Funil | Formulário | Tintoretto | 03/09/25 #TP</div></td>
-          <td class="num" data-v="1382.41">R$ 1.382,41
+          <td class="num" data-v="1385.01">R$ 1.385,01
             <div class="bar-wrap"><div class="bar navy" style="width:100.0%"></div></div></td>
           <td class="num" data-v="114"><span class="num-big">114</span>
             <div class="bar-wrap"><div class="bar" style="width:100.0%"></div></div></td>
-          <td class="num" data-v="12.13">R$ 12,13</td>
+          <td class="num" data-v="12.15">R$ 12,15</td>
           <td class="num" data-v="10"><span style="color:var(--ok); font-weight:600;">10</span></td>
         </tr>
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
-          <td><div class="strong">Crivelli</div><div class="sub">Fundo de Funil | Formulário  | Crivelli | 21/11/25 #TP</div></td>
-          <td class="num" data-v="917.77">R$ 917,77
-            <div class="bar-wrap"><div class="bar navy" style="width:66.4%"></div></div></td>
+          <td><div class="strong">Essence</div><div class="sub">Fundo de Funil | Formulário  | Essence | 30/04/26  #TP</div></td>
+          <td class="num" data-v="1102.34">R$ 1.102,34
+            <div class="bar-wrap"><div class="bar navy" style="width:79.6%"></div></div></td>
           <td class="num" data-v="71"><span class="num-big">71</span>
             <div class="bar-wrap"><div class="bar" style="width:62.3%"></div></div></td>
-          <td class="num" data-v="12.93">R$ 12,93</td>
-          <td class="num" data-v="4"><span style="color:var(--ok); font-weight:600;">4</span></td>
+          <td class="num" data-v="15.53">R$ 15,53</td>
+          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
         </tr>
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
-          <td><div class="strong">Essence</div><div class="sub">Fundo de Funil | Formulário  | Essence | 30/04/26  #TP</div></td>
-          <td class="num" data-v="1099.02">R$ 1.099,02
-            <div class="bar-wrap"><div class="bar navy" style="width:79.5%"></div></div></td>
-          <td class="num" data-v="70"><span class="num-big">70</span>
-            <div class="bar-wrap"><div class="bar" style="width:61.4%"></div></div></td>
-          <td class="num" data-v="15.70">R$ 15,70</td>
-          <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
+          <td><div class="strong">Crivelli</div><div class="sub">Fundo de Funil | Formulário  | Crivelli | 21/11/25 #TP</div></td>
+          <td class="num" data-v="919.07">R$ 919,07
+            <div class="bar-wrap"><div class="bar navy" style="width:66.4%"></div></div></td>
+          <td class="num" data-v="71"><span class="num-big">71</span>
+            <div class="bar-wrap"><div class="bar" style="width:62.3%"></div></div></td>
+          <td class="num" data-v="12.94">R$ 12,94</td>
+          <td class="num" data-v="4"><span style="color:var(--ok); font-weight:600;">4</span></td>
         </tr>
         <tr data-status="PAUSED">
           <td data-v="1"><span class="pill muted">Pausada</span></td>
           <td><div class="strong">Essence</div><div class="sub">Fundo de Funil | Formulário  | Essence | 06/04 #TP</div></td>
           <td class="num" data-v="0.01">R$ 0,01
             <div class="bar-wrap"><div class="bar navy" style="width:0.0%"></div></div></td>
-          <td class="num" data-v="70"><span class="num-big">70</span>
-            <div class="bar-wrap"><div class="bar" style="width:61.4%"></div></div></td>
+          <td class="num" data-v="71"><span class="num-big">71</span>
+            <div class="bar-wrap"><div class="bar" style="width:62.3%"></div></div></td>
           <td class="num" data-v="0.00">R$ 0,00</td>
           <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
         </tr>
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Sunrise</div><div class="sub">Fundo de Funil | Formulário | Sunrise | 03.09/25 #TP</div></td>
-          <td class="num" data-v="988.43">R$ 988,43
-            <div class="bar-wrap"><div class="bar navy" style="width:71.5%"></div></div></td>
+          <td class="num" data-v="988.94">R$ 988,94
+            <div class="bar-wrap"><div class="bar navy" style="width:71.4%"></div></div></td>
           <td class="num" data-v="38"><span class="num-big">38</span>
             <div class="bar-wrap"><div class="bar" style="width:33.3%"></div></div></td>
-          <td class="num" data-v="26.01">R$ 26,01</td>
+          <td class="num" data-v="26.02">R$ 26,02</td>
           <td class="num" data-v="2"><span style="color:var(--ok); font-weight:600;">2</span></td>
         </tr>
         <tr data-status="PAUSED">
@@ -1798,11 +2133,11 @@
         <tr data-status="ACTIVE">
           <td data-v="1"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Cocoon Milagres</div><div class="sub">Fundo de Funil | Formulário | Milagres | 21/05 #TP</div></td>
-          <td class="num" data-v="235.75">R$ 235,75
-            <div class="bar-wrap"><div class="bar navy" style="width:17.1%"></div></div></td>
+          <td class="num" data-v="237.58">R$ 237,58
+            <div class="bar-wrap"><div class="bar navy" style="width:17.2%"></div></div></td>
           <td class="num" data-v="9"><span class="num-big">9</span>
             <div class="bar-wrap"><div class="bar" style="width:7.9%"></div></div></td>
-          <td class="num" data-v="26.19">R$ 26,19</td>
+          <td class="num" data-v="26.40">R$ 26,40</td>
           <td class="num" data-v="0"><span style="color:var(--text-mute); font-weight:600;">—</span></td>
         </tr>
         <tr data-status="PAUSED">
@@ -1849,7 +2184,7 @@
           <td data-v="0"><span class="pill ok">Ativa</span></td>
           <td><div class="strong">Topo de Funil | Tráfego |  23/06 #TP</div>
             <div class="sub"><span class="pill topo">Topo de funil</span> · 1.305 visitas · 6 compart. · 0 salvos</div></td>
-          <td class="num" data-v="294.44"><span class="num-big">R$ 294,44</span>
+          <td class="num" data-v="294.67"><span class="num-big">R$ 294,67</span>
             <div class="bar-wrap"><div class="bar navy" style="width:21.3%"></div></div></td>
           <td class="num zero" data-v="0">—</td><td class="num zero" data-v="0">—</td><td class="num zero" data-v="0">—</td>
         </tr>
@@ -1904,8 +2239,8 @@
 
     <section id="ritmo" class="reveal">
       <div class="section-head"><h2>Ritmo diário de leads</h2><div class="meta">Kommo · 30 dias</div></div>
-      <div class="daily-grid" style="grid-template-columns:repeat(30,1fr)"><div class="day-bar" style="height:14.8%" data-val="4"></div><div class="day-bar" style="height:33.3%" data-val="9"></div><div class="day-bar" style="height:59.3%" data-val="16"></div><div class="day-bar" style="height:44.4%" data-val="12"></div><div class="day-bar" style="height:100.0%" data-val="27"></div><div class="day-bar" style="height:55.6%" data-val="15"></div><div class="day-bar" style="height:3.7%" data-val="1"></div><div class="day-bar" style="height:81.5%" data-val="22"></div><div class="day-bar" style="height:51.9%" data-val="14"></div><div class="day-bar" style="height:33.3%" data-val="9"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:48.1%" data-val="13"></div><div class="day-bar" style="height:40.7%" data-val="11"></div><div class="day-bar" style="height:18.5%" data-val="5"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:51.9%" data-val="14"></div><div class="day-bar" style="height:37.0%" data-val="10"></div><div class="day-bar" style="height:70.4%" data-val="19"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:11.1%" data-val="3"></div><div class="day-bar" style="height:22.2%" data-val="6"></div><div class="day-bar" style="height:33.3%" data-val="9"></div><div class="day-bar" style="height:33.3%" data-val="9"></div><div class="day-bar" style="height:59.3%" data-val="16"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:88.9%" data-val="24"></div><div class="day-bar" style="height:51.9%" data-val="14"></div><div class="day-bar" style="height:25.9%" data-val="7"></div></div><div class="daily-x" style="grid-template-columns:repeat(30,1fr)"><span>29</span><span>30</span><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span><span>08</span><span>09</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span></div>
-      <div class="insight"><strong>Média:</strong> 11.2 leads/dia ao longo de 30 dias. Cada barra mostra os leads daquele dia.</div>
+      <div class="daily-grid" style="grid-template-columns:repeat(30,1fr)"><div class="day-bar" style="height:14.8%" data-val="4"></div><div class="day-bar" style="height:33.3%" data-val="9"></div><div class="day-bar" style="height:59.3%" data-val="16"></div><div class="day-bar" style="height:44.4%" data-val="12"></div><div class="day-bar" style="height:100.0%" data-val="27"></div><div class="day-bar" style="height:55.6%" data-val="15"></div><div class="day-bar" style="height:3.7%" data-val="1"></div><div class="day-bar" style="height:81.5%" data-val="22"></div><div class="day-bar" style="height:51.9%" data-val="14"></div><div class="day-bar" style="height:33.3%" data-val="9"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:48.1%" data-val="13"></div><div class="day-bar" style="height:40.7%" data-val="11"></div><div class="day-bar" style="height:18.5%" data-val="5"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:51.9%" data-val="14"></div><div class="day-bar" style="height:37.0%" data-val="10"></div><div class="day-bar" style="height:70.4%" data-val="19"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:11.1%" data-val="3"></div><div class="day-bar" style="height:22.2%" data-val="6"></div><div class="day-bar" style="height:33.3%" data-val="9"></div><div class="day-bar" style="height:33.3%" data-val="9"></div><div class="day-bar" style="height:59.3%" data-val="16"></div><div class="day-bar" style="height:29.6%" data-val="8"></div><div class="day-bar" style="height:88.9%" data-val="24"></div><div class="day-bar" style="height:51.9%" data-val="14"></div><div class="day-bar" style="height:29.6%" data-val="8"></div></div><div class="daily-x" style="grid-template-columns:repeat(30,1fr)"><span>29</span><span>30</span><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span><span>08</span><span>09</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span></div>
+      <div class="insight"><strong>Média:</strong> 11.3 leads/dia ao longo de 30 dias. Cada barra mostra os leads daquele dia.</div>
     </section>
   </div>
 </script>
@@ -2018,11 +2353,12 @@
   </section>
   <section id="corretores" class="reveal">
     <div class="section-head"><h2>Atividade por corretor</h2>
-      <div class="meta">Kommo · 14 corretores · clique nos títulos pra ordenar</div></div>
+      <div class="meta">Kommo · 14 corretores · clique numa linha p/ detalhe</div></div>
     <table class="sortable">
       <thead><tr>
         <th>Corretor</th>
         <th class="num">Em carteira</th>
+        <th class="num">Parados +7d</th>
         <th class="num">Follow-up</th>
         <th class="num">Em atend.</th>
         <th class="num">Reunião</th>
@@ -2031,9 +2367,10 @@
         <th class="num">Total</th>
       </tr></thead>
       <tbody>
-        <tr class="top">
-          <td><div class="strong">Arthur Arcanjo<span class="star">★</span></div></td>
+        <tr class="corr-row top">
+          <td><div class="strong"><span class="corr-caret">▸</span>Arthur Arcanjo<span class="star">★</span></div></td>
           <td class="num" data-v="5"><span class="num-big">5</span></td>
+          <td class="num" data-v="5"><span class="num-big" style="color:var(--danger);">5</span></td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="1">1</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -2041,9 +2378,16 @@
           <td class="num" data-v="33.3"><span class="num-big" style="color:var(--ok);">33%</span></td>
           <td class="num" data-v="12"><span class="strong">12</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Roberto Maia</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Arthur Arcanjo</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>0</b><span>Follow-up</span></div><div class="cstat"><b>1</b><span>Em atendimento</span></div><div class="cstat"><b>4</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>5</b><span>Parados +7d · 100% da carteira</span></div><div class="cstat"><b>7</b><span>Perdidos</span></div><div class="cstat"><b>0</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Roberto Maia</div></td>
           <td class="num" data-v="4"><span class="num-big">4</span></td>
+          <td class="num" data-v="3"><span class="num-big" style="color:var(--danger);">3</span></td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -2051,9 +2395,16 @@
           <td class="num" data-v="20.0"><span class="num-big" style="color:var(--ok);">20%</span></td>
           <td class="num" data-v="5"><span class="strong">5</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Tayse Barbosa</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Roberto Maia</strong></div>
+            <div class="cstats"><div class="cstat"><b>2</b><span>Entrada</span></div><div class="cstat"><b>0</b><span>Follow-up</span></div><div class="cstat"><b>0</b><span>Em atendimento</span></div><div class="cstat"><b>1</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>3</b><span>Parados +7d · 75% da carteira</span></div><div class="cstat"><b>1</b><span>Perdidos</span></div><div class="cstat"><b>1</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Tayse Barbosa</div></td>
           <td class="num" data-v="14"><span class="num-big">14</span></td>
+          <td class="num" data-v="8"><span class="num-big" style="color:var(--danger);">8</span></td>
           <td class="num" data-v="3">3</td>
           <td class="num" data-v="3">3</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -2061,9 +2412,16 @@
           <td class="num" data-v="14.3"><span class="num-big" style="color:var(--ok);">14%</span></td>
           <td class="num" data-v="14"><span class="strong">14</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Marcos Lima</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Tayse Barbosa</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>3</b><span>Follow-up</span></div><div class="cstat"><b>3</b><span>Em atendimento</span></div><div class="cstat"><b>2</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>8</b><span>Parados +7d · 57% da carteira</span></div><div class="cstat"><b>0</b><span>Perdidos</span></div><div class="cstat"><b>6</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Marcos Lima</div></td>
           <td class="num" data-v="27"><span class="num-big">27</span></td>
+          <td class="num" data-v="20"><span class="num-big" style="color:var(--danger);">20</span></td>
           <td class="num" data-v="4">4</td>
           <td class="num" data-v="14">14</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -2071,9 +2429,16 @@
           <td class="num" data-v="7.1"><span class="num-big" style="color:var(--ok);">7%</span></td>
           <td class="num" data-v="28"><span class="strong">28</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Carlos Pereira</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Marcos Lima</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>4</b><span>Follow-up</span></div><div class="cstat"><b>14</b><span>Em atendimento</span></div><div class="cstat"><b>2</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>20</b><span>Parados +7d · 74% da carteira</span></div><div class="cstat"><b>1</b><span>Perdidos</span></div><div class="cstat"><b>7</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Carlos Pereira</div></td>
           <td class="num" data-v="10"><span class="num-big">10</span></td>
+          <td class="num" data-v="6"><span class="num-big" style="color:var(--danger);">6</span></td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="5">5</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -2081,9 +2446,16 @@
           <td class="num" data-v="7.1"><span class="num-big" style="color:var(--ok);">7%</span></td>
           <td class="num" data-v="14"><span class="strong">14</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Silvio</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Carlos Pereira</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>0</b><span>Follow-up</span></div><div class="cstat"><b>5</b><span>Em atendimento</span></div><div class="cstat"><b>1</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>6</b><span>Parados +7d · 60% da carteira</span></div><div class="cstat"><b>4</b><span>Perdidos</span></div><div class="cstat"><b>4</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Silvio</div></td>
           <td class="num" data-v="14"><span class="num-big">14</span></td>
+          <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -2091,9 +2463,16 @@
           <td class="num" data-v="5.6"><span class="num-big" style="color:var(--ok);">6%</span></td>
           <td class="num" data-v="18"><span class="strong">18</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Emanuel Antônio</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Silvio</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>0</b><span>Follow-up</span></div><div class="cstat"><b>0</b><span>Em atendimento</span></div><div class="cstat"><b>0</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat"><b>1</b><span>Venda</span></div><div class="cstat warn"><b>0</b><span>Parados +7d</span></div><div class="cstat"><b>3</b><span>Perdidos</span></div><div class="cstat"><b>14</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Emanuel Antônio</div></td>
           <td class="num" data-v="11"><span class="num-big">11</span></td>
+          <td class="num" data-v="6"><span class="num-big" style="color:var(--danger);">6</span></td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="6">6</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -2101,9 +2480,16 @@
           <td class="num" data-v="4.5"><span class="num-big" style="color:var(--ok);">5%</span></td>
           <td class="num" data-v="22"><span class="strong">22</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Simone Venancio</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Emanuel Antônio</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>0</b><span>Follow-up</span></div><div class="cstat"><b>6</b><span>Em atendimento</span></div><div class="cstat"><b>0</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat"><b>1</b><span>Venda</span></div><div class="cstat warn"><b>6</b><span>Parados +7d · 55% da carteira</span></div><div class="cstat"><b>10</b><span>Perdidos</span></div><div class="cstat"><b>5</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Simone Venancio</div></td>
           <td class="num" data-v="8"><span class="num-big">8</span></td>
+          <td class="num" data-v="5"><span class="num-big" style="color:var(--danger);">5</span></td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="4">4</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -2111,9 +2497,16 @@
           <td class="num" data-v="4.5"><span class="num-big" style="color:var(--ok);">5%</span></td>
           <td class="num" data-v="22"><span class="strong">22</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Trilha</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Simone Venancio</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>0</b><span>Follow-up</span></div><div class="cstat"><b>4</b><span>Em atendimento</span></div><div class="cstat"><b>0</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>1</b><span>Proposta</span></div><div class="cstat warn"><b>5</b><span>Parados +7d · 62% da carteira</span></div><div class="cstat"><b>14</b><span>Perdidos</span></div><div class="cstat"><b>3</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Trilha</div></td>
           <td class="num" data-v="592"><span class="num-big">592</span></td>
+          <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -2121,9 +2514,16 @@
           <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
           <td class="num" data-v="601"><span class="strong">601</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Sara Gomes</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Trilha</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>0</b><span>Follow-up</span></div><div class="cstat"><b>0</b><span>Em atendimento</span></div><div class="cstat"><b>0</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>0</b><span>Parados +7d</span></div><div class="cstat"><b>9</b><span>Perdidos</span></div><div class="cstat"><b>592</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Sara Gomes</div></td>
           <td class="num" data-v="10"><span class="num-big">10</span></td>
+          <td class="num" data-v="2"><span class="num-big" style="color:var(--warn);">2</span></td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="3">3</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -2131,9 +2531,16 @@
           <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
           <td class="num" data-v="18"><span class="strong">18</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Ruy</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Sara Gomes</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>0</b><span>Follow-up</span></div><div class="cstat"><b>3</b><span>Em atendimento</span></div><div class="cstat"><b>0</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>2</b><span>Parados +7d · 20% da carteira</span></div><div class="cstat"><b>8</b><span>Perdidos</span></div><div class="cstat"><b>7</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Ruy</div></td>
           <td class="num" data-v="2"><span class="num-big">2</span></td>
+          <td class="num" data-v="2"><span class="num-big" style="color:var(--danger);">2</span></td>
           <td class="num" data-v="2">2</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -2141,9 +2548,16 @@
           <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
           <td class="num" data-v="2"><span class="strong">2</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Fernando Akila</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Ruy</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>2</b><span>Follow-up</span></div><div class="cstat"><b>0</b><span>Em atendimento</span></div><div class="cstat"><b>0</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>2</b><span>Parados +7d · 100% da carteira</span></div><div class="cstat"><b>0</b><span>Perdidos</span></div><div class="cstat"><b>0</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Fernando Akila</div></td>
           <td class="num" data-v="1"><span class="num-big">1</span></td>
+          <td class="num" data-v="1"><span class="num-big" style="color:var(--danger);">1</span></td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="1">1</td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -2151,9 +2565,16 @@
           <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
           <td class="num" data-v="20"><span class="strong">20</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">(sem responsável)</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Fernando Akila</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>0</b><span>Follow-up</span></div><div class="cstat"><b>1</b><span>Em atendimento</span></div><div class="cstat"><b>0</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>1</b><span>Parados +7d · 100% da carteira</span></div><div class="cstat"><b>19</b><span>Perdidos</span></div><div class="cstat"><b>0</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>(sem responsável)</div></td>
           <td class="num" data-v="0"><span class="num-big">0</span></td>
+          <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -2161,9 +2582,16 @@
           <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
           <td class="num" data-v="16"><span class="strong">16</span></td>
         </tr>
-        <tr>
-          <td><div class="strong">Maia Imóveis</div></td>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>(sem responsável)</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>0</b><span>Follow-up</span></div><div class="cstat"><b>0</b><span>Em atendimento</span></div><div class="cstat"><b>0</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>0</b><span>Parados +7d</span></div><div class="cstat"><b>16</b><span>Perdidos</span></div><div class="cstat"><b>0</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
+        <tr class="corr-row">
+          <td><div class="strong"><span class="corr-caret">▸</span>Maia Imóveis</div></td>
           <td class="num" data-v="0"><span class="num-big">0</span></td>
+          <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
           <td class="num" data-v="0"><span class="zero">—</span></td>
@@ -2171,10 +2599,17 @@
           <td class="num" data-v="0.0"><span class="num-big" style="color:var(--text-soft);">0%</span></td>
           <td class="num" data-v="1"><span class="strong">1</span></td>
         </tr>
+        <tr class="corr-detail" hidden><td colspan="9">
+          <div class="corr-panel">
+            <div class="corr-panel-h">Funil de <strong>Maia Imóveis</strong></div>
+            <div class="cstats"><div class="cstat"><b>0</b><span>Entrada</span></div><div class="cstat"><b>0</b><span>Follow-up</span></div><div class="cstat"><b>0</b><span>Em atendimento</span></div><div class="cstat"><b>0</b><span>Qualificado</span></div><div class="cstat"><b>0</b><span>Reunião</span></div><div class="cstat"><b>0</b><span>Proposta</span></div><div class="cstat warn"><b>0</b><span>Parados +7d</span></div><div class="cstat"><b>1</b><span>Perdidos</span></div><div class="cstat"><b>0</b><span>Nutrição / interesse</span></div></div>
+          </div>
+        </td></tr>
       </tbody>
       <tfoot><tr>
         <td>Total comercial (14 corretores)</td>
         <td class="num">698</td>
+        <td class="num">58</td>
         <td class="num">9</td>
         <td class="num">37</td>
         <td class="num">0</td>
@@ -2183,7 +2618,7 @@
         <td class="num">793</td>
       </tr></tfoot>
     </table>
-    <div class="insight"><strong>Conversão</strong> = leads que chegaram a <em>Qualificado ou além</em> (reunião, proposta, venda) ÷ leads recebidos. O <span class="star">★</span> marca a melhor conversão do período. "Em carteira" são os leads vivos sob responsabilidade do corretor — bom indicador de carga de trabalho ativa.</div>
+    <div class="insight"><strong>Parados +7d</strong> = leads no funil de trabalho (entrada → proposta) sem nenhuma movimentação há mais de 7 dias — risco de esfriar. <strong>Clique numa linha</strong> pra abrir o funil completo do corretor. <strong>Conversão</strong> = chegaram a qualificado ou além ÷ recebidos; <span class="star">★</span> marca a melhor do período.</div>
   </section>
   <section id="campanhas" class="reveal">
     <div class="section-head"><h2>Desempenho por campanha</h2>
@@ -2429,19 +2864,38 @@
       Array.prototype.forEach.call(ths, function(th, idx) {
         th.addEventListener('click', function() {
           var tbody = table.tBodies[0];
-          var rows = Array.prototype.slice.call(tbody.rows);
+          var all = Array.prototype.slice.call(tbody.rows);
+          // agrupa cada linha principal com sua linha-detalhe (se houver)
+          var units = [];
+          for (var i = 0; i < all.length; i++) {
+            if (all[i].classList.contains('corr-detail')) continue;
+            var u = { main: all[i], extra: [] };
+            while (i + 1 < all.length && all[i + 1].classList.contains('corr-detail')) { u.extra.push(all[i + 1]); i++; }
+            units.push(u);
+          }
           var asc = th.getAttribute('data-dir') !== 'asc';
           Array.prototype.forEach.call(ths, function(o) { o.removeAttribute('data-dir'); o.classList.remove('sorted-asc','sorted-desc'); });
           th.setAttribute('data-dir', asc ? 'asc' : 'desc');
           th.classList.add(asc ? 'sorted-asc' : 'sorted-desc');
-          rows.sort(function(a, b) {
-            var av = val(a.cells[idx]), bv = val(b.cells[idx]);
+          units.sort(function(a, b) {
+            var av = val(a.main.cells[idx]), bv = val(b.main.cells[idx]);
             if (av < bv) return asc ? -1 : 1;
             if (av > bv) return asc ? 1 : -1;
             return 0;
           });
-          rows.forEach(function(r) { tbody.appendChild(r); });
+          units.forEach(function(u) { tbody.appendChild(u.main); u.extra.forEach(function(e) { tbody.appendChild(e); }); });
         });
+      });
+    });
+  }
+
+  function initCorrExpand(root) {
+    root.querySelectorAll('tr.corr-row').forEach(function(row) {
+      row.addEventListener('click', function() {
+        var det = row.nextElementSibling;
+        if (!det || !det.classList.contains('corr-detail')) return;
+        if (det.hasAttribute('hidden')) { det.removeAttribute('hidden'); row.classList.add('open'); }
+        else { det.setAttribute('hidden', ''); row.classList.remove('open'); }
       });
     });
   }
@@ -2505,6 +2959,7 @@
   function initContent(root, animate) {
     initSortable(root);
     initCampFilter(root);
+    initCorrExpand(root);
     refreshSections();
     if (animate) observeReveals(root); else revealAll(root);
     onScroll();
