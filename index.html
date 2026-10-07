@@ -519,7 +519,7 @@
     return '<div class="fz">' + steps.map(function(s, i) {
       var prev = i ? steps[i - 1][1] : 0, ok = i && prev && s[1] <= prev;
       return '<div class="fz-row"><span class="fz-n">' + s[0] + '</span><div class="fz-b"><div style="width:' + Math.max(6, s[1] / base * 100).toFixed(1) + '%">' + int(s[1]) + '</div></div>' +
-        '<div class="fz-p">' + (ok ? '<b>' + pct(s[1] / prev * 100, 1) + '</b><span>da etapa anterior</span>' : i ? '<b>—</b><span>mais negócios que leads</span>' : '<span>ponto de partida</span>') + '</div></div>';
+        '<div class="fz-p">' + (ok ? '<b>' + pct(s[1] / prev * 100, 1) + '</b><span>da etapa anterior</span>' : i ? '<b>—</b><span>' + (prev ? 'mais negócios que leads' : 'ninguém na etapa anterior') + '</span>' : '<span>ponto de partida</span>') + '</div></div>';
     }).join('') + '</div>' + (first ? '<div class="fz-end">De ponta a ponta: <b>' + pct(rate(f.at[5], first), 1) + '</b> dos negócios viraram venda · <b>' + pct(rate(fzReach(f, 2), first), 1) + '</b> chegaram a qualificado</div>' : '');
   }
   // de quem chegou em cada etapa: quantos avançaram, quantos continuam ali e quantos foram perdidos
