@@ -1,0 +1,29 @@
+{
+  "_sobre": "Ajustes da página Anúncios ativos (anuncios_ativos.py). Anúncio novo sem entrada aqui ganha nome automático a partir do nome do anúncio.",
+  "grupo_alcance": "Vídeos de alcance",
+  "ordem_grupos": ["Essence", "Surya", "Summit Praia", "Altimus", "Capela", "Cocoon · Milagres", "Tintoretto"],
+  "nome_grupo": {"Milagres": "Cocoon · Milagres"},
+  "rotulos": {
+    "VD01 - Capela": "Capela com Rodrigo Maia",
+    "VD01 - Summit Praia": "Summit Praia",
+    "BN01 - Surya": "Banner 1",
+    "BN02 - Surya": "Banner 2",
+    "BN03 - Surya": "Banner 3",
+    "VD03 -Brenda": "Altimus com Brenda",
+    "VD02 - Altimus": "Altimus",
+    "VD01 - Cocoon": "Cocoon",
+    "Rodrigo Investimento": "Rodrigo: investimento",
+    "VD07 - Essence Corretor": "Essence com corretor",
+    "VD06 - Essence crop": "Essence, versão curta",
+    "VD06 - Essence": "Essence, versão curta",
+    "VD08 - Essence": "Essence",
+    "VD04 - Rodrigo (fluxo de pagamento)": "Rodrigo: fluxo de pagamento",
+    "VD02 | Investir em Jatiúca": "Investir em Jatiúca",
+    "VD02": "Tintoretto",
+    "o que é o que é?": "O que é o que é?"
+  },
+  "drive_por_video": {
+    "ESSENCE MAIA IMOVEIS v1.mp4": "https://drive.google.com/file/d/1G3_n6V5uYnnTZPPI708wPakjwaBCkbo_/view?usp=drivesdk"
+  },
+  "drive_por_anuncio": {}
+}

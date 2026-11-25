@@ -1,0 +1,65 @@
+name: Página Anúncios ativos (corretores)
+
+# Refaz anuncios/ (https://beatriz-moraes082.github.io/maia-dash/anuncios/) a partir dos
+# anúncios com entrega ATIVA no Meta. Só publica quando a lista muda (anúncio ligado/desligado).
+# Fica neste repo público porque aqui o GitHub Actions roda de graça.
+on:
+  schedule:
+    # De hora em hora, das 07h às 22h BRT (10h–01h UTC)
+    - cron: '0 10-23 * * *'
+    - cron: '0 0,1 * * *'
+  workflow_dispatch:
+    inputs:
+      publicar:
+        description: 'Publicar (desmarque para só testar)'
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: anuncios-ativos
+  cancel-in-progress: false
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Pillow (reduz capas e banners)
+        run: pip install -q pillow
+
+      - name: Montar a página com os anúncios ativos
+        id: montar
+        env:
+          MAIA_META_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+          MAIA_AD_ACCOUNT: act_919375583445318
+        run: |
+          set +e
+          python3 _gerador/anuncios_ativos.py "$RUNNER_TEMP/novo" --compara anuncios
+          code=$?
+          set -e
+          if [ "$code" = "3" ]; then echo "mudou=nao" >> "$GITHUB_OUTPUT"; exit 0; fi
+          if [ "$code" != "0" ]; then exit "$code"; fi
+          echo "mudou=sim" >> "$GITHUB_OUTPUT"
+
+      - name: Publicar em anuncios/
+        if: steps.montar.outputs.mudou == 'sim' && (github.event_name == 'schedule' || inputs.publicar)
+        run: |
+          rm -rf anuncios
+          cp -r "$RUNNER_TEMP/novo" anuncios
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A anuncios
+          git commit -q -m "Anúncios ativos — $(TZ=America/Sao_Paulo date +'%d/%m %Hh%M')"
+          for i in 1 2 3; do
+            git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0
+            sleep 5
+          done
+          echo "::error::não consegui publicar a página de anúncios" && exit 1
