@@ -1,13 +1,12 @@
 name: Página Anúncios ativos (corretores)
 
 # Refaz anuncios/ (https://beatriz-moraes082.github.io/maia-dash/anuncios/) a partir dos
-# anúncios com entrega ATIVA no Meta. Só publica quando a lista muda (anúncio ligado/desligado).
+# anúncios com entrega ATIVA no Meta, 1x por semana. Só publica quando a lista muda.
 # Fica neste repo público porque aqui o GitHub Actions roda de graça.
 on:
   schedule:
-    # De hora em hora, das 07h às 22h BRT (10h–01h UTC)
-    - cron: '0 10-23 * * *'
-    - cron: '0 0,1 * * *'
+    # 1x por semana: segunda às 07h BRT (10h UTC). Fora disso, rodar à mão (Run workflow).
+    - cron: '0 10 * * 1'
   workflow_dispatch:
     inputs:
       publicar:
